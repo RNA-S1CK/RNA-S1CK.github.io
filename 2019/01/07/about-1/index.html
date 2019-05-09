@@ -1,119 +1,42 @@
+<%
+    var sidebarBehavior;
+    // Clear reading feature. Hide sidebar on article page if the feature is activated
+    if (is_post() && theme.sidebar_behavior < 3 &&
+        ((theme.clear_reading === true && page.clearReading !== false) ||
+        page.clearReading === true)) {
+        sidebarBehavior = theme.sidebar_behavior + 3;
+    }
+    else {
+        sidebarBehavior = theme.sidebar_behavior;
+    }
+%>
 <!DOCTYPE html>
-<html>
-<head><meta name="generator" content="Hexo 3.8.0">
-  <meta charset="utf-8">
-  
-  <title>about | RNA-Sick</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="i am a penguin">
-<meta property="og:type" content="article">
-<meta property="og:title" content="about">
-<meta property="og:url" content="https://rna-sick.github.io/2019/01/07/about-1/index.html">
-<meta property="og:site_name" content="RNA-Sick">
-<meta property="og:description" content="i am a penguin">
-<meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2019-01-07T13:28:44.867Z">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="about">
-<meta name="twitter:description" content="i am a penguin">
-  
-  <link rel="stylesheet" href="/css/index.css">
-</head>
-</html>
-<body style="
-
-
-  background-color: #eff0f6
-
-">
-  <div id="container">
-    <nav id="nav">
-  <header class="header">
-    <a href="/" class="title">Clover Tuan</a>
-  </header>
-  <div class="ctnWrap">
-    <div class="icons">
-      
-        
-          
-            <a href="https://dribbble.com/clovertuan" target="_blank" class="nav-icn iconfont icon-dribbble"></a>
-          
-        
-          
-            <a href="https://www.behance.net/clovertuan" target="_blank" class="nav-icn iconfont icon-behance"></a>
-          
-        
-          
-            <a href="http://clovertuan.lofter.com/" target="_blank" class="nav-icn iconfont icon-lofter"></a>
-          
-        
-          
-            <a href="https://www.instagram.com/clovertuan/" target="_blank" class="nav-icn iconfont icon-instagram"></a>
-          
-        
-          
-            <a href="https://github.com/cloverTuan" target="_blank" class="nav-icn iconfont icon-github"></a>
-          
-        
-      
-    </div>
-    <div class="menu">
-      
-        
-            <a href="/" class="nav-menu ">HOME</a>
-          
-        
-            <a href="/archives" class="nav-menu ">ARCHIVE</a>
-          
-        
-            <a href="/about" class="nav-menu ">ABOUT</a>
-          
-        
-      
-    </div>
-  </div>
-</nav>
-    <div id="main"><section class="article">
-  <h2 class="title">about</h2>
-  <p class="sub">Jan 7, 2019</p>
-  <article class="content">
-    <p>i am a penguin</p>
-
-  </article>
-  <footer class="f-cf">
-    
-    
-      <a href="/2018/12/21/TFDB/" class="link f-fr">使用 PlantTFDB 預測胺基酸序列是否為轉錄因子⟶</a>
-    
-  </footer>
-</section></div>
-    <footer id="footer" class="f-cf">
-  d.guangying@foxmail.com
-  
-    
-      
-        · <a href="https://dribbble.com/clovertuan" target="_blank" class="nav-icn">Dribbble</a>
-      
-    
-      
-        · <a href="https://www.behance.net/clovertuan" target="_blank" class="nav-icn">Behance</a>
-      
-    
-      
-        · <a href="http://clovertuan.lofter.com/" target="_blank" class="nav-icn">Lofter</a>
-      
-    
-      
-        · <a href="https://www.instagram.com/clovertuan/" target="_blank" class="nav-icn">Instagram</a>
-      
-    
-      
-        · <a href="https://github.com/cloverTuan" target="_blank" class="nav-icn">GitHub</a>
-      
-    
-  
-  <span class="copyright">All rights reserved @Clover Tuan</span>
-</footer>
-  </div>
-</body>
+<html lang="<%= config.language %>">
+    <%- partial('_partial/head') %>
+    <body>
+        <div id="blog">
+            <%- partial('_partial/header', {sidebarBehavior: sidebarBehavior}) %>
+            <%- partial('_partial/sidebar', {sidebarBehavior: sidebarBehavior}) %>
+            <%- partial('_partial/post/header-cover', {post: page, sidebarBehavior: sidebarBehavior}) %>
+            <div id="main" data-behavior="<%= sidebarBehavior %>"
+                 class="<%= (page.coverImage ? 'hasCover' : '') %>
+                        <%= (page.coverMeta === 'out' ? 'hasCoverMetaOut' : 'hasCoverMetaIn') %>
+                        <%= (page.coverCaption ? 'hasCoverCaption' : '') %>">
+                <%- body %>
+                <%- partial('_partial/footer', null, {cache: !config.relative_link}) %>
+            </div>
+            <% if (is_post() && (page.actions === undefined || page.actions)) { %>
+                <div id="bottom-bar" class="post-bottom-bar" data-behavior="<%= sidebarBehavior %>">
+                    <%- partial('_partial/post/actions', {post: page}) %>
+                </div>
+                <%- partial('_partial/post/share-options', {post: page, sidebarBehavior: sidebarBehavior}) %>
+            <% } %>
+        </div>
+        <%- partial('_partial/about', null, {cache: !config.relative_link}) %>
+        <% if (config.algolia) { %>
+            <%- partial('_partial/search', null, {cache: true}) %>
+        <% } %>
+        <%- partial('_partial/cover', null, {cache: !config.relative_link}) %>
+        <%- partial('_partial/script', {post: page}) %>
+    </body>
 </html>

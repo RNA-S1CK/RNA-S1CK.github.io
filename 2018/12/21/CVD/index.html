@@ -1,95 +1,251 @@
+
 <!DOCTYPE html>
-<html>
-<head><meta name="generator" content="Hexo 3.8.0">
-  <meta charset="utf-8">
-  
-  <title>客製化 seaborn 色盤 (以 CVD 為例) | RNA-Sick</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="今年夏天看到這篇文章，強調科學繪圖過程中色調的選用若不夠謹慎，很有可能會造成誤導的結果，甚至影響有色覺辨認障礙 (Color vision deficiency, CVD) 的人知的權益，因此他們開發了一個python 套件 cmaputil 用以產生 CVD 最佳化的色盤。  愛拖延如我，一直到這週氣溫降到二十度以下了才下載了套件想要試用看看，這才發現他的運作方式好複雜。似乎因為他原本的應用場景">
+<html lang="en">
+    
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="generator" content="RNA-Sick">
+    <title>客製化 seaborn 色盤 (以 CVD 為例) - RNA-Sick</title>
+    <meta name="author" content="Chen Hsieh">
+    
+        <meta name="keywords" content="horticulture,台大園藝,bioinformatic,生物資訊,Chen Hsieh,">
+    
+    
+        <link rel="icon" href="https://rna-s1ck.github.io/assets/images/favicon.png">
+    
+    
+        <link rel="alternate" type="application/atom+xml" title="RSS" href="/atom.xml">
+    
+    <script type="application/ld+json">{"@context":"http://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Chen Hsieh","sameAs":["https://github.com/","http://stackoverflow.com/users","https://twitter.com/","mailto"]},"articleBody":"今年夏天看到這篇文章，強調科學繪圖過程中色調的選用若不夠謹慎，很有可能會造成誤導的結果，甚至影響有色覺辨認障礙 (Color vision deficiency, CVD) 的人知的權益，因此他們開發了一個python 套件 cmaputil 用以產生 CVD 最佳化的色盤。\n\n愛拖延如我，一直到這週氣溫降到二十度以下了才下載了套件想要試用看看，這才發現他的運作方式好複雜。似乎因為他原本的應用場景主要是替資料上色，所以有一套模擬 CVD 與顏色轉換的過程，過程基本上完全看不懂。\n\n雖然如此，單純用個套件應該不會很難吧，沒想到剛裝完還是不能用，因為原本是寫給 python 2.7 用的，有兩個地方要自己去修改成 python 3 的 print 語法。而且他的文件跟一般的套件比起來比較簡陋，網路上討論也不多，所以老實說完全不知道怎麼用，我只是想要畫個簡單的熱圖而已啊ＱＱ～\n\n在他們的 github 上翻著翻著找到了附上的色調值，便有了下列的簡單解法：\n\n先下載色調值並另存成 CVD.txt\n\n讀取檔案載入成 matplotlib 的 cmap\n1234with open('CVD.txt') as f:    colors = f.readlines()colors = [j[:-1] for j in colors]cmap = matplotlib.colors.ListedColormap(colors)\n\n繪圖時把自己客製化的 cmap 傳入就好囉\n1sns.clustermap(dataFrame, cmap=cmap)\n\n\n以上就是三步驟輕鬆畫幅 CVD 友善的圖～\n\n雖然顏色看起來有點黯淡，但是想到背後的意義就覺得有股『啊～我又堅持了個沒什麼人會在意的細節了呢真是讚讚』的感覺～嘻嘻\n","dateCreated":"2018-12-21T00:21:51+08:00","dateModified":"2019-01-08T13:33:03+08:00","datePublished":"2018-12-21T00:21:51+08:00","description":"","headline":"客製化 seaborn 色盤 (以 CVD 為例)","image":[],"mainEntityOfPage":{"@type":"WebPage","@id":"https://rna-s1ck.github.io/2018/12/21/CVD/"},"publisher":{"@type":"Organization","name":"Chen Hsieh","sameAs":["https://github.com/","http://stackoverflow.com/users","https://twitter.com/","mailto"]},"url":"https://rna-s1ck.github.io/2018/12/21/CVD/","keywords":"python, 繪圖, seaborn, palette"}</script>
+    <meta name="description" content="今年夏天看到這篇文章，強調科學繪圖過程中色調的選用若不夠謹慎，很有可能會造成誤導的結果，甚至影響有色覺辨認障礙 (Color vision deficiency, CVD) 的人知的權益，因此他們開發了一個python 套件 cmaputil 用以產生 CVD 最佳化的色盤。  愛拖延如我，一直到這週氣溫降到二十度以下了才下載了套件想要試用看看，這才發現他的運作方式好複雜。似乎因為他原本的應用場景">
 <meta name="keywords" content="python,繪圖,seaborn,palette">
-<meta property="og:type" content="article">
+<meta property="og:type" content="blog">
 <meta property="og:title" content="客製化 seaborn 色盤 (以 CVD 為例)">
-<meta property="og:url" content="https://rna-sick.github.io/2018/12/21/CVD/index.html">
+<meta property="og:url" content="https://rna-s1ck.github.io/2018/12/21/CVD/index.html">
 <meta property="og:site_name" content="RNA-Sick">
 <meta property="og:description" content="今年夏天看到這篇文章，強調科學繪圖過程中色調的選用若不夠謹慎，很有可能會造成誤導的結果，甚至影響有色覺辨認障礙 (Color vision deficiency, CVD) 的人知的權益，因此他們開發了一個python 套件 cmaputil 用以產生 CVD 最佳化的色盤。  愛拖延如我，一直到這週氣溫降到二十度以下了才下載了套件想要試用看看，這才發現他的運作方式好複雜。似乎因為他原本的應用場景">
 <meta property="og:locale" content="en">
-<meta property="og:image" content="https://rna-sick.github.io/2018/12/21/CVD/1.png">
-<meta property="og:image" content="https://rna-sick.github.io/2018/12/21/CVD/2.png">
-<meta property="og:image" content="https://rna-sick.github.io/2018/12/21/CVD/3.png">
-<meta property="og:image" content="https://rna-sick.github.io/2018/12/21/CVD/eg.png">
-<meta property="og:updated_time" content="2019-01-03T10:20:29.665Z">
+<meta property="og:image" content="https://rna-s1ck.github.io/2018/12/21/CVD/1.png">
+<meta property="og:image" content="https://rna-s1ck.github.io/2018/12/21/CVD/2.png">
+<meta property="og:image" content="https://rna-s1ck.github.io/2018/12/21/CVD/3.png">
+<meta property="og:image" content="https://rna-s1ck.github.io/2018/12/21/CVD/eg.png">
+<meta property="og:updated_time" content="2019-01-08T05:33:03.236Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="客製化 seaborn 色盤 (以 CVD 為例)">
 <meta name="twitter:description" content="今年夏天看到這篇文章，強調科學繪圖過程中色調的選用若不夠謹慎，很有可能會造成誤導的結果，甚至影響有色覺辨認障礙 (Color vision deficiency, CVD) 的人知的權益，因此他們開發了一個python 套件 cmaputil 用以產生 CVD 最佳化的色盤。  愛拖延如我，一直到這週氣溫降到二十度以下了才下載了套件想要試用看看，這才發現他的運作方式好複雜。似乎因為他原本的應用場景">
-<meta name="twitter:image" content="https://rna-sick.github.io/2018/12/21/CVD/1.png">
-  
-  <link rel="stylesheet" href="/css/index.css">
+<meta name="twitter:image" content="https://rna-s1ck.github.io/2018/12/21/CVD/1.png">
+    
+    
+        
+    
+    
+        <meta property="og:image" content="https://www.gravatar.com/avatar/0cfd0a510d29343e15c5701627444bb8?s=640"/>
+    
+    
+    
+    
+    <!--STYLES-->
+    <link rel="stylesheet" href="/assets/css/style-c4ozcsklz4kht2pebhp44xorvyverh23toayhn7i6ubrpyedak24hv1v0hyd.min.css">
+    <!--STYLES END-->
+    
+
+    
 </head>
-</html>
-<body style="
+
+    <body>
+        <div id="blog">
+            <!-- Define author's picture -->
 
 
-  background-color: #eff0f6
-
-">
-  <div id="container">
-    <nav id="nav">
-  <header class="header">
-    <a href="/" class="title">Clover Tuan</a>
-  </header>
-  <div class="ctnWrap">
-    <div class="icons">
-      
-        
-          
-            <a href="https://dribbble.com/clovertuan" target="_blank" class="nav-icn iconfont icon-dribbble"></a>
-          
-        
-          
-            <a href="https://www.behance.net/clovertuan" target="_blank" class="nav-icn iconfont icon-behance"></a>
-          
-        
-          
-            <a href="http://clovertuan.lofter.com/" target="_blank" class="nav-icn iconfont icon-lofter"></a>
-          
-        
-          
-            <a href="https://www.instagram.com/clovertuan/" target="_blank" class="nav-icn iconfont icon-instagram"></a>
-          
-        
-          
-            <a href="https://github.com/cloverTuan" target="_blank" class="nav-icn iconfont icon-github"></a>
-          
-        
-      
+<header id="header" data-behavior="4">
+    <i id="btn-open-sidebar" class="fa fa-lg fa-bars"></i>
+    <div class="header-title">
+        <a class="header-title-link" href="/ ">RNA-Sick</a>
     </div>
-    <div class="menu">
-      
+    
         
-            <a href="/" class="nav-menu ">HOME</a>
-          
+            <a class="header-right-icon open-algolia-search" href="#search">
         
-            <a href="/archives" class="nav-menu ">ARCHIVE</a>
-          
         
-            <a href="/about" class="nav-menu ">ABOUT</a>
-          
+            <i class="fa fa-search fa-lg"></i>
         
-      
+        </a>
+    
+</header>
+
+            <!-- Define author's picture -->
+
+
+    
+
+<nav id="sidebar" data-behavior="4">
+    <div class="sidebar-container">
+        
+            <div class="sidebar-profile">
+                <a href="/#about">
+                    <img class="sidebar-profile-picture" src="https://www.gravatar.com/avatar/0cfd0a510d29343e15c5701627444bb8?s=110" alt="Author&#39;s picture">
+                </a>
+                <h4 class="sidebar-profile-name">Chen Hsieh</h4>
+                
+                    <h5 class="sidebar-profile-bio"><p>author.bio</p>
+</h5>
+                
+            </div>
+        
+        
+            <ul class="sidebar-buttons">
+            
+                <li class="sidebar-button">
+                    
+                        <a class="sidebar-button-link " href="/ " title="RNA-SICK">
+                    
+                        <i class="sidebar-button-icon fa fa-home" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">RNA-SICK</span>
+                    </a>
+            </li>
+            
+                <li class="sidebar-button">
+                    
+                        <a class="sidebar-button-link " href="/all-categories" title="Categories">
+                    
+                        <i class="sidebar-button-icon fa fa-bookmark" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">Categories</span>
+                    </a>
+            </li>
+            
+                <li class="sidebar-button">
+                    
+                        <a class="sidebar-button-link " href="/all-tags" title="Tags">
+                    
+                        <i class="sidebar-button-icon fa fa-tags" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">Tags</span>
+                    </a>
+            </li>
+            
+                <li class="sidebar-button">
+                    
+                        <a class="sidebar-button-link " href="/all-archives" title="Archives">
+                    
+                        <i class="sidebar-button-icon fa fa-archive" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">Archives</span>
+                    </a>
+            </li>
+            
+                <li class="sidebar-button">
+                    
+                        <a class="sidebar-button-link open-algolia-search" href="#search" title="Search">
+                    
+                        <i class="sidebar-button-icon fa fa-search" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">Search</span>
+                    </a>
+            </li>
+            
+                <li class="sidebar-button">
+                    
+                        <a class="sidebar-button-link " href="#about" title="About">
+                    
+                        <i class="sidebar-button-icon fa fa-question" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">About</span>
+                    </a>
+            </li>
+            
+        </ul>
+        
+            <ul class="sidebar-buttons">
+            
+                <li class="sidebar-button">
+                    
+                        <a class="sidebar-button-link " href="https://github.com/" target="_blank" rel="noopener" title="GitHub">
+                    
+                        <i class="sidebar-button-icon fab fa-github" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">GitHub</span>
+                    </a>
+            </li>
+            
+                <li class="sidebar-button">
+                    
+                        <a class="sidebar-button-link " href="http://stackoverflow.com/users" target="_blank" rel="noopener" title="Stack Overflow">
+                    
+                        <i class="sidebar-button-icon fab fa-stack-overflow" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">Stack Overflow</span>
+                    </a>
+            </li>
+            
+                <li class="sidebar-button">
+                    
+                        <a class="sidebar-button-link " href="https://twitter.com/" target="_blank" rel="noopener" title="Twitter">
+                    
+                        <i class="sidebar-button-icon fab fa-twitter" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">Twitter</span>
+                    </a>
+            </li>
+            
+                <li class="sidebar-button">
+                    
+                        <a class="sidebar-button-link " href="/mailto" title="Mail">
+                    
+                        <i class="sidebar-button-icon fa fa-envelope" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">Mail</span>
+                    </a>
+            </li>
+            
+        </ul>
+        
+            <ul class="sidebar-buttons">
+            
+                <li class="sidebar-button">
+                    
+                        <a class="sidebar-button-link " href="/atom.xml" title="RSS">
+                    
+                        <i class="sidebar-button-icon fa fa-rss" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">RSS</span>
+                    </a>
+            </li>
+            
+        </ul>
+        
     </div>
-  </div>
 </nav>
-    <div id="main"><section class="article">
-  <h2 class="title">客製化 seaborn 色盤 (以 CVD 為例)</h2>
-  <p class="sub">Dec 21, 2018</p>
-  <article class="content">
-    <p>今年夏天看到<a href="https://doi.org/10.1371/journal.pone.0199239" target="_blank" rel="noopener">這篇文章</a>，強調科學繪圖過程中色調的選用若不夠謹慎，很有可能會造成誤導的結果，甚至影響有色覺辨認障礙 (Color vision deficiency, CVD) 的人知的權益，因此他們開發了一個python 套件 cmaputil 用以產生 CVD 最佳化的色盤。</p>
+
+            
+            <div id="main" data-behavior="4"
+                 class="
+                        hasCoverMetaIn
+                        ">
+                
+<article class="post">
+    
+    
+        <div class="post-header main-content-wrap text-left">
+    
+        <h1 class="post-title">
+            客製化 seaborn 色盤 (以 CVD 為例)
+        </h1>
+    
+    
+        <div class="post-meta">
+    <time datetime="2018-12-21T00:21:51+08:00">
+	
+		    Dec 21, 2018
+    	
+    </time>
+    
+</div>
+
+    
+</div>
+
+    
+    <div class="post-content markdown">
+        <div class="main-content-wrap">
+            <p>今年夏天看到<a href="https://doi.org/10.1371/journal.pone.0199239" target="_blank" rel="noopener">這篇文章</a>，強調科學繪圖過程中色調的選用若不夠謹慎，很有可能會造成誤導的結果，甚至影響有色覺辨認障礙 (Color vision deficiency, CVD) 的人知的權益，因此他們開發了一個python 套件 cmaputil 用以產生 CVD 最佳化的色盤。</p>
 <p><img src="/2018/12/21/CVD/1.png" alt=""></p>
 <p>愛拖延如我，一直到這週氣溫降到二十度以下了才下載了套件想要試用看看，這才發現他的運作方式好複雜。似乎因為他原本的應用場景主要是替資料上色，所以有一套模擬 CVD 與顏色轉換的過程，過程基本上完全看不懂。</p>
 <p><img src="/2018/12/21/CVD/2.png" alt=""></p>
 <p>雖然如此，單純用個套件應該不會很難吧，沒想到剛裝完還是不能用，因為原本是寫給 python 2.7 用的，有兩個地方要自己去修改成 python 3 的 print 語法。而且他的文件跟一般的套件比起來比較簡陋，網路上討論也不多，所以老實說完全不知道怎麼用，我只是想要畫個簡單的熱圖而已啊ＱＱ～</p>
 <p><img src="/2018/12/21/CVD/3.png" alt=""></p>
-<p>在他們的 <a href="https://github.com/pnnl/cmaputil" target="_blank" rel="noopener">github</a> 上翻著翻著找到了他們附上的<a href="https://github.com/pnnl/cmaputil/blob/master/colormaps/cividisHexValues.txt" target="_blank" rel="noopener">色調值</a>，便有了下列的簡單解法：</p>
+<p>在他們的 <a href="https://github.com/pnnl/cmaputil" target="_blank" rel="noopener">github</a> 上翻著翻著找到了附上的<a href="https://github.com/pnnl/cmaputil/blob/master/colormaps/cividisHexValues.txt" target="_blank" rel="noopener">色調值</a>，便有了下列的簡單解法：</p>
 <ol>
 <li><p>先下載<a href="https://github.com/pnnl/cmaputil/blob/master/colormaps/cividisHexValues.txt" target="_blank" rel="noopener">色調值</a>並另存成 CVD.txt</p>
 </li>
@@ -104,41 +260,373 @@
 <p><img src="/2018/12/21/CVD/eg.png" alt=""></p>
 <p>雖然顏色看起來有點黯淡，但是想到背後的意義就覺得有股『啊～我又堅持了個沒什麼人會在意的細節了呢真是讚讚』的感覺～嘻嘻</p>
 
-  </article>
-  <footer class="f-cf">
-    
-      <a href="/2018/12/21/TFDB/" class="link f-fl">⟵使用 PlantTFDB 預測胺基酸序列是否為轉錄因子</a>
-    
-    
-  </footer>
-</section></div>
-    <footer id="footer" class="f-cf">
-  d.guangying@foxmail.com
-  
-    
-      
-        · <a href="https://dribbble.com/clovertuan" target="_blank" class="nav-icn">Dribbble</a>
-      
-    
-      
-        · <a href="https://www.behance.net/clovertuan" target="_blank" class="nav-icn">Behance</a>
-      
-    
-      
-        · <a href="http://clovertuan.lofter.com/" target="_blank" class="nav-icn">Lofter</a>
-      
-    
-      
-        · <a href="https://www.instagram.com/clovertuan/" target="_blank" class="nav-icn">Instagram</a>
-      
-    
-      
-        · <a href="https://github.com/cloverTuan" target="_blank" class="nav-icn">GitHub</a>
-      
-    
-  
-  <span class="copyright">All rights reserved @Clover Tuan</span>
+            
+
+        </div>
+    </div>
+    <div id="post-footer" class="post-footer main-content-wrap">
+        
+            <div class="post-footer-tags">
+                <span class="text-color-light text-small">TAGGED IN</span><br>
+                
+    <a class="tag tag--primary tag--small t-link" href="/tags/palette/">palette</a> <a class="tag tag--primary tag--small t-link" href="/tags/python/">python</a> <a class="tag tag--primary tag--small t-link" href="/tags/seaborn/">seaborn</a> <a class="tag tag--primary tag--small t-link" href="/tags/繪圖/">繪圖</a>
+
+            </div>
+        
+        
+            <div class="post-actions-wrap">
+    <nav>
+        <ul class="post-actions post-action-nav">
+            <li class="post-action">
+                
+                    
+                    <a class="post-action-btn btn btn--default tooltip--top" href="/2018/12/21/TFDB/" data-tooltip="使用 PlantTFDB 預測胺基酸序列是否為轉錄因子" aria-label="PREVIOUS: 使用 PlantTFDB 預測胺基酸序列是否為轉錄因子">
+                
+                    <i class="fa fa-angle-left" aria-hidden="true"></i>
+                    <span class="hide-xs hide-sm text-small icon-ml">PREVIOUS</span>
+                </a>
+            </li>
+            <li class="post-action">
+                
+                    <a class="post-action-btn btn btn--disabled">
+                
+                    <span class="hide-xs hide-sm text-small icon-mr">NEXT</span>
+                    <i class="fa fa-angle-right" aria-hidden="true"></i>
+                </a>
+            </li>
+        </ul>
+    </nav>
+    <ul class="post-actions post-action-share">
+        <li class="post-action hide-lg hide-md hide-sm">
+            <a class="post-action-btn btn btn--default btn-open-shareoptions" href="#btn-open-shareoptions" aria-label="Share this post">
+                <i class="fa fa-share-alt" aria-hidden="true"></i>
+            </a>
+        </li>
+        
+            
+            
+            <li class="post-action hide-xs">
+                <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://rna-s1ck.github.io/2018/12/21/CVD/" title="Share on Facebook">
+                    <i class="fab fa-facebook" aria-hidden="true"></i>
+                </a>
+            </li>
+        
+            
+            
+            <li class="post-action hide-xs">
+                <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://rna-s1ck.github.io/2018/12/21/CVD/" title="Share on Twitter">
+                    <i class="fab fa-twitter" aria-hidden="true"></i>
+                </a>
+            </li>
+        
+            
+            
+            <li class="post-action hide-xs">
+                <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=https://rna-s1ck.github.io/2018/12/21/CVD/" title="Share on Google+">
+                    <i class="fab fa-google-plus" aria-hidden="true"></i>
+                </a>
+            </li>
+        
+        
+            
+                <li class="post-action">
+                    <a class="post-action-btn btn btn--default" href="#disqus_thread">
+                        <i class="fa fa-comment"></i>
+                    </a>
+                </li>
+            
+        
+        <li class="post-action">
+            
+                <a class="post-action-btn btn btn--default" href="#" aria-label="Back to top">
+            
+                <i class="fa fa-list" aria-hidden="true"></i>
+            </a>
+        </li>
+    </ul>
+</div>
+
+
+        
+        
+            
+                <div id="disqus_thread">
+    <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+            
+        
+    </div>
+</article>
+
+
+
+                <footer id="footer" class="main-content-wrap">
+    <span class="copyrights">
+        Copyrights &copy; 2019 Chen Hsieh. All Rights Reserved.
+    </span>
 </footer>
-  </div>
-</body>
+
+            </div>
+            
+                <div id="bottom-bar" class="post-bottom-bar" data-behavior="4">
+                    <div class="post-actions-wrap">
+    <nav>
+        <ul class="post-actions post-action-nav">
+            <li class="post-action">
+                
+                    
+                    <a class="post-action-btn btn btn--default tooltip--top" href="/2018/12/21/TFDB/" data-tooltip="使用 PlantTFDB 預測胺基酸序列是否為轉錄因子" aria-label="PREVIOUS: 使用 PlantTFDB 預測胺基酸序列是否為轉錄因子">
+                
+                    <i class="fa fa-angle-left" aria-hidden="true"></i>
+                    <span class="hide-xs hide-sm text-small icon-ml">PREVIOUS</span>
+                </a>
+            </li>
+            <li class="post-action">
+                
+                    <a class="post-action-btn btn btn--disabled">
+                
+                    <span class="hide-xs hide-sm text-small icon-mr">NEXT</span>
+                    <i class="fa fa-angle-right" aria-hidden="true"></i>
+                </a>
+            </li>
+        </ul>
+    </nav>
+    <ul class="post-actions post-action-share">
+        <li class="post-action hide-lg hide-md hide-sm">
+            <a class="post-action-btn btn btn--default btn-open-shareoptions" href="#btn-open-shareoptions" aria-label="Share this post">
+                <i class="fa fa-share-alt" aria-hidden="true"></i>
+            </a>
+        </li>
+        
+            
+            
+            <li class="post-action hide-xs">
+                <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://rna-s1ck.github.io/2018/12/21/CVD/" title="Share on Facebook">
+                    <i class="fab fa-facebook" aria-hidden="true"></i>
+                </a>
+            </li>
+        
+            
+            
+            <li class="post-action hide-xs">
+                <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://rna-s1ck.github.io/2018/12/21/CVD/" title="Share on Twitter">
+                    <i class="fab fa-twitter" aria-hidden="true"></i>
+                </a>
+            </li>
+        
+            
+            
+            <li class="post-action hide-xs">
+                <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=https://rna-s1ck.github.io/2018/12/21/CVD/" title="Share on Google+">
+                    <i class="fab fa-google-plus" aria-hidden="true"></i>
+                </a>
+            </li>
+        
+        
+            
+                <li class="post-action">
+                    <a class="post-action-btn btn btn--default" href="#disqus_thread">
+                        <i class="fa fa-comment"></i>
+                    </a>
+                </li>
+            
+        
+        <li class="post-action">
+            
+                <a class="post-action-btn btn btn--default" href="#" aria-label="Back to top">
+            
+                <i class="fa fa-list" aria-hidden="true"></i>
+            </a>
+        </li>
+    </ul>
+</div>
+
+
+                </div>
+                
+    <div id="share-options-bar" class="share-options-bar" data-behavior="4">
+        <i id="btn-close-shareoptions" class="fa fa-times"></i>
+        <ul class="share-options">
+            
+                
+                
+                <li class="share-option">
+                    <a class="share-option-btn" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://rna-s1ck.github.io/2018/12/21/CVD/">
+                        <i class="fab fa-facebook" aria-hidden="true"></i><span>Share on Facebook</span>
+                    </a>
+                </li>
+            
+                
+                
+                <li class="share-option">
+                    <a class="share-option-btn" target="new" href="https://twitter.com/intent/tweet?text=https://rna-s1ck.github.io/2018/12/21/CVD/">
+                        <i class="fab fa-twitter" aria-hidden="true"></i><span>Share on Twitter</span>
+                    </a>
+                </li>
+            
+                
+                
+                <li class="share-option">
+                    <a class="share-option-btn" target="new" href="https://plus.google.com/share?url=https://rna-s1ck.github.io/2018/12/21/CVD/">
+                        <i class="fab fa-google-plus" aria-hidden="true"></i><span>Share on Google+</span>
+                    </a>
+                </li>
+            
+        </ul>
+    </div>
+
+
+            
+        </div>
+        
+
+
+    
+
+<div id="about">
+    <div id="about-card">
+        <div id="about-btn-close">
+            <i class="fa fa-times"></i>
+        </div>
+        
+            <img id="about-card-picture" src="https://www.gravatar.com/avatar/0cfd0a510d29343e15c5701627444bb8?s=110" alt="Author&#39;s picture">
+        
+            <h4 id="about-card-name">Chen Hsieh</h4>
+        
+            <div id="about-card-bio"><p>author.bio</p>
+</div>
+        
+        
+            <div id="about-card-job">
+                <i class="fa fa-briefcase"></i>
+                <br>
+                <p>author.job</p>
+
+            </div>
+        
+        
+    </div>
+</div>
+
+        
+            <div id="algolia-search-modal" class="modal-container">
+    <div class="modal">
+        <div class="modal-header">
+            <span class="close-button"><i class="fa fa-times"></i></span>
+            <a href="https://algolia.com" target="_blank" rel="noopener" class="searchby-algolia text-color-light link-unstyled">
+                <span class="searchby-algolia-text text-color-light text-small">by</span>
+                <img class="searchby-algolia-logo" src="https://www.algolia.com/static_assets/images/press/downloads/algolia-light.svg">
+            </a>
+            <i class="search-icon fa fa-search"></i>
+            <form id="algolia-search-form">
+                <input type="text" id="algolia-search-input" name="search" class="form-control input--large search-input" placeholder="Search ">
+            </form>
+        </div>
+        <div class="modal-body">
+            <div class="no-result text-color-light text-center">no post found</div>
+            <div class="results">
+                
+                <div class="media">
+                    
+                    <div class="media-body">
+                        <a class="link-unstyled" href="https://rna-s1ck.github.io/2018/12/21/CVD/">
+                            <h3 class="media-heading">客製化 seaborn 色盤 (以 CVD 為例)</h3>
+                        </a>
+                        <span class="media-meta">
+                            <span class="media-date text-small">
+                                
+                                    Dec 21, 2018
+                                
+                            </span>
+                        </span>
+                        <div class="media-content hide-xs font-merryweather"></div>
+                    </div>
+                    <div style="clear:both;"></div>
+                    <hr>
+                </div>
+                
+                <div class="media">
+                    
+                    <div class="media-body">
+                        <a class="link-unstyled" href="https://rna-s1ck.github.io/2018/12/21/TFDB/">
+                            <h3 class="media-heading">使用 PlantTFDB 預測胺基酸序列是否為轉錄因子</h3>
+                        </a>
+                        <span class="media-meta">
+                            <span class="media-date text-small">
+                                
+                                    Dec 21, 2018
+                                
+                            </span>
+                        </span>
+                        <div class="media-content hide-xs font-merryweather"></div>
+                    </div>
+                    <div style="clear:both;"></div>
+                    <hr>
+                </div>
+                
+                <div class="media">
+                    
+                    <div class="media-body">
+                        <a class="link-unstyled" href="https://rna-s1ck.github.io/2019/01/25/GO-Enrichment-Panther/">
+                            <h3 class="media-heading">GO_Enrichment_Panther</h3>
+                        </a>
+                        <span class="media-meta">
+                            <span class="media-date text-small">
+                                
+                                    Jan 25, 2019
+                                
+                            </span>
+                        </span>
+                        <div class="media-content hide-xs font-merryweather"></div>
+                    </div>
+                    <div style="clear:both;"></div>
+                    <hr>
+                </div>
+                
+            </div>
+        </div>
+        <div class="modal-footer">
+            <p class="results-count text-medium" data-message-zero="no post found" data-message-one="1 post found" data-message-other="{n} posts found">
+                3 posts found
+            </p>
+        </div>
+    </div>
+</div>
+
+        
+        
+<div id="cover" style="background-image:url('/assets/images/cover.jpg');"></div>
+        <!--SCRIPTS-->
+<script src="/assets/js/script-dbd16rvloemmuxdzniplmnxxvwoz24eya9wol0b7vvmlokgqsjivmb8dnscy.min.js"></script>
+<!--SCRIPTS END-->
+
+    
+        <script>
+             var disqus_config = function () {
+                 this.page.url = 'https://rna-s1ck.github.io/2018/12/21/CVD/';
+                 
+                    this.page.identifier = '2018/12/21/CVD/';
+                 
+             };
+            (function() {
+                var d = document, s = d.createElement('script');
+                var disqus_shortname = 'bendjamin101001';
+                s.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+
+                s.setAttribute('data-timestamp', +new Date());
+                (d.head || d.body).appendChild(s);
+            })();
+        </script>
+    
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.14.1/moment-with-locales.min.js"></script>
+    <script src="//cdn.jsdelivr.net/algoliasearch/3/algoliasearch.min.js"></script>
+    <script>
+        var algoliaClient = algoliasearch('QGN7RMCZMJ', 'ed68e4b318661d9c778cd11597520432');
+        var algoliaIndex = algoliaClient.initIndex('RNA-SICK');
+    </script>
+
+
+    </body>
 </html>
