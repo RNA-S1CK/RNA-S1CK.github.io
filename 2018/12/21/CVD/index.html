@@ -9,7 +9,7 @@
     <title>客製化 seaborn 色盤 (以 CVD 為例) - RNA-Sick</title>
     <meta name="author" content="Chen Hsieh">
     
-        <meta name="keywords" content="horticulture,台大園藝,bioinformatic,生物資訊,Chen Hsieh,">
+        <meta name="keywords" content="horticulture,台大園藝,bioinformatic,生物資訊,Chen Hsieh,horticulture,台大園藝,bioinformatic,生物資訊,Chen Hsieh">
     
     
         <link rel="icon" href="https://rna-s1ck.github.io/assets/images/favicon.png">
@@ -17,23 +17,23 @@
     
         <link rel="alternate" type="application/atom+xml" title="RSS" href="/atom.xml">
     
-    <script type="application/ld+json">{"@context":"http://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Chen Hsieh","sameAs":["https://github.com/","http://stackoverflow.com/users","https://twitter.com/","mailto"]},"articleBody":"今年夏天看到這篇文章，強調科學繪圖過程中色調的選用若不夠謹慎，很有可能會造成誤導的結果，甚至影響有色覺辨認障礙 (Color vision deficiency, CVD) 的人知的權益，因此他們開發了一個python 套件 cmaputil 用以產生 CVD 最佳化的色盤。\n\n愛拖延如我，一直到這週氣溫降到二十度以下了才下載了套件想要試用看看，這才發現他的運作方式好複雜。似乎因為他原本的應用場景主要是替資料上色，所以有一套模擬 CVD 與顏色轉換的過程，過程基本上完全看不懂。\n\n雖然如此，單純用個套件應該不會很難吧，沒想到剛裝完還是不能用，因為原本是寫給 python 2.7 用的，有兩個地方要自己去修改成 python 3 的 print 語法。而且他的文件跟一般的套件比起來比較簡陋，網路上討論也不多，所以老實說完全不知道怎麼用，我只是想要畫個簡單的熱圖而已啊ＱＱ～\n\n在他們的 github 上翻著翻著找到了附上的色調值，便有了下列的簡單解法：\n\n先下載色調值並另存成 CVD.txt\n\n讀取檔案載入成 matplotlib 的 cmap\n1234with open('CVD.txt') as f:    colors = f.readlines()colors = [j[:-1] for j in colors]cmap = matplotlib.colors.ListedColormap(colors)\n\n繪圖時把自己客製化的 cmap 傳入就好囉\n1sns.clustermap(dataFrame, cmap=cmap)\n\n\n以上就是三步驟輕鬆畫幅 CVD 友善的圖～\n\n雖然顏色看起來有點黯淡，但是想到背後的意義就覺得有股『啊～我又堅持了個沒什麼人會在意的細節了呢真是讚讚』的感覺～嘻嘻\n","dateCreated":"2018-12-21T00:21:51+08:00","dateModified":"2019-01-08T13:33:03+08:00","datePublished":"2018-12-21T00:21:51+08:00","description":"","headline":"客製化 seaborn 色盤 (以 CVD 為例)","image":[],"mainEntityOfPage":{"@type":"WebPage","@id":"https://rna-s1ck.github.io/2018/12/21/CVD/"},"publisher":{"@type":"Organization","name":"Chen Hsieh","sameAs":["https://github.com/","http://stackoverflow.com/users","https://twitter.com/","mailto"]},"url":"https://rna-s1ck.github.io/2018/12/21/CVD/","keywords":"python, 繪圖, seaborn, palette"}</script>
-    <meta name="description" content="今年夏天看到這篇文章，強調科學繪圖過程中色調的選用若不夠謹慎，很有可能會造成誤導的結果，甚至影響有色覺辨認障礙 (Color vision deficiency, CVD) 的人知的權益，因此他們開發了一個python 套件 cmaputil 用以產生 CVD 最佳化的色盤。  愛拖延如我，一直到這週氣溫降到二十度以下了才下載了套件想要試用看看，這才發現他的運作方式好複雜。似乎因為他原本的應用場景">
-<meta name="keywords" content="python,繪圖,seaborn,palette">
+    <script type="application/ld+json">{"@context":"http://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Chen Hsieh","sameAs":["https://drive.google.com/file/d/1xiDPR2J_w4IWM83P-xutthcnzteJUaxg/view?usp=sharing","mailto:bendjamin101001@gmail.com"],"image":"https://www.gravatar.com/avatar/0cfd0a510d29343e15c5701627444bb8"},"articleBody":"今年夏天看到這篇文章，強調科學繪圖過程中色調的選用若不夠謹慎，很有可能會造成誤導的結果，甚至影響有色覺辨認障礙 (Color vision deficiency, CVD) 的人知的權益，因此他們開發了一個python 套件 cmaputil 用以產生 CVD 最佳化的色盤。\n\n\n愛拖延如我，一直到這週氣溫降到二十度以下了才下載了套件想要試用看看，這才發現他的運作方式好複雜。似乎因為他原本的應用場景主要是替資料上色，所以有一套模擬 CVD 與顏色轉換的過程，過程基本上完全看不懂。\n\n雖然如此，單純用個套件應該不會很難吧，沒想到剛裝完還是不能用，因為原本是寫給 python 2.7 用的，有兩個地方要自己去修改成 python 3 的 print 語法。而且他的文件跟一般的套件比起來比較簡陋，網路上討論也不多，所以老實說完全不知道怎麼用，我只是想要畫個簡單的熱圖而已啊ＱＱ～\n\n在他們的 github 上翻著翻著找到了附上的色調值，便有了下列的簡單解法：\n\n先下載色調值並另存成 CVD.txt\n\n讀取檔案載入成 matplotlib 的 cmap\n1234with open('CVD.txt') as f:    colors = f.readlines()colors = [j[:-1] for j in colors]cmap = matplotlib.colors.ListedColormap(colors)\n\n繪圖時把自己客製化的 cmap 傳入就好囉\n1sns.clustermap(dataFrame, cmap=cmap)\n\n\n以上就是使用 python 三步驟輕鬆畫幅 CVD 友善的圖～\n\n雖然顏色看起來有點黯淡，但是想到背後的意義就覺得有股『啊～我又堅持了個沒什麼人會在意的細節了呢真是讚讚』的感覺～嘻嘻\n","dateCreated":"2018-12-21T00:21:51+08:00","dateModified":"2019-05-09T19:33:47+08:00","datePublished":"2018-12-21T00:21:51+08:00","description":"今年夏天看到這篇文章，強調科學繪圖過程中色調的選用若不夠謹慎，很有可能會造成誤導的結果，甚至影響有色覺辨認障礙 (Color vision deficiency, CVD) 的人知的權益，因此他們開發了一個python 套件 cmaputil 用以產生 CVD 最佳化的色盤。","headline":"客製化 seaborn 色盤 (以 CVD 為例)","image":["001cvd.jpeg","001cvd.jpeg"],"mainEntityOfPage":{"@type":"WebPage","@id":"https://rna-s1ck.github.io/2018/12/21/CVD/"},"publisher":{"@type":"Organization","name":"Chen Hsieh","sameAs":["https://drive.google.com/file/d/1xiDPR2J_w4IWM83P-xutthcnzteJUaxg/view?usp=sharing","mailto:bendjamin101001@gmail.com"],"image":"https://www.gravatar.com/avatar/0cfd0a510d29343e15c5701627444bb8","logo":{"@type":"ImageObject","url":"https://www.gravatar.com/avatar/0cfd0a510d29343e15c5701627444bb8"}},"url":"https://rna-s1ck.github.io/2018/12/21/CVD/","keywords":"python, 繪圖, seaborn, palette","thumbnailUrl":"001cvd.jpeg"}</script>
+    <meta name="description" content="今年夏天看到這篇文章，強調科學繪圖過程中色調的選用若不夠謹慎，很有可能會造成誤導的結果，甚至影響有色覺辨認障礙 (Color vision deficiency, CVD) 的人知的權益，因此他們開發了一個python 套件 cmaputil 用以產生 CVD 最佳化的色盤。">
+<meta name="keywords" content="horticulture,台大園藝,bioinformatic,生物資訊,Chen Hsieh">
 <meta property="og:type" content="blog">
 <meta property="og:title" content="客製化 seaborn 色盤 (以 CVD 為例)">
 <meta property="og:url" content="https://rna-s1ck.github.io/2018/12/21/CVD/index.html">
 <meta property="og:site_name" content="RNA-Sick">
-<meta property="og:description" content="今年夏天看到這篇文章，強調科學繪圖過程中色調的選用若不夠謹慎，很有可能會造成誤導的結果，甚至影響有色覺辨認障礙 (Color vision deficiency, CVD) 的人知的權益，因此他們開發了一個python 套件 cmaputil 用以產生 CVD 最佳化的色盤。  愛拖延如我，一直到這週氣溫降到二十度以下了才下載了套件想要試用看看，這才發現他的運作方式好複雜。似乎因為他原本的應用場景">
+<meta property="og:description" content="今年夏天看到這篇文章，強調科學繪圖過程中色調的選用若不夠謹慎，很有可能會造成誤導的結果，甚至影響有色覺辨認障礙 (Color vision deficiency, CVD) 的人知的權益，因此他們開發了一個python 套件 cmaputil 用以產生 CVD 最佳化的色盤。">
 <meta property="og:locale" content="en">
 <meta property="og:image" content="https://rna-s1ck.github.io/2018/12/21/CVD/1.png">
 <meta property="og:image" content="https://rna-s1ck.github.io/2018/12/21/CVD/2.png">
 <meta property="og:image" content="https://rna-s1ck.github.io/2018/12/21/CVD/3.png">
 <meta property="og:image" content="https://rna-s1ck.github.io/2018/12/21/CVD/eg.png">
-<meta property="og:updated_time" content="2019-01-08T05:33:03.236Z">
+<meta property="og:updated_time" content="2019-05-09T11:33:47.569Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="客製化 seaborn 色盤 (以 CVD 為例)">
-<meta name="twitter:description" content="今年夏天看到這篇文章，強調科學繪圖過程中色調的選用若不夠謹慎，很有可能會造成誤導的結果，甚至影響有色覺辨認障礙 (Color vision deficiency, CVD) 的人知的權益，因此他們開發了一個python 套件 cmaputil 用以產生 CVD 最佳化的色盤。  愛拖延如我，一直到這週氣溫降到二十度以下了才下載了套件想要試用看看，這才發現他的運作方式好複雜。似乎因為他原本的應用場景">
+<meta name="twitter:description" content="今年夏天看到這篇文章，強調科學繪圖過程中色調的選用若不夠謹慎，很有可能會造成誤導的結果，甚至影響有色覺辨認障礙 (Color vision deficiency, CVD) 的人知的權益，因此他們開發了一個python 套件 cmaputil 用以產生 CVD 最佳化的色盤。">
 <meta name="twitter:image" content="https://rna-s1ck.github.io/2018/12/21/CVD/1.png">
     
     
@@ -43,6 +43,12 @@
         <meta property="og:image" content="https://www.gravatar.com/avatar/0cfd0a510d29343e15c5701627444bb8?s=640"/>
     
     
+        <meta property="og:image" content="https://rna-s1ck.github.io/2018/12/21/CVD/001cvd.jpeg"/>
+        <meta class="swiftype" name="image" data-type="enum" content="https://rna-s1ck.github.io/2018/12/21/CVD/001cvd.jpeg" />
+    
+    
+        <meta property="og:image" content="https://rna-s1ck.github.io/2018/12/21/CVD/001cvd.jpeg"/>
+        <meta class="swiftype" name="image" data-type="enum" content="https://rna-s1ck.github.io/2018/12/21/CVD/001cvd.jpeg" />
     
     
     <!--STYLES-->
@@ -88,7 +94,7 @@
                 </a>
                 <h4 class="sidebar-profile-name">Chen Hsieh</h4>
                 
-                    <h5 class="sidebar-profile-bio"><p>author.bio</p>
+                    <h5 class="sidebar-profile-bio"><p>I don’t need time, I need a deadline.<br>Check my <a href="https://drive.google.com/file/d/1xiDPR2J_w4IWM83P-xutthcnzteJUaxg/view?usp=sharing">CV<a></a></a></p>
 </h5>
                 
             </div>
@@ -98,19 +104,10 @@
             
                 <li class="sidebar-button">
                     
-                        <a class="sidebar-button-link " href="/ " title="RNA-SICK">
+                        <a class="sidebar-button-link " href="/ " title="RNA-Sick">
                     
                         <i class="sidebar-button-icon fa fa-home" aria-hidden="true"></i>
-                        <span class="sidebar-button-desc">RNA-SICK</span>
-                    </a>
-            </li>
-            
-                <li class="sidebar-button">
-                    
-                        <a class="sidebar-button-link " href="/all-categories" title="Categories">
-                    
-                        <i class="sidebar-button-icon fa fa-bookmark" aria-hidden="true"></i>
-                        <span class="sidebar-button-desc">Categories</span>
+                        <span class="sidebar-button-desc">RNA-Sick</span>
                     </a>
             </li>
             
@@ -156,37 +153,19 @@
             
                 <li class="sidebar-button">
                     
-                        <a class="sidebar-button-link " href="https://github.com/" target="_blank" rel="noopener" title="GitHub">
+                        <a class="sidebar-button-link " href="https://drive.google.com/file/d/1xiDPR2J_w4IWM83P-xutthcnzteJUaxg/view?usp=sharing" target="_blank" rel="noopener" title="CV">
                     
-                        <i class="sidebar-button-icon fab fa-github" aria-hidden="true"></i>
-                        <span class="sidebar-button-desc">GitHub</span>
+                        <i class="sidebar-button-icon fa fa-file" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">CV</span>
                     </a>
             </li>
             
                 <li class="sidebar-button">
                     
-                        <a class="sidebar-button-link " href="http://stackoverflow.com/users" target="_blank" rel="noopener" title="Stack Overflow">
-                    
-                        <i class="sidebar-button-icon fab fa-stack-overflow" aria-hidden="true"></i>
-                        <span class="sidebar-button-desc">Stack Overflow</span>
-                    </a>
-            </li>
-            
-                <li class="sidebar-button">
-                    
-                        <a class="sidebar-button-link " href="https://twitter.com/" target="_blank" rel="noopener" title="Twitter">
-                    
-                        <i class="sidebar-button-icon fab fa-twitter" aria-hidden="true"></i>
-                        <span class="sidebar-button-desc">Twitter</span>
-                    </a>
-            </li>
-            
-                <li class="sidebar-button">
-                    
-                        <a class="sidebar-button-link " href="/mailto" title="Mail">
+                        <a class="sidebar-button-link " href="mailto:bendjamin101001@gmail.com" target="_blank" rel="noopener" title="Contact me">
                     
                         <i class="sidebar-button-icon fa fa-envelope" aria-hidden="true"></i>
-                        <span class="sidebar-button-desc">Mail</span>
+                        <span class="sidebar-button-desc">Contact me</span>
                     </a>
             </li>
             
@@ -209,15 +188,21 @@
 </nav>
 
             
+        <div class="post-header-cover
+                    text-center
+                    post-header-cover--partial" style="background-image:url('/2018/12/21/CVD/001cvd.jpeg');" data-behavior="4">
+            
+        </div>
+
             <div id="main" data-behavior="4"
-                 class="
-                        hasCoverMetaIn
+                 class="hasCover
+                        hasCoverMetaOut
                         ">
                 
 <article class="post">
     
     
-        <div class="post-header main-content-wrap text-left">
+        <div class="post-header main-content-wrap text-center">
     
         <h1 class="post-title">
             客製化 seaborn 色盤 (以 CVD 為例)
@@ -240,6 +225,7 @@
     <div class="post-content markdown">
         <div class="main-content-wrap">
             <p>今年夏天看到<a href="https://doi.org/10.1371/journal.pone.0199239" target="_blank" rel="noopener">這篇文章</a>，強調科學繪圖過程中色調的選用若不夠謹慎，很有可能會造成誤導的結果，甚至影響有色覺辨認障礙 (Color vision deficiency, CVD) 的人知的權益，因此他們開發了一個python 套件 cmaputil 用以產生 CVD 最佳化的色盤。</p>
+<a id="more"></a>
 <p><img src="/2018/12/21/CVD/1.png" alt=""></p>
 <p>愛拖延如我，一直到這週氣溫降到二十度以下了才下載了套件想要試用看看，這才發現他的運作方式好複雜。似乎因為他原本的應用場景主要是替資料上色，所以有一套模擬 CVD 與顏色轉換的過程，過程基本上完全看不懂。</p>
 <p><img src="/2018/12/21/CVD/2.png" alt=""></p>
@@ -256,7 +242,7 @@
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sns.clustermap(dataFrame, cmap=cmap)</span><br></pre></td></tr></table></figure>
 </li>
 </ol>
-<p>以上就是三步驟輕鬆畫幅 CVD 友善的圖～</p>
+<p>以上就是使用 python 三步驟輕鬆畫幅 CVD 友善的圖～</p>
 <p><img src="/2018/12/21/CVD/eg.png" alt=""></p>
 <p>雖然顏色看起來有點黯淡，但是想到背後的意義就覺得有股『啊～我又堅持了個沒什麼人會在意的細節了呢真是讚讚』的感覺～嘻嘻</p>
 
@@ -493,17 +479,23 @@
         
             <h4 id="about-card-name">Chen Hsieh</h4>
         
-            <div id="about-card-bio"><p>author.bio</p>
+            <div id="about-card-bio"><p>I don’t need time, I need a deadline.<br>Check my <a href="https://drive.google.com/file/d/1xiDPR2J_w4IWM83P-xutthcnzteJUaxg/view?usp=sharing">CV<a></a></a></p>
 </div>
         
         
             <div id="about-card-job">
                 <i class="fa fa-briefcase"></i>
                 <br>
-                <p>author.job</p>
+                <p>Master Student in Department of Horticulture and Landscape Architechture, National Taiwan University</p>
 
             </div>
         
+        
+            <div id="about-card-location">
+                <i class="fa fa-map-marker-alt"></i>
+                <br>
+                Taiwan, Taipei
+            </div>
         
     </div>
 </div>
@@ -528,6 +520,12 @@
                 
                 <div class="media">
                     
+                    <div class="media-left">
+                        <a class="link-unstyled" href="https://rna-s1ck.github.io/2018/12/21/CVD/">
+                            <img class="media-image" src="https://rna-s1ck.github.io/2018/12/21/CVD/001cvd.jpeg" width="90" height="90">
+                        </a>
+                    </div>
+                    
                     <div class="media-body">
                         <a class="link-unstyled" href="https://rna-s1ck.github.io/2018/12/21/CVD/">
                             <h3 class="media-heading">客製化 seaborn 色盤 (以 CVD 為例)</h3>
@@ -539,7 +537,7 @@
                                 
                             </span>
                         </span>
-                        <div class="media-content hide-xs font-merryweather"></div>
+                        <div class="media-content hide-xs font-merryweather"><p>今年夏天看到<a href="https://doi.org/10.1371/journal.pone.0199239" target="_blank" rel="noopener">這篇文章</a>，強調科學繪圖過程中色調的選用若不夠謹慎，很有可能會造成誤導的結果，甚至影響有色覺辨認障礙 (Color vision deficiency, CVD) 的人知的權益，因此他們開發了一個python 套件 cmaputil 用以產生 CVD 最佳化的色盤。</p></div>
                     </div>
                     <div style="clear:both;"></div>
                     <hr>
@@ -558,7 +556,12 @@
                                 
                             </span>
                         </span>
-                        <div class="media-content hide-xs font-merryweather"></div>
+                        <div class="media-content hide-xs font-merryweather"><p>Transcriptome 分析的文章中，有時候會出現一個小章節用來描述總共註解到了多少轉錄因子，或是有哪些轉錄因子上調或下調。</p>
+<p><img src="/2018/12/21/TFDB/1.png" alt="1"></p>
+<p><img src="/2018/12/21/TFDB/2.png" alt="2"></p>
+<p>因為轉錄因子序列比較短，用一般的註解方式容易錯過，或是僅因為有特定的區段就有把酵素類的蛋白質誤解為轉錄因子的情形。</p>
+<p><img src="/2018/12/21/TFDB/2.5.png" alt=""></p>
+<p><a href="http://planttfdb.cbi.pku.edu.cn" target="_blank" rel="noopener">PlantTFDB</a> 替大家解決了這個問題，網站除了可以直接查詢他們的研究團隊已經預測過的物種中的轉錄因子以外，也有提供了基於他們人為透過文獻閱讀歸納出來的轉錄因子家族指定規則進行預測的服務。</p></div>
                     </div>
                     <div style="clear:both;"></div>
                     <hr>
@@ -566,9 +569,15 @@
                 
                 <div class="media">
                     
+                    <div class="media-left">
+                        <a class="link-unstyled" href="https://rna-s1ck.github.io/2019/01/25/GO-Enrichment-Panther/">
+                            <img class="media-image" src="https://rna-s1ck.github.io/2019/01/25/GO-Enrichment-Panther/1.png" width="90" height="90">
+                        </a>
+                    </div>
+                    
                     <div class="media-body">
                         <a class="link-unstyled" href="https://rna-s1ck.github.io/2019/01/25/GO-Enrichment-Panther/">
-                            <h3 class="media-heading">GO_Enrichment_Panther</h3>
+                            <h3 class="media-heading">使用 Panther 網站進行基因本體論富集分析</h3>
                         </a>
                         <span class="media-meta">
                             <span class="media-date text-small">
