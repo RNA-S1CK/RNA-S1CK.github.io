@@ -6,7 +6,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="generator" content="RNA-Sick">
-    <title>用 Cividis 色盤來畫熱圖吧 - RNA-Sick</title>
+    <title>使用 PlantTFDB 預測胺基酸序列是否為轉錄因子 - RNA-Sick</title>
     <meta name="author" content="Chen Hsieh">
     
         <meta name="keywords" content="horticulture,台大園藝,bioinformatic,生物資訊,Chen Hsieh,horticulture,台大園藝,bioinformatic,生物資訊,Chen Hsieh">
@@ -17,24 +17,31 @@
     
         <link rel="alternate" type="application/atom+xml" title="RSS" href="/atom.xml">
     
-    <script type="application/ld+json">{"@context":"http://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Chen Hsieh","sameAs":["https://drive.google.com/file/d/1xiDPR2J_w4IWM83P-xutthcnzteJUaxg/view?usp=sharing","mailto:bendjamin101001@gmail.com"],"image":"https://www.gravatar.com/avatar/0cfd0a510d29343e15c5701627444bb8"},"articleBody":"\n\n前言今年夏天看到這篇文章，強調科學繪圖過程中色調的選用若不夠謹慎，很有可能會造成誤導的結果，甚至影響有色覺辨認障礙 (Color vision deficiency, CVD) 的人知的權益，因此他們開發了一個python 套件 cmaputil 用以產生 CVD 最佳化的色盤。\n\n愛拖延如我，一直到這週氣溫降到二十度以下了才下載了套件想要試用看看，這才發現他的運作方式好複雜。似乎因為他原本的應用場景主要是替資料上色，所以有一套模擬 CVD 與顏色轉換的過程，過程基本上完全看不懂。\n\n套件修改以供 python 3 使用雖然如此，單純用個套件應該不會很難吧，沒想到剛裝完還是不能用，因為原本是寫給 python 2.7 用的，有兩個地方要自己去修改成 python 3 的 print 語法。而且他的文件跟一般的套件比起來比較簡陋，網路上討論也不多，所以老實說完全不知道怎麼用，我只是想要畫個簡單的熱圖而已啊ＱＱ～\n\n下載色調值客製化 seaborn/matplotlib 色盤在他們的 github 上翻著翻著找到了附上的色調值，便有了下列的簡單解法：\n\n先下載色調值並另存成 CVD.txt\n\n讀取檔案載入成 matplotlib 的 cmap\n1234with open('CVD.txt') as f:    colors = f.readlines()colors = [j[:-1] for j in colors]cmap = matplotlib.colors.ListedColormap(colors)\n\n繪圖時把自己客製化的 cmap 傳入就好囉\n1sns.clustermap(dataFrame, cmap=cmap)\n\n\n以上就是使用 python 三步驟輕鬆畫幅 CVD 友善的圖～\n\n雖然顏色看起來有點黯淡，但是想到背後的意義就覺得有股\n\n『啊～我又堅持了沒什麼人會在意的細節了呢～真是讚讚！』\n\n的感覺～嘻嘻","dateCreated":"2018-12-21T00:21:51+08:00","dateModified":"2019-05-10T18:27:41+08:00","datePublished":"2018-12-21T00:21:51+08:00","description":"科學繪圖過程中色調的選用若不夠謹慎，很有可能會造成誤導的結果，甚至影響有色覺辨認障礙 (Color vision deficiency, CVD) 的人知的權益，因此選用 Cividis 這個色盤也是一種對知識的尊重ＸＤ","headline":"用 Cividis 色盤來畫熱圖吧","image":["https://res.cloudinary.com/rna-sick/image/upload/v1557417948/CVD/thumbnailCVD_ge39vw.jpg","https://res.cloudinary.com/rna-sick/image/upload/v1557417942/CVD/Screen_Shot_2019-04-02_at_10.39.18_ekolta.png"],"mainEntityOfPage":{"@type":"WebPage","@id":"https://rna-sick.me/2018/12/21/CVD/"},"publisher":{"@type":"Organization","name":"Chen Hsieh","sameAs":["https://drive.google.com/file/d/1xiDPR2J_w4IWM83P-xutthcnzteJUaxg/view?usp=sharing","mailto:bendjamin101001@gmail.com"],"image":"https://www.gravatar.com/avatar/0cfd0a510d29343e15c5701627444bb8","logo":{"@type":"ImageObject","url":"https://www.gravatar.com/avatar/0cfd0a510d29343e15c5701627444bb8"}},"url":"https://rna-sick.me/2018/12/21/CVD/","keywords":"python, 繪圖, seaborn, palette","thumbnailUrl":"https://res.cloudinary.com/rna-sick/image/upload/v1557417948/CVD/thumbnailCVD_ge39vw.jpg"}</script>
-    <meta name="description" content="科學繪圖過程中色調的選用若不夠謹慎，很有可能會造成誤導的結果，甚至影響有色覺辨認障礙 (Color vision deficiency, CVD) 的人知的權益，因此選用 Cividis 這個色盤也是一種對知識的尊重ＸＤ">
+    <script type="application/ld+json">{"@context":"http://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Chen Hsieh","sameAs":["https://drive.google.com/file/d/1xiDPR2J_w4IWM83P-xutthcnzteJUaxg/view?usp=sharing","mailto:bendjamin101001@gmail.com"],"image":"https://www.gravatar.com/avatar/0cfd0a510d29343e15c5701627444bb8"},"articleBody":"\n\n\n前言Transcriptome 分析的文章中，有時候會出現一個小章節用來描述總共註解到了多少轉錄因子，或是有哪些轉錄因子上調或下調。像是這篇萵苣抽薹有關的研究中，便用圓餅圖表示了各種可供未來研究參考的轉錄因子家族名稱。\n\n\n在實際的分析上，因為轉錄因子序列比較短，用一般的註解軟體容易錯過，或是僅因為有特定的區段就有把酵素類的蛋白質誤解為轉錄因子的情形。\n\nPlantTFDB 替大家解決了這個問題，網站除了可以直接查詢他們的研究團隊已經預測過的物種中的轉錄因子以外，也有提供了基於他們人為透過文獻閱讀歸納出來的轉錄因子家族指定規則進行預測的服務。\n\n只要輸入胺基酸序列，稍等一下就可以得到預測結果。以下將會簡單介紹網頁以及 step by step 紀錄預測功能的使用，並且銜接到使用 excel 繪製轉錄因子比例圓餅圖的操作。\nPlant TFDB 網頁基本功能首先首頁就可以看到五十八種轉錄因子的分類以及已經註解到的數量，每次改版過程中註解方式或是說指定規則可能會因爲文獻而略有更動，像是最近一版就把參與轉錄調節但是不具有直接 DNA 結合區段的類別移除了。\n\n隨便選擇一個沒有聽過的 E2F/DP 點進去，有該種轉錄因子在各種物種中的家族成員數量，和簡單的文字敘述及引用文獻，讓人可以快速了解該分類，或是本身在進行該家族的基因研究的話，也可以參考不同物種中的成員數量以評估註解情形。\n\n紅色的 bar chart 標出了他們所註解的基因體中含有的該家族的轉錄因子數量。只可惜是以圖片的方式呈現，所以不方便在網頁上直接用搜尋找到自己感興趣的物種資料，可能還是要回到首頁搜尋比較方便。\n\n轉錄因子頁面下方就有簡單的文字描述，看完就大概知道要怎樣簡單介紹這個轉錄因子，譬如基本的蛋白質功能區段 (domain)、常見的作用型態、目標基因、以及可能參與的生理調控。\n使用轉錄因子預測服務接下來終於要進入正題，如何使用ＴＦＤＢ提供的轉錄因子註解服務：\n\n進入預測的頁面：\n\n\n輸入 fasta 格式的序列，或是直接上傳 fasta 檔案\n\n勾選 Best Hit in Arabidopsis Thaliana 的話會附上一筆對應的阿拉伯芥基因資訊，未來銜接其他分析也方便，然後用力地按下 Pridiction\n\n四萬多筆資料，過兩分鐘就有結果出來了，可以在這個頁面的表格上簡單地操作瀏覽一下\n\n\n在文字敘述中按 Download list，這就是輸出用以後續分析的格式，column 分別為我們所提供的胺基酸序列之 ID、轉錄因子基因家族、Best Hit in Arabidopsis Thaliana 之基因、p-value、Best Hit in Arabidopsis Thaliana 基因之註解\n\n\n下載下來的是純文字檔案，雖然副檔名是 “.list”，但還是可以對著檔案點右鍵，選擇用 excel 打開以方便檢視\n\n由這個檔案，就可以看到輸入的胺基酸序列代號，以及其所對應的轉錄因子家族。雖然這樣子全自動預測的服務很方便，最好還是要人工檢核 (manual curation) 一下，再進行下一步的分析比較保險。除了看看感興趣的基因究竟是什麼轉錄因子以外，通常會想看看各個家族的比例。如何直接使用這個輸出的預測結果檔案，不寫程式使用 excel 畫成可以呈現各個基因家族比例的圓餅圖，且待下回分曉～\n\n","dateCreated":"2018-12-27T12:47:21+08:00","dateModified":"2019-05-11T22:33:57+08:00","datePublished":"2018-12-27T12:47:21+08:00","description":"PlantTFDB 提供了一個非常快速方便的轉錄因子查詢入口，有發表基因體的植物物種都有被註解。他們提供的預測服務則可以讓使用者輕鬆註解自己手邊的序列。","headline":"使用 PlantTFDB 預測胺基酸序列是否為轉錄因子","image":["https://res.cloudinary.com/rna-sick/image/upload/v1557476782/TFDB/002tfdb_dh20u4.jpg","https://res.cloudinary.com/rna-sick/image/upload/v1557483649/TFDB/whatyouneed_wwmgni.jpg"],"mainEntityOfPage":{"@type":"WebPage","@id":"https://rna-sick.me/2018/12/27/TFDB/"},"publisher":{"@type":"Organization","name":"Chen Hsieh","sameAs":["https://drive.google.com/file/d/1xiDPR2J_w4IWM83P-xutthcnzteJUaxg/view?usp=sharing","mailto:bendjamin101001@gmail.com"],"image":"https://www.gravatar.com/avatar/0cfd0a510d29343e15c5701627444bb8","logo":{"@type":"ImageObject","url":"https://www.gravatar.com/avatar/0cfd0a510d29343e15c5701627444bb8"}},"url":"https://rna-sick.me/2018/12/27/TFDB/","keywords":"excel, transcription factor, plant, pie chart","thumbnailUrl":"https://res.cloudinary.com/rna-sick/image/upload/v1557476782/TFDB/002tfdb_dh20u4.jpg"}</script>
+    <meta name="description" content="PlantTFDB 提供了一個非常快速方便的轉錄因子查詢入口，有發表基因體的植物物種都有被註解。他們提供的預測服務則可以讓使用者輕鬆註解自己手邊的序列。">
 <meta name="keywords" content="horticulture,台大園藝,bioinformatic,生物資訊,Chen Hsieh">
 <meta property="og:type" content="blog">
-<meta property="og:title" content="用 Cividis 色盤來畫熱圖吧">
-<meta property="og:url" content="https://rna-sick.me/2018/12/21/CVD/index.html">
+<meta property="og:title" content="使用 PlantTFDB 預測胺基酸序列是否為轉錄因子">
+<meta property="og:url" content="https://rna-sick.me/2018/12/27/TFDB/index.html">
 <meta property="og:site_name" content="RNA-Sick">
-<meta property="og:description" content="科學繪圖過程中色調的選用若不夠謹慎，很有可能會造成誤導的結果，甚至影響有色覺辨認障礙 (Color vision deficiency, CVD) 的人知的權益，因此選用 Cividis 這個色盤也是一種對知識的尊重ＸＤ">
+<meta property="og:description" content="PlantTFDB 提供了一個非常快速方便的轉錄因子查詢入口，有發表基因體的植物物種都有被註解。他們提供的預測服務則可以讓使用者輕鬆註解自己手邊的序列。">
 <meta property="og:locale" content="en">
-<meta property="og:image" content="https://res.cloudinary.com/rna-sick/image/upload/v1557417950/CVD/1_xqf4zv.png">
-<meta property="og:image" content="https://res.cloudinary.com/rna-sick/image/upload/v1557417949/CVD/2_a1ykhh.png">
-<meta property="og:image" content="https://res.cloudinary.com/rna-sick/image/upload/v1557417948/CVD/3_t5jhlb.png">
-<meta property="og:image" content="https://res.cloudinary.com/rna-sick/image/upload/v1557417947/CVD/eg_ojwvz8.png">
-<meta property="og:updated_time" content="2019-05-10T10:27:41.015Z">
+<meta property="og:image" content="https://res.cloudinary.com/rna-sick/image/upload/v1557476521/TFDB/1_etdhp9.png">
+<meta property="og:image" content="https://res.cloudinary.com/rna-sick/image/upload/v1557476523/TFDB/2_rpmdzn.png">
+<meta property="og:image" content="https://res.cloudinary.com/rna-sick/image/upload/v1557476525/TFDB/2.5_xe0cwr.png">
+<meta property="og:image" content="https://res.cloudinary.com/rna-sick/image/upload/v1557476539/TFDB/21_zghszl.png">
+<meta property="og:image" content="https://res.cloudinary.com/rna-sick/image/upload/v1557476524/TFDB/5_dvovqk.png">
+<meta property="og:image" content="https://res.cloudinary.com/rna-sick/image/upload/v1557476521/TFDB/6_elncgl.png">
+<meta property="og:image" content="https://res.cloudinary.com/rna-sick/image/upload/v1557476521/TFDB/7_tjuwbe.png">
+<meta property="og:image" content="https://res.cloudinary.com/rna-sick/image/upload/v1557476522/TFDB/4_awor70.png">
+<meta property="og:image" content="https://res.cloudinary.com/rna-sick/image/upload/v1557476521/TFDB/3_qabku9.png">
+<meta property="og:image" content="https://res.cloudinary.com/rna-sick/image/upload/v1557476526/TFDB/8_urmrrx.png">
+<meta property="og:image" content="https://res.cloudinary.com/rna-sick/image/upload/v1557476528/TFDB/9_mjglar.png">
+<meta property="og:updated_time" content="2019-05-11T14:33:57.344Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="用 Cividis 色盤來畫熱圖吧">
-<meta name="twitter:description" content="科學繪圖過程中色調的選用若不夠謹慎，很有可能會造成誤導的結果，甚至影響有色覺辨認障礙 (Color vision deficiency, CVD) 的人知的權益，因此選用 Cividis 這個色盤也是一種對知識的尊重ＸＤ">
-<meta name="twitter:image" content="https://res.cloudinary.com/rna-sick/image/upload/v1557417950/CVD/1_xqf4zv.png">
+<meta name="twitter:title" content="使用 PlantTFDB 預測胺基酸序列是否為轉錄因子">
+<meta name="twitter:description" content="PlantTFDB 提供了一個非常快速方便的轉錄因子查詢入口，有發表基因體的植物物種都有被註解。他們提供的預測服務則可以讓使用者輕鬆註解自己手邊的序列。">
+<meta name="twitter:image" content="https://res.cloudinary.com/rna-sick/image/upload/v1557476521/TFDB/1_etdhp9.png">
     
     
         
@@ -43,12 +50,12 @@
         <meta property="og:image" content="https://www.gravatar.com/avatar/0cfd0a510d29343e15c5701627444bb8?s=640"/>
     
     
-        <meta property="og:image" content="https://res.cloudinary.com/rna-sick/image/upload/v1557417948/CVD/thumbnailCVD_ge39vw.jpg"/>
-        <meta class="swiftype" name="image" data-type="enum" content="https://res.cloudinary.com/rna-sick/image/upload/v1557417948/CVD/thumbnailCVD_ge39vw.jpg" />
+        <meta property="og:image" content="https://res.cloudinary.com/rna-sick/image/upload/v1557476782/TFDB/002tfdb_dh20u4.jpg"/>
+        <meta class="swiftype" name="image" data-type="enum" content="https://res.cloudinary.com/rna-sick/image/upload/v1557476782/TFDB/002tfdb_dh20u4.jpg" />
     
     
-        <meta property="og:image" content="https://res.cloudinary.com/rna-sick/image/upload/v1557417942/CVD/Screen_Shot_2019-04-02_at_10.39.18_ekolta.png"/>
-        <meta class="swiftype" name="image" data-type="enum" content="https://res.cloudinary.com/rna-sick/image/upload/v1557417942/CVD/Screen_Shot_2019-04-02_at_10.39.18_ekolta.png" />
+        <meta property="og:image" content="https://res.cloudinary.com/rna-sick/image/upload/v1557483649/TFDB/whatyouneed_wwmgni.jpg"/>
+        <meta class="swiftype" name="image" data-type="enum" content="https://res.cloudinary.com/rna-sick/image/upload/v1557483649/TFDB/whatyouneed_wwmgni.jpg" />
     
     
     <!--STYLES-->
@@ -190,7 +197,7 @@
             
         <div class="post-header-cover
                     text-center
-                    post-header-cover--full" style="background-image:url('https://res.cloudinary.com/rna-sick/image/upload/v1557417942/CVD/Screen_Shot_2019-04-02_at_10.39.18_ekolta.png');" data-behavior="4">
+                    post-header-cover--full" style="background-image:url('https://res.cloudinary.com/rna-sick/image/upload/v1557483649/TFDB/whatyouneed_wwmgni.jpg');" data-behavior="4">
             
         </div>
 
@@ -201,20 +208,20 @@
                 
 <article class="post">
     
-        <span class="post-header-cover-caption caption">其實使用 Cividis 這個色盤畫的圖，也會再增添某種意義的同時變得有點不明所以 (截圖來自 Kill La Kill 動畫)</span>
+        <span class="post-header-cover-caption caption">實在是個很方便的轉錄因子分析服務啊～ (截圖來自呆伯特動畫)</span>
     
     
         <div class="post-header main-content-wrap text-center">
     
         <h1 class="post-title">
-            用 Cividis 色盤來畫熱圖吧
+            使用 PlantTFDB 預測胺基酸序列是否為轉錄因子
         </h1>
     
     
         <div class="post-meta">
-    <time datetime="2018-12-21T00:21:51+08:00">
+    <time datetime="2018-12-27T12:47:21+08:00">
 	
-		    Dec 21, 2018
+		    Dec 27, 2018
     	
     </time>
     
@@ -227,31 +234,43 @@
     <div class="post-content markdown">
         <div class="main-content-wrap">
             <!-- excerpt -->
-<h1 id="table-of-contents">Table of Contents</h1><ol class="toc"><li class="toc-item toc-level-5"><a class="toc-link" href="#前言"><span class="toc-text">前言</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#套件修改以供-python-3-使用"><span class="toc-text">套件修改以供 python 3 使用</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#下載色調值客製化-seaborn-matplotlib-色盤"><span class="toc-text">下載色調值客製化 seaborn/matplotlib 色盤</span></a></li></ol>
-<h5 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h5><p>今年夏天看到<a href="https://doi.org/10.1371/journal.pone.0199239" target="_blank" rel="noopener">這篇文章</a>，強調科學繪圖過程中色調的選用若不夠謹慎，很有可能會造成誤導的結果，甚至影響有色覺辨認障礙 (Color vision deficiency, CVD) 的人知的權益，因此他們開發了一個python 套件 cmaputil 用以產生 CVD 最佳化的色盤。</p>
-<p><img src="https://res.cloudinary.com/rna-sick/image/upload/v1557417950/CVD/1_xqf4zv.png" alt="paper_cover"></p>
-<p>愛拖延如我，一直到這週氣溫降到二十度以下了才下載了套件想要試用看看，這才發現他的運作方式好複雜。似乎因為他原本的應用場景主要是替資料上色，所以有一套模擬 CVD 與顏色轉換的過程，過程基本上完全看不懂。</p>
-<p><img src="https://res.cloudinary.com/rna-sick/image/upload/v1557417949/CVD/2_a1ykhh.png" alt="PaperFig1"></p>
-<h5 id="套件修改以供-python-3-使用"><a href="#套件修改以供-python-3-使用" class="headerlink" title="套件修改以供 python 3 使用"></a>套件修改以供 python 3 使用</h5><p>雖然如此，單純用個套件應該不會很難吧，沒想到剛裝完還是不能用，因為原本是寫給 python 2.7 用的，有兩個地方要自己去修改成 python 3 的 print 語法。而且他的文件跟一般的套件比起來比較簡陋，網路上討論也不多，所以老實說完全不知道怎麼用，我只是想要畫個簡單的熱圖而已啊ＱＱ～</p>
-<p><img src="https://res.cloudinary.com/rna-sick/image/upload/v1557417948/CVD/3_t5jhlb.png" alt="github_solution"></p>
-<h5 id="下載色調值客製化-seaborn-matplotlib-色盤"><a href="#下載色調值客製化-seaborn-matplotlib-色盤" class="headerlink" title="下載色調值客製化 seaborn/matplotlib 色盤"></a>下載色調值客製化 seaborn/matplotlib 色盤</h5><p>在他們的 <a href="https://github.com/pnnl/cmaputil" target="_blank" rel="noopener">github</a> 上翻著翻著找到了附上的<a href="https://github.com/pnnl/cmaputil/blob/master/colormaps/cividisHexValues.txt" target="_blank" rel="noopener">色調值</a>，便有了下列的簡單解法：</p>
+<h1 id="table-of-contents">Table of Contents</h1><ol class="toc"><li class="toc-item toc-level-5"><a class="toc-link" href="#前言"><span class="toc-text">前言</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#Plant-TFDB-網頁基本功能"><span class="toc-text">Plant TFDB 網頁基本功能</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#使用轉錄因子預測服務"><span class="toc-text">使用轉錄因子預測服務</span></a></li></ol>
+<hr>
+<h5 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h5><p>Transcriptome 分析的文章中，有時候會出現一個小章節用來描述總共註解到了多少轉錄因子，或是有哪些轉錄因子上調或下調。像是這篇萵苣抽薹有關的研究中，便用圓餅圖表示了各種可供未來研究參考的轉錄因子家族名稱。</p>
+<p><img src="https://res.cloudinary.com/rna-sick/image/upload/v1557476521/TFDB/1_etdhp9.png" alt="paper_cover"></p>
+<p><img src="https://res.cloudinary.com/rna-sick/image/upload/v1557476523/TFDB/2_rpmdzn.png" alt="pie chart"></p>
+<p>在實際的分析上，因為轉錄因子序列比較短，用一般的註解軟體容易錯過，或是僅因為有特定的區段就有把酵素類的蛋白質誤解為轉錄因子的情形。</p>
+<p><img src="https://res.cloudinary.com/rna-sick/image/upload/v1557476525/TFDB/2.5_xe0cwr.png" alt="TFDBhomepage"></p>
+<p><a href="http://planttfdb.cbi.pku.edu.cn" target="_blank" rel="noopener">PlantTFDB</a> 替大家解決了這個問題，網站除了可以直接查詢他們的研究團隊已經預測過的物種中的轉錄因子以外，也有提供了基於他們人為透過文獻閱讀歸納出來的轉錄因子家族指定規則進行預測的服務。</p>
+<p><img src="https://res.cloudinary.com/rna-sick/image/upload/v1557476539/TFDB/21_zghszl.png" alt="assignmentRules"></p>
+<p>只要輸入胺基酸序列，稍等一下就可以得到預測結果。以下將會簡單介紹網頁以及 step by step 紀錄預測功能的使用，並且銜接到使用 excel 繪製轉錄因子比例圓餅圖的操作。</p>
+<h5 id="Plant-TFDB-網頁基本功能"><a href="#Plant-TFDB-網頁基本功能" class="headerlink" title="Plant TFDB 網頁基本功能"></a>Plant TFDB 網頁基本功能</h5><p>首先首頁就可以看到五十八種轉錄因子的分類以及已經註解到的數量，每次改版過程中註解方式或是說指定規則可能會因爲文獻而略有更動，像是最近一版就把參與轉錄調節但是不具有直接 DNA 結合區段的類別移除了。</p>
+<p><img src="https://res.cloudinary.com/rna-sick/image/upload/v1557476524/TFDB/5_dvovqk.png" alt="all those family types"></p>
+<p>隨便選擇一個沒有聽過的 E2F/DP 點進去，有該種轉錄因子在各種物種中的家族成員數量，和簡單的文字敘述及引用文獻，讓人可以快速了解該分類，或是本身在進行該家族的基因研究的話，也可以參考不同物種中的成員數量以評估註解情形。</p>
+<p><img src="https://res.cloudinary.com/rna-sick/image/upload/v1557476521/TFDB/6_elncgl.png" alt="family page"></p>
+<p>紅色的 bar chart 標出了他們所註解的基因體中含有的該家族的轉錄因子數量。只可惜是以圖片的方式呈現，所以不方便在網頁上直接用搜尋找到自己感興趣的物種資料，可能還是要回到首頁搜尋比較方便。</p>
+<p><img src="https://res.cloudinary.com/rna-sick/image/upload/v1557476521/TFDB/7_tjuwbe.png" alt="page family description"></p>
+<p>轉錄因子頁面下方就有簡單的文字描述，看完就大概知道要怎樣簡單介紹這個轉錄因子，譬如基本的蛋白質功能區段 (domain)、常見的作用型態、目標基因、以及可能參與的生理調控。</p>
+<h5 id="使用轉錄因子預測服務"><a href="#使用轉錄因子預測服務" class="headerlink" title="使用轉錄因子預測服務"></a>使用轉錄因子預測服務</h5><p>接下來終於要進入正題，如何使用ＴＦＤＢ提供的轉錄因子註解服務：</p>
 <ol>
-<li><p>先下載<a href="https://github.com/pnnl/cmaputil/blob/master/colormaps/cividisHexValues.txt" target="_blank" rel="noopener">色調值</a>並另存成 CVD.txt</p>
+<li><p>進入預測的<a href="http://planttfdb.cbi.pku.edu.cn/prediction.php" target="_blank" rel="noopener">頁面</a>：</p>
+<p><img src="https://res.cloudinary.com/rna-sick/image/upload/v1557476522/TFDB/4_awor70.png" alt="prediction page"></p>
 </li>
-<li><p>讀取檔案載入成 matplotlib 的 cmap</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">with</span> open(<span class="string">'CVD.txt'</span>) <span class="keyword">as</span> f:</span><br><span class="line">    colors = f.readlines()</span><br><span class="line">colors = [j[:<span class="number">-1</span>] <span class="keyword">for</span> j <span class="keyword">in</span> colors]</span><br><span class="line">cmap = matplotlib.colors.ListedColormap(colors)</span><br></pre></td></tr></table></figure>
+<li><p>輸入 fasta 格式的序列，或是直接上傳 fasta 檔案</p>
 </li>
-<li><p>繪圖時把自己客製化的 cmap 傳入就好囉</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sns.clustermap(dataFrame, cmap=cmap)</span><br></pre></td></tr></table></figure>
+<li><p>勾選 Best Hit in <em>Arabidopsis Thaliana</em> 的話會附上一筆對應的阿拉伯芥基因資訊，未來銜接其他分析也方便，然後用力地按下 Pridiction</p>
+</li>
+<li><p>四萬多筆資料，過兩分鐘就有結果出來了，可以在這個頁面的表格上簡單地操作瀏覽一下</p>
+<p><img src="https://res.cloudinary.com/rna-sick/image/upload/v1557476521/TFDB/3_qabku9.png" alt="TF prediction results"></p>
+</li>
+<li><p>在文字敘述中按 Download list，這就是輸出用以後續分析的格式，column 分別為我們所提供的胺基酸序列之 ID、轉錄因子基因家族、Best Hit in <em>Arabidopsis Thaliana</em> 之基因、p-value、Best Hit in <em>Arabidopsis Thaliana</em> 基因之註解</p>
+<p><img src="https://res.cloudinary.com/rna-sick/image/upload/v1557476526/TFDB/8_urmrrx.png" alt="result"></p>
+</li>
+<li><p>下載下來的是純文字檔案，雖然副檔名是 “.list”，但還是可以對著檔案點右鍵，選擇用 excel 打開以方便檢視</p>
+<p><img src="https://res.cloudinary.com/rna-sick/image/upload/v1557476528/TFDB/9_mjglar.png" alt="opening by excel"></p>
+<p>由這個檔案，就可以看到輸入的胺基酸序列代號，以及其所對應的轉錄因子家族。雖然這樣子全自動預測的服務很方便，最好還是要人工檢核 (manual curation) 一下，再進行下一步的分析比較保險。除了看看感興趣的基因究竟是什麼轉錄因子以外，通常會想看看各個家族的比例。如何直接使用這個輸出的預測結果檔案，不寫程式使用 excel 畫成可以呈現各個基因家族比例的圓餅圖，且待下回分曉～</p>
 </li>
 </ol>
-<p>以上就是使用 python 三步驟輕鬆畫幅 CVD 友善的圖～</p>
-<p><img src="https://res.cloudinary.com/rna-sick/image/upload/v1557417947/CVD/eg_ojwvz8.png" alt="TF_example"></p>
-<p>雖然顏色看起來有點黯淡，但是想到背後的意義就覺得有股</p>
-<blockquote>
-<p>『啊～我又堅持了沒什麼人會在意的細節了呢～真是讚讚！』</p>
-</blockquote>
-<p>的感覺～嘻嘻</p>
             
 
         </div>
@@ -261,7 +280,7 @@
             <div class="post-footer-tags">
                 <span class="text-color-light text-small">TAGGED IN</span><br>
                 
-    <a class="tag tag--primary tag--small t-link" href="/tags/palette/">palette</a> <a class="tag tag--primary tag--small t-link" href="/tags/python/">python</a> <a class="tag tag--primary tag--small t-link" href="/tags/seaborn/">seaborn</a> <a class="tag tag--primary tag--small t-link" href="/tags/繪圖/">繪圖</a>
+    <a class="tag tag--primary tag--small t-link" href="/tags/excel/">excel</a> <a class="tag tag--primary tag--small t-link" href="/tags/pie-chart/">pie chart</a> <a class="tag tag--primary tag--small t-link" href="/tags/plant/">plant</a> <a class="tag tag--primary tag--small t-link" href="/tags/transcription-factor/">transcription factor</a>
 
             </div>
         
@@ -272,7 +291,7 @@
             <li class="post-action">
                 
                     
-                    <a class="post-action-btn btn btn--default tooltip--top" href="/2018/12/27/TFDB/" data-tooltip="使用 PlantTFDB 預測胺基酸序列是否為轉錄因子" aria-label="PREVIOUS: 使用 PlantTFDB 預測胺基酸序列是否為轉錄因子">
+                    <a class="post-action-btn btn btn--default tooltip--top" href="/2019/01/03/107-年公費留考筆試篇/" data-tooltip="107 年公費留考採收後處理筆試篇" aria-label="PREVIOUS: 107 年公費留考採收後處理筆試篇">
                 
                     <i class="fa fa-angle-left" aria-hidden="true"></i>
                     <span class="hide-xs hide-sm text-small icon-ml">PREVIOUS</span>
@@ -280,7 +299,8 @@
             </li>
             <li class="post-action">
                 
-                    <a class="post-action-btn btn btn--disabled">
+                    
+                    <a class="post-action-btn btn btn--default tooltip--top" href="/2018/12/21/CVD/" data-tooltip="用 Cividis 色盤來畫熱圖吧" aria-label="NEXT: 用 Cividis 色盤來畫熱圖吧">
                 
                     <span class="hide-xs hide-sm text-small icon-mr">NEXT</span>
                     <i class="fa fa-angle-right" aria-hidden="true"></i>
@@ -298,7 +318,7 @@
             
             
             <li class="post-action hide-xs">
-                <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://rna-sick.me/2018/12/21/CVD/" title="Share on Facebook">
+                <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://rna-sick.me/2018/12/27/TFDB/" title="Share on Facebook">
                     <i class="fab fa-facebook" aria-hidden="true"></i>
                 </a>
             </li>
@@ -306,7 +326,7 @@
             
             
             <li class="post-action hide-xs">
-                <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://rna-sick.me/2018/12/21/CVD/" title="Share on Twitter">
+                <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://rna-sick.me/2018/12/27/TFDB/" title="Share on Twitter">
                     <i class="fab fa-twitter" aria-hidden="true"></i>
                 </a>
             </li>
@@ -314,7 +334,7 @@
             
             
             <li class="post-action hide-xs">
-                <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=https://rna-sick.me/2018/12/21/CVD/" title="Share on Google+">
+                <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=https://rna-sick.me/2018/12/27/TFDB/" title="Share on Google+">
                     <i class="fab fa-google-plus" aria-hidden="true"></i>
                 </a>
             </li>
@@ -367,7 +387,7 @@
             <li class="post-action">
                 
                     
-                    <a class="post-action-btn btn btn--default tooltip--top" href="/2018/12/27/TFDB/" data-tooltip="使用 PlantTFDB 預測胺基酸序列是否為轉錄因子" aria-label="PREVIOUS: 使用 PlantTFDB 預測胺基酸序列是否為轉錄因子">
+                    <a class="post-action-btn btn btn--default tooltip--top" href="/2019/01/03/107-年公費留考筆試篇/" data-tooltip="107 年公費留考採收後處理筆試篇" aria-label="PREVIOUS: 107 年公費留考採收後處理筆試篇">
                 
                     <i class="fa fa-angle-left" aria-hidden="true"></i>
                     <span class="hide-xs hide-sm text-small icon-ml">PREVIOUS</span>
@@ -375,7 +395,8 @@
             </li>
             <li class="post-action">
                 
-                    <a class="post-action-btn btn btn--disabled">
+                    
+                    <a class="post-action-btn btn btn--default tooltip--top" href="/2018/12/21/CVD/" data-tooltip="用 Cividis 色盤來畫熱圖吧" aria-label="NEXT: 用 Cividis 色盤來畫熱圖吧">
                 
                     <span class="hide-xs hide-sm text-small icon-mr">NEXT</span>
                     <i class="fa fa-angle-right" aria-hidden="true"></i>
@@ -393,7 +414,7 @@
             
             
             <li class="post-action hide-xs">
-                <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://rna-sick.me/2018/12/21/CVD/" title="Share on Facebook">
+                <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://rna-sick.me/2018/12/27/TFDB/" title="Share on Facebook">
                     <i class="fab fa-facebook" aria-hidden="true"></i>
                 </a>
             </li>
@@ -401,7 +422,7 @@
             
             
             <li class="post-action hide-xs">
-                <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://rna-sick.me/2018/12/21/CVD/" title="Share on Twitter">
+                <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://rna-sick.me/2018/12/27/TFDB/" title="Share on Twitter">
                     <i class="fab fa-twitter" aria-hidden="true"></i>
                 </a>
             </li>
@@ -409,7 +430,7 @@
             
             
             <li class="post-action hide-xs">
-                <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=https://rna-sick.me/2018/12/21/CVD/" title="Share on Google+">
+                <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=https://rna-sick.me/2018/12/27/TFDB/" title="Share on Google+">
                     <i class="fab fa-google-plus" aria-hidden="true"></i>
                 </a>
             </li>
@@ -443,7 +464,7 @@
                 
                 
                 <li class="share-option">
-                    <a class="share-option-btn" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://rna-sick.me/2018/12/21/CVD/">
+                    <a class="share-option-btn" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://rna-sick.me/2018/12/27/TFDB/">
                         <i class="fab fa-facebook" aria-hidden="true"></i><span>Share on Facebook</span>
                     </a>
                 </li>
@@ -451,7 +472,7 @@
                 
                 
                 <li class="share-option">
-                    <a class="share-option-btn" target="new" href="https://twitter.com/intent/tweet?text=https://rna-sick.me/2018/12/21/CVD/">
+                    <a class="share-option-btn" target="new" href="https://twitter.com/intent/tweet?text=https://rna-sick.me/2018/12/27/TFDB/">
                         <i class="fab fa-twitter" aria-hidden="true"></i><span>Share on Twitter</span>
                     </a>
                 </li>
@@ -459,7 +480,7 @@
                 
                 
                 <li class="share-option">
-                    <a class="share-option-btn" target="new" href="https://plus.google.com/share?url=https://rna-sick.me/2018/12/21/CVD/">
+                    <a class="share-option-btn" target="new" href="https://plus.google.com/share?url=https://rna-sick.me/2018/12/27/TFDB/">
                         <i class="fab fa-google-plus" aria-hidden="true"></i><span>Share on Google+</span>
                     </a>
                 </li>
@@ -669,9 +690,9 @@
     
         <script>
              var disqus_config = function () {
-                 this.page.url = 'https://rna-sick.me/2018/12/21/CVD/';
+                 this.page.url = 'https://rna-sick.me/2018/12/27/TFDB/';
                  
-                    this.page.identifier = '2018/12/21/CVD/';
+                    this.page.identifier = '2018/12/27/TFDB/';
                  
              };
             (function() {

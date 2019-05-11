@@ -5,9 +5,9 @@
   
   <link href="/atom.xml" rel="self"/>
   
-  <link href="https://rna-s1ck.github.io/"/>
-  <updated>2019-05-09T11:24:42.443Z</updated>
-  <id>https://rna-s1ck.github.io/</id>
+  <link href="https://rna-sick.me/"/>
+  <updated>2019-05-11T14:33:31.839Z</updated>
+  <id>https://rna-sick.me/</id>
   
   <author>
     <name>Chen Hsieh</name>
@@ -17,92 +17,128 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>使用 Panther 網站進行基因本體論富集分析</title>
-    <link href="https://rna-s1ck.github.io/2019/01/25/GO-Enrichment-Panther/"/>
-    <id>https://rna-s1ck.github.io/2019/01/25/GO-Enrichment-Panther/</id>
-    <published>2019-01-25T09:25:48.000Z</published>
-    <updated>2019-05-09T11:24:42.443Z</updated>
+    <title>107 年公費留考採收後處理面試篇</title>
+    <link href="https://rna-sick.me/2019/01/23/107-%E5%B9%B4%E5%85%AC%E8%B2%BB%E7%95%99%E8%80%83%E9%9D%A2%E8%A9%A6%E7%AF%87/"/>
+    <id>https://rna-sick.me/2019/01/23/107-年公費留考面試篇/</id>
+    <published>2019-01-23T10:32:31.000Z</published>
+    <updated>2019-05-11T14:33:31.839Z</updated>
     
-    <content type="html"><![CDATA[<!-- excerpt --><!-- excerpt --><a id="more"></a><p>基因本體論富集分析</p><p>進行轉錄體分析的過程中，得到了處理組間的差異表現基因之後，</p>]]></content>
+    <content type="html"><![CDATA[<p>悚動版標題：兩週衝刺！一次就上公費留考！實際上：花了二十五年準備，因為從出生以來的人生每一步都替未來鋪路，才有這個以我的普通出身家庭來說，算是幸運的結果。我報考的學群與科目：農林漁牧類農作物安全管理之採收後處理。在這邊把些許還記得的部分記錄下來，希望能幫到有需要的人。</p><a id="more"></a><!-- TOC --><hr><h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>筆試只是一個最基本的門檻，會回答題目跟研究能力或畢業之間沒有直接的關連，因此面試的成績佔比也已經由古時候的 20% 提高到 40%。前輩們的經驗是筆試成績大概就定生死了，但現在是有可能透過面試的表現來翻盤，而且相同的學群會一起面試，名額會互相挪用，所以考完筆試也不能鬆懈！筆試結束到成績公布之間有超過一個月的時間，成績公布到繳交面試資料則只有十天。研究計畫最好筆試結束就開始寫，千萬不要像我一樣等收到成績單了才開始想要寫什麼題目！</p><h3 id="書面準備"><a href="#書面準備" class="headerlink" title="書面準備"></a>書面準備</h3><p>由前人的經驗整理來看，每年要求的資料不盡相同，但是一定會有一份申請表，以及研究計畫。研究計畫是重頭戲，其他書面資料都可以簡單地從研究計畫摘錄下來修改。老實說我也不大會寫，只是把我實際經歷的時間安排在此簡單記錄一下而已。</p><h4 id="時間安排"><a href="#時間安排" class="headerlink" title="時間安排"></a>時間安排</h4><p>我在收到成績單之後才開始面對要寫計畫的現實，千萬不要這樣做，最好考完筆試就開始準備囉。一週七天的時間安排上，前兩天用來天馬行空地探索可能的題目，包括找了理想的學校相關教師的研究、看看自己感興趣的分子生物相關研究與採收後處理有關的主題。第三天通勤的路上突然想到自己文獻報告過的一種技術，噴灑雙股 RNA 在植物上，不造成基因改造的情況下造成基因默化的效果，是否有可能應用在調節採收後蔬果的後熟程度，或是解決與病害有關的問題。往這個方向找之後便發現前幾天才剛出刊的幾篇 Review。對於發現自己突發奇想的點子已經有人認真地在做的感覺其實有點複雜，一方面是那種覺得自己終於跟上科研前沿卻還是不夠創新的感覺，另一方面則是至少研究計畫寫起來可以有個參考的依據。第四、五天在逃避現實中度過，但也是找了十篇相關的文獻，看過摘要了解目前這個研究的發展程度、目前的困境、以及未來的方向。最後兩天才真的打起字來組織成真的適用於採收後處理的狀況。繳交期限的前三十分鐘才開始使用 Endnote 插入引用文獻，最後一分鐘才完成上傳，真的是差一點點就前功盡棄了，而且給評審們看這種沒有修改過的東西實在也是很不好意思。</p><h4 id="撰寫思路"><a href="#撰寫思路" class="headerlink" title="撰寫思路"></a>撰寫思路</h4><p>這份出國研究計畫，其實可以分成三個面向來看，用「身心技」來比喻的話，身就是內容，除了實際的學術主題以外，還包括試驗設計、預期結果、未來發展與回國後的應用；心則是整篇計畫的概念，必須塑造出一種必然性，自己的出身、經歷、以及時代都使得撰寫者是在命運的安排下，最適合由教育部出資補助出國留學，將來也必定會回來 make 臺灣 great again 的人；而最後的技，大概就是專業的學術格式，適當的斜體與字型、引用格式、以及其他任何加分的條件。</p><p>收到成績單之後，分別跟指導教授杜宜殷老師與王自存老師請教了可能的研究方向。對於到底要寫什麼主題困擾了好久，雖然我們研究室有不少採收後處理有關的乙烯生合成與訊息傳遞相關分子機制的研究，但是我個人對於產業的實際了解並不夠多，對於學術的喜愛也可能讓我深陷象牙塔中而不自知。其實現在想起來這些猶豫與原地打轉的過程也都是不必要的，基本上只要願意寫，評審們都看得到付出的用心，就算寫的計畫可能在試驗設計、成本、或綜合考量下有不切實際的疑慮，評審也沒有批評的必要，畢竟學術就是讓這些無限可能在實際社會中逐步探尋真相向前邁進的力量，但是千萬要記得審題。以我的情況為例，學群名稱是「農林漁牧類農作物安全管理之採收後處理」，先從小的「採收後處理」部分來看，其實普遍人們對於採收後處理的終極想像，就是希望可以延長保鮮的時間，又維持高品質。這樣的方向就容易導向處理技術的改進，可是純粹技術題目可能不見得夠吸引人。而且老實說，商品損失只是小事、吃出人命才是問題，食品安全問題這種基本的質性改進才是足夠受到重視的條件。這也剛好回頭呼應到學群名稱「農作物安全管理」，而且這名稱也點出光是有技術還不夠，管理制度的調整才有可能改變社會。因此連結採收後處理與食品安全，便把考慮的方向縮小到農藥殘留、微生物污染兩項，我個人對農藥不熟悉，便試著從微生物的角度來思考，最後才有了『噴灑誘導式 RNA 干擾技術應用於減少採收後蔬果之真菌病害』的主題。</p><p>總而言之，透過審題來找自己好發揮的研究主題，將自身經歷、專長與主題連結，點出目標留學學校的特點，以及真的學有所成的話能夠如何回饋臺灣。</p><p><img src="https://res.cloudinary.com/rna-sick/image/upload/v1557582536/107%20%E5%85%AC%E8%B2%BB%E7%95%99%E8%80%83/%E9%9D%A2%E8%A9%A6%E7%AF%87/Screen_Shot_2018-08-02_at_03.08.57_corxls.png" alt="pala"></p><blockquote><p>繳交書面之後，實在有點沮喪，繼續逃避現實，面試前一天打了整天的 Paladins。</p></blockquote><h3 id="面試現場"><a href="#面試現場" class="headerlink" title="面試現場"></a>面試現場</h3><p>週二交出研究計畫到星期天面試之間我呈現很頹廢的狀態，因為不知道還可以做什麼準備。現在想起來可以把相關的文獻看熟一點，書面沒有寫好的地方就要靠現場口頭補充，不要放棄希望啊。星期天早上九點報到，在博雅的 201 大教室坐著等，負責的人員會看心情一次叫一個或兩三個出去到未知的地方。也就是說排序在自己前面的人被叫出去之後，可能很快就輪到自己也可能還要等很久。聽說要用英文自我介紹，我便趁這等待時間時間練習一下。</p><p>輪到我被由大教室叫出去之後，跟著走上樓走到面試官所在的小教室外面等，前一位剛好就是認識的學長，他一出教室門我還來不及跟他討教可能的情況，教室內就已經準備好輪到我進場了。教室內有五位評審，面向黑板而坐，我的位子就在黑板前的正中間，桌椅都有。農林漁牧群的評審委員都相同，所以每個委員都來自不同的領域。由看起來最資深的委員要求我用英文簡單介紹自己以及研究計畫，之後由跟該專業有關的老師主要提問。老師以問題的方式告訴了我研究計劃的諸多改進方向，比如試驗設計要跟現行產業所用的方法當作 benchmark 來比較、低溫冷鏈是否會影響雙股 RNA 的吸收、以及最關鍵的我的立論點聲稱要解決的農藥問題可能其實原本在採收後處理流程上就不存在等等，總之當下雖然冷汗直冒但也從這些認真的回饋中學習到很多。跟研究計畫相關的專業問題問完之後，其他委員也問了跟過往經歷以及生涯規劃有關的問題，像是履歷上提到經濟部工業局主辦比賽獲獎的專案是否還有繼續經營？實際上打算去哪幾間學校讀博士？英文檢定考得如何？兵役問題解決了沒？我書面上聲稱要銜接學術與田野，實際上打算怎樣執行？或者不同專業的老師也會問採收後處理學的基礎問題，像是採收後處理的病害概況等等。</p><p>老師們的表情都頗和藹，如果有說明不夠清楚的地方也都可以在老師的表情上看出端倪，趕緊解釋清楚一點。最後在時間差不多的時候結束，現場其實感覺不出面試情況的好壞，直到今年拿到成績單才知道結果。面試分數的基準是八十分，如果有在 80 分以上就代表是偏向正向的吧，我只拿了 81.40 看得出來我還有不少進步空間，最後很幸運地剛好當孫山。筆試與面試的成績會一起計算，之後整個學群的最終成績再一起比較，今年智慧農業沒有考生錄取，採收後處理原本名額也只有一個，結果錄取了兩個，所以真的是一刻都不能鬆懈，抱著希望就有機會！</p><p><img src="https://res.cloudinary.com/rna-sick/image/upload/v1557584549/107%20%E5%85%AC%E8%B2%BB%E7%95%99%E8%80%83/%E9%9D%A2%E8%A9%A6%E7%AF%87/DSC_0985_exvblp.jpg" alt="final"></p><p>實在是不大會組織文字，希望這樣的經驗分享可以讓想要了解的人感到輕鬆一點，如果有什麼想知道的也請不要客氣～我都很樂意回答～</p>]]></content>
     
     <summary type="html">
     
-      
-      
-        &lt;!-- excerpt --&gt;
-&lt;!-- excerpt --&gt;
-&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
-&lt;p&gt;基因本體論富集分析&lt;/p&gt;
-&lt;p&gt;進行轉錄體分析的過程中，得到了處理組間的差異表現基因之後，&lt;/p&gt;
-      
+      &lt;p&gt;悚動版標題：兩週衝刺！一次就上公費留考！實際上：花了二十五年準備，因為從出生以來的人生每一步都替未來鋪路，才有這個以我的普通出身家庭來說，算是幸運的結果。我報考的學群與科目：農林漁牧類農作物安全管理之採收後處理。在這邊把些許還記得的部分記錄下來，希望能幫到有需要的人。&lt;/p&gt;
     
     </summary>
     
     
-      <category term="python" scheme="https://rna-s1ck.github.io/tags/python/"/>
+      <category term="留學" scheme="https://rna-sick.me/tags/%E7%95%99%E5%AD%B8/"/>
     
-      <category term="繪圖" scheme="https://rna-s1ck.github.io/tags/%E7%B9%AA%E5%9C%96/"/>
+      <category term="公費留考" scheme="https://rna-sick.me/tags/%E5%85%AC%E8%B2%BB%E7%95%99%E8%80%83/"/>
     
-      <category term="seaborn" scheme="https://rna-s1ck.github.io/tags/seaborn/"/>
+      <category term="Postharvest" scheme="https://rna-sick.me/tags/Postharvest/"/>
     
-      <category term="palette" scheme="https://rna-s1ck.github.io/tags/palette/"/>
+  </entry>
+  
+  <entry>
+    <title>用 excel 畫分裂圓餅圖，調整想要的分割比例</title>
+    <link href="https://rna-sick.me/2019/01/16/%E7%94%A8-excel-%E7%95%AB%E5%88%86%E8%A3%82%E5%9C%93%E9%A4%85%E5%9C%96%EF%BC%8C%E8%AA%BF%E6%95%B4%E6%83%B3%E8%A6%81%E7%9A%84%E5%88%86%E5%89%B2%E6%AF%94%E4%BE%8B/"/>
+    <id>https://rna-sick.me/2019/01/16/用-excel-畫分裂圓餅圖，調整想要的分割比例/</id>
+    <published>2019-01-16T08:48:31.000Z</published>
+    <updated>2019-05-11T14:34:11.883Z</updated>
+    
+    <content type="html"><![CDATA[<p>圓餅圖是呈現數據中各個類別比例的好方法，但是當類別超過三個的時候，圓餅圖的呈現方式反而有可能造成誤導。這種時候最好改用長條圖或是分裂圓餅圖。</p><a id="more"></a><!--TOC--><hr><h5 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h5><p>使用 Excel 畫圓餅圖應該很基本，可是有些細節要調整的時候總是令人崩潰～</p><p>這次以轉錄因子家族預測結果資料做示範，將使用到簡單的樞紐分析以及調整分裂圓餅圖的分裂門檻。下圖為資料的初始樣貌，我們的目標是將第二個 column 中的 NAC、EIL、FAR1、HSF 等等轉錄因子家族名稱，利用樞紐分析自動計算出現次數，之後化成分裂圓餅圖，並依據需求調整分裂的門檻。</p><p><img src="https://res.cloudinary.com/rna-sick/image/upload/v1557476528/TFDB/9_mjglar.png" alt="initialFormat"></p><h5 id="用樞紐分析計算出現次數"><a href="#用樞紐分析計算出現次數" class="headerlink" title="用樞紐分析計算出現次數"></a>用樞紐分析計算出現次數</h5><ol><li><p>先確認要統計出現次數的欄位有沒有 column 名稱。在預測結果上方插入一個 row 輸入 TF，旁邊插入一個 column 輸入 count</p><p><img src="https://res.cloudinary.com/rna-sick/image/upload/v1557476536/TFDB/10_l0xpk0.png" alt="insert column name"></p></li><li><p>全選該 column 之後，用自動填滿功能將 count 填滿 1</p><p><img src="https://res.cloudinary.com/rna-sick/image/upload/v1557476530/TFDB/11_oyrbvg.png" alt="fill up 1"></p></li><li><p>選取這兩個我們處理過的 column，點選上方 Insert 分頁中的 Pivot Table</p><p><img src="https://res.cloudinary.com/rna-sick/image/upload/v1557476536/TFDB/12_lyths0.png" alt="pivot tabel"></p></li><li><p>在喜歡的地方放這個新 Pivot Table，哪裡都可以方便就好</p><p><img src="https://res.cloudinary.com/rna-sick/image/upload/v1557476529/TFDB/13_berxuz.png" alt="new place"></p></li><li><p>在右方的 PivotTable Fields 把 count 和 TF 都勾選起來，到這一步就已經有各個類別的出現次數啦</p><p><img src="https://res.cloudinary.com/rna-sick/image/upload/v1557476529/TFDB/14_ppau5e.png" alt=""></p></li></ol><h5 id="繪製分裂圓餅圖，調整分割比例的門檻"><a href="#繪製分裂圓餅圖，調整分割比例的門檻" class="headerlink" title="繪製分裂圓餅圖，調整分割比例的門檻"></a>繪製分裂圓餅圖，調整分割比例的門檻</h5><ol><li><p>為了待會圖表美觀，可以先依據數量大小排個序，記得要選擇擴增選取排序範圍</p><p><img src="https://res.cloudinary.com/rna-sick/image/upload/v1557476534/TFDB/15_pepn1e.png" alt="sort"></p><p><img src="https://res.cloudinary.com/rna-sick/image/upload/v1557476531/TFDB/16_kl0dfh.png" alt="expand"></p></li><li><p>就可以畫分裂圓餅圖啦</p><p><img src="https://res.cloudinary.com/rna-sick/image/upload/v1557476535/TFDB/17_tihmcb.png" alt="chart start"></p></li><li><p>類別太多，依據 legend 顏色對照看圖其實不是很有用，所以建議把 Label 以 best fit 的方式直接標示在 pie 的旁邊</p><p><img src="https://res.cloudinary.com/rna-sick/image/upload/v1557476535/TFDB/18_d7ncw3.png" alt="adjust"></p></li><li><p>可以由右鍵選擇 Format Data Label 來對標籤要顯示的項目微調</p><p><img src="https://res.cloudinary.com/rna-sick/image/upload/v1557476539/TFDB/19_a5chdr.png" alt="split"></p></li><li><p>點擊一個 Pie 的部分，右鍵選擇 Format Data Seiries，選擇第三個長條圖圖示的頁籤，可以由 Split Series By 選擇分裂的方式，下方則有一些不同的參數設定，之後微調圖面就有一張美美又很佔空間的圖可以用啦～</p><p><img src="https://res.cloudinary.com/rna-sick/image/upload/v1557490901/TFDB/20_nyibam.png" alt="threshold"></p></li></ol>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;圓餅圖是呈現數據中各個類別比例的好方法，但是當類別超過三個的時候，圓餅圖的呈現方式反而有可能造成誤導。這種時候最好改用長條圖或是分裂圓餅圖。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="pie chart" scheme="https://rna-sick.me/tags/pie-chart/"/>
+    
+      <category term="Excel" scheme="https://rna-sick.me/tags/Excel/"/>
+    
+      <category term="figure" scheme="https://rna-sick.me/tags/figure/"/>
+    
+      <category term="percentage" scheme="https://rna-sick.me/tags/percentage/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>107 年公費留考採收後處理筆試篇</title>
+    <link href="https://rna-sick.me/2019/01/03/107-%E5%B9%B4%E5%85%AC%E8%B2%BB%E7%95%99%E8%80%83%E7%AD%86%E8%A9%A6%E7%AF%87/"/>
+    <id>https://rna-sick.me/2019/01/03/107-年公費留考筆試篇/</id>
+    <published>2019-01-03T10:21:45.000Z</published>
+    <updated>2019-05-11T14:32:59.100Z</updated>
+    
+    <content type="html"><![CDATA[<p>悚動版標題：兩週衝刺！一次就上公費留考！實際上：花了二十五年準備，因為從出生以來的人生每一步都替未來鋪路，才有這個以我的普通出身家庭來說，算是幸運的結果。我報考的學群與科目：農林漁牧類農作物安全管理之採收後處理。在這邊把些許還記得的部分記錄下來，希望能幫到有需要的人。</p><a id="more"></a><!-- TOC --><hr><h3 id="機緣與考前狀況（一些碎碎念廢話前言）"><a href="#機緣與考前狀況（一些碎碎念廢話前言）" class="headerlink" title="機緣與考前狀況（一些碎碎念廢話前言）"></a>機緣與考前狀況（一些碎碎念廢話前言）</h3><p>大概是年初開始有出國讀書的打算，也就是讀園藝所碩一下剛開學的時候，在暑假中七月底考完托福，看到系辦公告的教育部公費留考辦法公文，一個衝動之下便報名了。報名截止日期是八月十號，光是報名就遇到了一些令人小緊張的情況：托福才剛出分卻來不及收到正式紙本成績單，所以繳交的是成績查詢頁面的截圖；其他應繳資料又有特定的檔案格式與容量限制；報名頁面一定要用純正的 Internet Explorer 開 (用外掛模擬的過不了關)，一路拖延到八月九號下午，要搭飛機去土耳其參加國際園藝年會的前一刻才把檔案上傳完畢，還曾經一度以為無法報名成功。後來因為先前已經排好的國際年會和志工行程，我一直考前三週左右才回到臺灣，一邊在時差調整中開始準備學期的開始，考前兩週的週末陪女朋友還很堅持要去溪頭爬山度假，老實說放棄的念頭已經開始萌生。沒想到轉機也奇妙地出現，報名後只跟幾個朋友提到這個考試，不敢跟指導老師或其他學界前輩說。而很幸運地大學時期曾經當過採收後處理大師王自存老師的導生，老師當年也是公費到 UC Davis 攻讀博士，經過可靠的嘉祐學長聯絡，王老師送了我最新版的獨家講義以及他本人審定完的植物生理學中文書。雖然多了一股壓力，但也成為我心中堅定的推力，考前兩週便每天抱著這兩本書直到上場考試。</p><h3 id="各科準備方式"><a href="#各科準備方式" class="headerlink" title="各科準備方式"></a>各科準備方式</h3><p>很久沒有這麼認真準備考試了，在此把些許還記得的部分記錄下來，希望能幫到有需要的人。所有的考生都要考一科國文，我報考的組別的專業科目是植物生理和採收後處理，以下將分別說明：</p><h4 id="一、國文"><a href="#一、國文" class="headerlink" title="一、國文"></a>一、國文</h4><h5 id="一句話懶人包："><a href="#一句話懶人包：" class="headerlink" title="一句話懶人包："></a>一句話懶人包：</h5><p>​    一早九點就開考的國文作文，最需要的大概是靈感和自圓其說的功力。</p><h5 id="考古題分析："><a href="#考古題分析：" class="headerlink" title="考古題分析："></a>考古題分析：</h5><p>​    從前幾年的考古題看來，感覺不會再考一些文言文的翻譯，大概都是講道理的論說文。</p><p><img src="https://res.cloudinary.com/rna-sick/image/upload/v1557492555/107%20%E5%85%AC%E8%B2%BB%E7%95%99%E8%80%83/%E7%AD%86%E8%A9%A6%E7%AF%87/passedChinese_nxc1jy.png" alt="passed chinese"></p><p>​    我最多只有往前找到 102 年的考古題，已經出現文言文翻譯的題型，代表再更往前的可能也不會太有參考價值。大體上題目或立論方向都要跟求學、做人甚至經營的思辨過程有點關係，恐怕不只是考文字掌握能力，也在看考生的想法與心智狀態是否真的是值得國家投資的人，因此如果心中其實並不清明的話該戴的面具還是要戴。</p><h5 id="準備心態："><a href="#準備心態：" class="headerlink" title="準備心態："></a>準備心態：</h5><p>​    因為剛考完托福不久，還挺習慣快速建立文章邏輯架構與找尋例子的思考方式，所以就稍微看看考古題，通勤時思考一下可能的大綱，並且每天看看訂閱的電子報了解國際新聞與局勢充實例子資料庫。所謂建立文章的邏輯架構，我基本上完全套用考托福的寫法，想個主題句與反面的讓步句，分別用於第一段與最後一段，中間兩段放例子。電子報的部分，主要看的是台灣的數位時代以及美國的 <a href="https://morningbrew.cmail19.com/t/j-l-xllpht-jydhdleb-ih/" target="_blank" rel="noopener">Morning Brew</a>，每天出刊，輕鬆又好讀，掌握各種最新時事。</p><h5 id="實際考情："><a href="#實際考情：" class="headerlink" title="實際考情："></a>實際考情：</h5><p><img src="https://res.cloudinary.com/rna-sick/image/upload/v1557492177/107%20%E5%85%AC%E8%B2%BB%E7%95%99%E8%80%83/%E7%AD%86%E8%A9%A6%E7%AF%87/chi107_w0ftab.png" alt="chinese 107"></p><p>這就是我拿到的題目，先想主題句，其實就是把題目換句話寫一遍，拉長成三句話講，第一段就有了。接著想想例子，與其說是從記憶中找尋適合的例子，不如說是想想如何把腦中熟悉的新聞事件套用到這個主題中。身為園藝所分子生物學及生物技術專長的研究生，最熟悉的議題其實就是有機農法與基改應用之爭，真的是需要很多的尊重與包容。另外這兩年我也常關注區塊鏈應用場景的演變，剛好在考前三天看到一篇數位時代的<a href="https://www.bnext.com.tw/article/50813/ipo-bitcoin-bitmain?utm_source=《數位時代》日報&amp;utm_campaign=5299668687-dailyedm_bn_CAMPAIGN_2018_10_04&amp;utm_medium=email&amp;utm_term=0_54d89d4529-5299668687-117762529&amp;goal=0_54d89d4529-5299668687-117762529&amp;mc_cid=5299668687&amp;mc_eid=470ab6d373" target="_blank" rel="noopener">短文</a>，便現學現賣地把研發與代工間的關係套用到共存與共榮的主題中，但老實說最後這個例子因為不夠熟悉所以寫起來其實有點卡。</p><h4 id="二、採收後處理"><a href="#二、採收後處理" class="headerlink" title="二、採收後處理"></a>二、採收後處理</h4><h5 id="一句話懶人包：-1"><a href="#一句話懶人包：-1" class="headerlink" title="一句話懶人包："></a>一句話懶人包：</h5><p>講義熟讀起碼拿四題，剩下一題考實際產業了解。</p><h5 id="考古題分析：-1"><a href="#考古題分析：-1" class="headerlink" title="考古題分析："></a>考古題分析：</h5><p>107 年之前沒有考古題。原本聽說有個學姊才剛拿公費出去讀採收後處理，查一查才知到是另外的農委會內部的菁英計畫，所以真的沒有教育部公費的考古題。</p><h5 id="準備心態：-1"><a href="#準備心態：-1" class="headerlink" title="準備心態："></a>準備心態：</h5><p>園產品處理學是我過了放 (ㄏㄨㄟˇ) 蕩 (ㄅㄨˋ) 不 (ㄉㄤ ) 羈 (ㄔㄨ ) 的大學前兩年之後，因為遇到王自存老師，開始認真拿學分的第一個科目，所以複習起來還挺快的。採收後處理可以分成兩大部分，園產品的採收後生理以及實際的處理過程，前者需要有基本的植物生理知識基礎，後者則是由實際處理這個動作的技術核心所串起的過程。把每個章節略讀過後，考前針對需要記憶的條目，例如各種預冷的方式、處理的過程，發明一些諧音口訣記憶法。</p><h5 id="實際考感："><a href="#實際考感：" class="headerlink" title="實際考感："></a>實際考感：</h5><p>掃過題目之後，對於考產業了解的題目感到腦袋一片空白冷汗直冒，但隨即振作把握會寫的題目，把自己編的記憶口訣展開來寫成一條條清楚的名詞解釋，組織成比較完整的描述。需要產業了解的題目是如何改善台灣芒果銷售日韓的流程，這是很經典的範例，但我卻完全不知道要怎樣改善，只好把現行的檢疫條件、芒果本身常見的問題、以及曾經聽過的比較新潮的技術加在一起寫一寫。最後的一大題是考名詞解釋，幾乎都是兩個很像的名詞之比較，寫出差異之處，因為我自己時間掌握的問題，最後眼睜睜看著自己寫錯的「後熟」vs.「成熟」這種基本的東西在考卷上，來不及塗掉修改就交出去了。所以就算有會的題目，也要好好掌握時間不要寫太多啊～</p><h4 id="三、植物生理"><a href="#三、植物生理" class="headerlink" title="三、植物生理"></a>三、植物生理</h4><h5 id="一句話懶人包：-2"><a href="#一句話懶人包：-2" class="headerlink" title="一句話懶人包："></a>一句話懶人包：</h5><p>當作大學的植物生理學學期考試，基本的光合作用、呼吸作用佔兩題，賀爾蒙每年會輪著考。</p><h5 id="考古題分析：-2"><a href="#考古題分析：-2" class="headerlink" title="考古題分析："></a>考古題分析：</h5><p>前三年的植物生理學分散在不同的學群中，像是生命科學與植物科技學，可能方向上略有差異，但總體來說考得都很廣。104, 105 學年都是中文出七題，106 則是英文五題。基本的光合作用與呼吸作用一定會考個 40 分左右，賀爾蒙只會出一題，其他的題目則看不大出趨勢。106 年的題目最讓我感到害怕，賀爾蒙題就出了可能有些教科書根本沒有列的 Strigolactones，第二題則是考後基因體時代功能基因體學的工具與方法，最後一題則是要求提出針對氣候變遷的未來研究方向，可見不只是把教科書上整理好的研究結果熟記就夠，因為要選的是出國進行研究的未來博士生，所以也要掌握新潮的研究趨勢與方法。</p><h5 id="準備心態：-2"><a href="#準備心態：-2" class="headerlink" title="準備心態："></a>準備心態：</h5><p>準備的心態大概是想要將植物生理學打個底，像是準備了個網子，考題來的時候至少可以撈到幾題，抓不住的話就讓它去吧。我的備考資料是中文的植物生理學，由五南帶出版中國人撰寫，經王自存老師審定。即便如此，因為知道考題可能很刁鑽又新潮，所以讀教材的過程中是用很敏銳的態度來讀，不可以照單全收。剩下兩週的時間開始準備，所以將整本書簡單瀏覽過，至少知道自己有多無知之後才針對想要加強的細節來詳讀。我先從最喜歡的賀爾蒙篇章開始準備，因為好讀又可以確定應該至少可以拿到一題的分數。接著有空時就翻來翻去吸收多少算多少，最後兩天才來苦記光合作用和呼吸作用的循環概念和其中的一大堆細節。</p><p><img src="https://res.cloudinary.com/rna-sick/image/upload/v1557585004/107%20%E5%85%AC%E8%B2%BB%E7%95%99%E8%80%83/%E7%AD%86%E8%A9%A6%E7%AF%87/DSC_0984_qp4vi5.jpg" alt="physioBook"></p><p>至於新潮的研究及其方法，很幸運地我所待的臺大園藝所植物生物技術暨分子生物研究室，由黃鵬林和杜宜殷老師所主持，平常開會時看見兩位教授的博學程度，自然不敢鬆懈，準備讀碩士時便開始訂閱 Elife, PNAS, Nature 等各大期刊的電子報，就算一開始什麼都看不懂很挫折，每週最新接受文章的題目看久了也會有點感覺，真的有感興趣的題目再點進去讀一點點摘要，久而久之還是可以累積點東西。</p><p>考前幾分鐘又再次看一下光合作用與呼吸作用的該記得詞，並猜了一下賀爾蒙題，前兩年把最常見與最少見的 Auxin 跟 Strigolactones 考過，更前一年考通常出現在中間的 ABA 和 GA 的拮抗關係，一股靈感讓我覺得很有可能會再出一次 GA 或沒出現過的 cytokinin，所以就針對這兩個特別複習一下。</p><h5 id="實際考感：-1"><a href="#實際考感：-1" class="headerlink" title="實際考感："></a>實際考感：</h5><p>看到第一題就考光合作用與呼吸作用，而且我還知道答案，便忍不住把所有相關的知識都寫上去了，才佔五分的題目，我就花了一頁半來回答，回過神來時才驚覺不妙重新調整步調。很幸運地賀爾蒙題考激勃素，剛好被我猜中，最後一題考了微生物相的研究，剛好我的碩士專題是激勃素有關的轉錄體分析，所以激勃素以及次世代定序有關的題目都還算有東西可以回答。中間幾題實在不會寫也是盡量擠一點有關的東西希望可以拿一點墨水分哈哈。</p><h3 id="心態調整"><a href="#心態調整" class="headerlink" title="心態調整"></a>心態調整</h3><p>一開始準備考試的心態其實沒有很堅定，抱著一種就當作去換個經驗的心態在看待。還記得拿著繳費單去活大全家繳交一千元的時候，看著繳費單的標題，隱隱覺得這似乎是會改變我命運的存在，卻還是沒能讓我仔細思考這件事情。後來被前輩知道我要考試之後，才有種被水一戰的振作感。由准考證號碼結尾是二號，便猜到這個考科報考的人應該不多，沒想到最後一刻在考場前遇到同一間研究室且已經在當公務員的學長，整個就覺得很不妙啊，不過反而有種如果是輸給這種超強的前輩的話也沒有什麼好丟臉了的感覺，盡力而為就好。</p><p><img src="https://res.cloudinary.com/rna-sick/image/upload/v1557569576/107%20%E5%85%AC%E8%B2%BB%E7%95%99%E8%80%83/%E7%AD%86%E8%A9%A6%E7%AF%87/IMG_0009_tdfeo4.jpg" alt="mountain"></p><blockquote><p>考前兩週，女朋友很堅持要我陪他愚蠢地在連假期間去溪頭，所以我就帶著處理學講義去登溪頭天文台，一路念乙烯訊息傳遞的故事給他聽。</p></blockquote><h3 id="考場觀察及其他"><a href="#考場觀察及其他" class="headerlink" title="考場觀察及其他"></a>考場觀察及其他</h3><p>幸好考場在台大的普通教室，旁邊就是可以吃飯的小福。讓我印象最深刻的就是振筆疾書的聲音從頭到尾都不會停，也幾乎沒有人會提早交卷。要馬就是直接應到未到，否則大家都會想辦法寫越多越好。記得帶墊板，習慣的筆與修正帶多準備幾隻。</p><p><img src="https://res.cloudinary.com/rna-sick/image/upload/v1557569327/107%20%E5%85%AC%E8%B2%BB%E7%95%99%E8%80%83/%E7%AD%86%E8%A9%A6%E7%AF%87/Screen_Shot_2019-05-11_at_18.07.18_iks7j4.png" alt="result"></p><p>最後的成績實在沒有很好，但還是可以去參加面試，面試又是一場奇妙的旅程啊～</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;悚動版標題：兩週衝刺！一次就上公費留考！實際上：花了二十五年準備，因為從出生以來的人生每一步都替未來鋪路，才有這個以我的普通出身家庭來說，算是幸運的結果。我報考的學群與科目：農林漁牧類農作物安全管理之採收後處理。在這邊把些許還記得的部分記錄下來，希望能幫到有需要的人。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="留學" scheme="https://rna-sick.me/tags/%E7%95%99%E5%AD%B8/"/>
+    
+      <category term="公費留考" scheme="https://rna-sick.me/tags/%E5%85%AC%E8%B2%BB%E7%95%99%E8%80%83/"/>
+    
+      <category term="Postharvest" scheme="https://rna-sick.me/tags/Postharvest/"/>
     
   </entry>
   
   <entry>
     <title>使用 PlantTFDB 預測胺基酸序列是否為轉錄因子</title>
-    <link href="https://rna-s1ck.github.io/2018/12/21/TFDB/"/>
-    <id>https://rna-s1ck.github.io/2018/12/21/TFDB/</id>
-    <published>2018-12-21T04:47:21.000Z</published>
-    <updated>2019-05-09T10:43:10.976Z</updated>
+    <link href="https://rna-sick.me/2018/12/27/TFDB/"/>
+    <id>https://rna-sick.me/2018/12/27/TFDB/</id>
+    <published>2018-12-27T04:47:21.000Z</published>
+    <updated>2019-05-11T14:33:57.344Z</updated>
     
-    <content type="html"><![CDATA[<p>Transcriptome 分析的文章中，有時候會出現一個小章節用來描述總共註解到了多少轉錄因子，或是有哪些轉錄因子上調或下調。</p><p><img src="/2018/12/21/TFDB/1.png" alt="1"></p><p><img src="/2018/12/21/TFDB/2.png" alt="2"></p><p>因為轉錄因子序列比較短，用一般的註解方式容易錯過，或是僅因為有特定的區段就有把酵素類的蛋白質誤解為轉錄因子的情形。</p><p><img src="/2018/12/21/TFDB/2.5.png" alt=""></p><p><a href="http://planttfdb.cbi.pku.edu.cn" target="_blank" rel="noopener">PlantTFDB</a> 替大家解決了這個問題，網站除了可以直接查詢他們的研究團隊已經預測過的物種中的轉錄因子以外，也有提供了基於他們人為透過文獻閱讀歸納出來的轉錄因子家族指定規則進行預測的服務。</p><a id="more"></a> <p><img src="/2018/12/21/TFDB/21.png" alt=""></p><p>只要輸入胺基酸序列，稍等一下就可以得到預測結果。以下將會簡單介紹網頁以及紀錄預測功能的使用，並且銜接到使用 excel 繪製轉錄因子比例圓餅圖的操作。</p><p>首先首頁就可以看到五十八種轉錄因子的分類以及已經註解到的數量，每次改版過程中註解方式或是說指定規則可能會因爲文獻而略有更動，像是最近一版就把參與轉錄調節但是不具有直接 DNA 結合區段的類別移除了。</p><p><img src="/2018/12/21/TFDB/5.png" alt=""></p><p>隨便選擇一個沒有聽過的 E2F/DP 點進去，有該種轉錄因子在各種物種中的家族成員數量，和簡單的文字敘述及引用文獻，讓人可以快速了解該分類，或是本身在進行該家族的基因研究的話，也可以參考不同物種中的成員數量以評估註解情形。</p><p><img src="/2018/12/21/TFDB/6.png" alt=""></p><p><img src="/2018/12/21/TFDB/7.png" alt=""></p><p>接下來終於要進入正題，如何使用ＴＦＤＢ提供的轉錄因子註解服務：</p><ol><li><p>進入預測的<a href="http://planttfdb.cbi.pku.edu.cn/prediction.php" target="_blank" rel="noopener">頁面</a>：</p><p><img src="/2018/12/21/TFDB/4.png" alt=""></p></li><li><p>輸入 fasta 格式的序列或是直接上傳 fasta 檔案</p></li><li><p>勾選 Best Hit in <em>Arabidopsis Thaliana</em> 的話會附上一筆資訊，未來銜接其他分析也方便，然後用力地按下 Pridiction</p></li><li><p>過一下下就有結果出來了</p><p><img src="/2018/12/21/TFDB/3.png" alt=""></p></li><li><p>在文字敘述中按 Download list</p><p><img src="/2018/12/21/TFDB/8.png" alt=""></p></li><li><p>下載下來的是純文字檔案，可以用 Excel 打開</p><p><img src="/2018/12/21/TFDB/9.png" alt=""></p></li><li><p>在預測結果上方插入一個 row 輸入 ＴＦ，旁邊插入一個 column 輸入 count</p><p><img src="/2018/12/21/TFDB/10.png" alt=""></p></li><li><p>將 count 填滿 1</p><p><img src="/2018/12/21/TFDB/11.png" alt=""></p></li><li><p>選取這兩個我們處理過的 column，點選 insert 分頁中的 Pivot Table</p><p><img src="/2018/12/21/TFDB/12.png" alt=""></p></li><li><p>在喜歡的地方放這個新 Table</p><p><img src="/2018/12/21/TFDB/13.png" alt=""></p></li><li><p>在右方把 count 和 TF 都勾選起來</p><p><img src="/2018/12/21/TFDB/14.png" alt=""></p></li><li><p>依據數量大小排個序</p><p><img src="/2018/12/21/TFDB/15.png" alt=""></p><p><img src="/2018/12/21/TFDB/16.png" alt=""></p></li><li><p>就可以畫圓餅圖啦</p><p><img src="/2018/12/21/TFDB/17.png" alt=""></p><p><img src="/2018/12/21/TFDB/18.png" alt=""></p><p><img src="/2018/12/21/TFDB/19.png" alt=""><br><img src="/2018/12/21/TFDB/20.png" alt=""></p></li></ol>]]></content>
+    <content type="html"><![CDATA[<!-- excerpt --><!-- TOC --><hr><h5 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h5><p>Transcriptome 分析的文章中，有時候會出現一個小章節用來描述總共註解到了多少轉錄因子，或是有哪些轉錄因子上調或下調。像是這篇萵苣抽薹有關的研究中，便用圓餅圖表示了各種可供未來研究參考的轉錄因子家族名稱。</p><p><img src="https://res.cloudinary.com/rna-sick/image/upload/v1557476521/TFDB/1_etdhp9.png" alt="paper_cover"></p><p><img src="https://res.cloudinary.com/rna-sick/image/upload/v1557476523/TFDB/2_rpmdzn.png" alt="pie chart"></p><p>在實際的分析上，因為轉錄因子序列比較短，用一般的註解軟體容易錯過，或是僅因為有特定的區段就有把酵素類的蛋白質誤解為轉錄因子的情形。</p><p><img src="https://res.cloudinary.com/rna-sick/image/upload/v1557476525/TFDB/2.5_xe0cwr.png" alt="TFDBhomepage"></p><p><a href="http://planttfdb.cbi.pku.edu.cn" target="_blank" rel="noopener">PlantTFDB</a> 替大家解決了這個問題，網站除了可以直接查詢他們的研究團隊已經預測過的物種中的轉錄因子以外，也有提供了基於他們人為透過文獻閱讀歸納出來的轉錄因子家族指定規則進行預測的服務。</p><p><img src="https://res.cloudinary.com/rna-sick/image/upload/v1557476539/TFDB/21_zghszl.png" alt="assignmentRules"></p><p>只要輸入胺基酸序列，稍等一下就可以得到預測結果。以下將會簡單介紹網頁以及 step by step 紀錄預測功能的使用，並且銜接到使用 excel 繪製轉錄因子比例圓餅圖的操作。</p><h5 id="Plant-TFDB-網頁基本功能"><a href="#Plant-TFDB-網頁基本功能" class="headerlink" title="Plant TFDB 網頁基本功能"></a>Plant TFDB 網頁基本功能</h5><p>首先首頁就可以看到五十八種轉錄因子的分類以及已經註解到的數量，每次改版過程中註解方式或是說指定規則可能會因爲文獻而略有更動，像是最近一版就把參與轉錄調節但是不具有直接 DNA 結合區段的類別移除了。</p><p><img src="https://res.cloudinary.com/rna-sick/image/upload/v1557476524/TFDB/5_dvovqk.png" alt="all those family types"></p><p>隨便選擇一個沒有聽過的 E2F/DP 點進去，有該種轉錄因子在各種物種中的家族成員數量，和簡單的文字敘述及引用文獻，讓人可以快速了解該分類，或是本身在進行該家族的基因研究的話，也可以參考不同物種中的成員數量以評估註解情形。</p><p><img src="https://res.cloudinary.com/rna-sick/image/upload/v1557476521/TFDB/6_elncgl.png" alt="family page"></p><p>紅色的 bar chart 標出了他們所註解的基因體中含有的該家族的轉錄因子數量。只可惜是以圖片的方式呈現，所以不方便在網頁上直接用搜尋找到自己感興趣的物種資料，可能還是要回到首頁搜尋比較方便。</p><p><img src="https://res.cloudinary.com/rna-sick/image/upload/v1557476521/TFDB/7_tjuwbe.png" alt="page family description"></p><p>轉錄因子頁面下方就有簡單的文字描述，看完就大概知道要怎樣簡單介紹這個轉錄因子，譬如基本的蛋白質功能區段 (domain)、常見的作用型態、目標基因、以及可能參與的生理調控。</p><h5 id="使用轉錄因子預測服務"><a href="#使用轉錄因子預測服務" class="headerlink" title="使用轉錄因子預測服務"></a>使用轉錄因子預測服務</h5><p>接下來終於要進入正題，如何使用ＴＦＤＢ提供的轉錄因子註解服務：</p><ol><li><p>進入預測的<a href="http://planttfdb.cbi.pku.edu.cn/prediction.php" target="_blank" rel="noopener">頁面</a>：</p><p><img src="https://res.cloudinary.com/rna-sick/image/upload/v1557476522/TFDB/4_awor70.png" alt="prediction page"></p></li><li><p>輸入 fasta 格式的序列，或是直接上傳 fasta 檔案</p></li><li><p>勾選 Best Hit in <em>Arabidopsis Thaliana</em> 的話會附上一筆對應的阿拉伯芥基因資訊，未來銜接其他分析也方便，然後用力地按下 Pridiction</p></li><li><p>四萬多筆資料，過兩分鐘就有結果出來了，可以在這個頁面的表格上簡單地操作瀏覽一下</p><p><img src="https://res.cloudinary.com/rna-sick/image/upload/v1557476521/TFDB/3_qabku9.png" alt="TF prediction results"></p></li><li><p>在文字敘述中按 Download list，這就是輸出用以後續分析的格式，column 分別為我們所提供的胺基酸序列之 ID、轉錄因子基因家族、Best Hit in <em>Arabidopsis Thaliana</em> 之基因、p-value、Best Hit in <em>Arabidopsis Thaliana</em> 基因之註解</p><p><img src="https://res.cloudinary.com/rna-sick/image/upload/v1557476526/TFDB/8_urmrrx.png" alt="result"></p></li><li><p>下載下來的是純文字檔案，雖然副檔名是 “.list”，但還是可以對著檔案點右鍵，選擇用 excel 打開以方便檢視</p><p><img src="https://res.cloudinary.com/rna-sick/image/upload/v1557476528/TFDB/9_mjglar.png" alt="opening by excel"></p><p>由這個檔案，就可以看到輸入的胺基酸序列代號，以及其所對應的轉錄因子家族。雖然這樣子全自動預測的服務很方便，最好還是要人工檢核 (manual curation) 一下，再進行下一步的分析比較保險。除了看看感興趣的基因究竟是什麼轉錄因子以外，通常會想看看各個家族的比例。如何直接使用這個輸出的預測結果檔案，不寫程式使用 excel 畫成可以呈現各個基因家族比例的圓餅圖，且待下回分曉～</p></li></ol>]]></content>
     
     <summary type="html">
     
-      &lt;p&gt;Transcriptome 分析的文章中，有時候會出現一個小章節用來描述總共註解到了多少轉錄因子，或是有哪些轉錄因子上調或下調。&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;/2018/12/21/TFDB/1.png&quot; alt=&quot;1&quot;&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;/2018/12/21/TFDB/2.png&quot; alt=&quot;2&quot;&gt;&lt;/p&gt;
-&lt;p&gt;因為轉錄因子序列比較短，用一般的註解方式容易錯過，或是僅因為有特定的區段就有把酵素類的蛋白質誤解為轉錄因子的情形。&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;/2018/12/21/TFDB/2.5.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
-&lt;p&gt;&lt;a href=&quot;http://planttfdb.cbi.pku.edu.cn&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;PlantTFDB&lt;/a&gt; 替大家解決了這個問題，網站除了可以直接查詢他們的研究團隊已經預測過的物種中的轉錄因子以外，也有提供了基於他們人為透過文獻閱讀歸納出來的轉錄因子家族指定規則進行預測的服務。&lt;/p&gt;
+      &lt;p&gt;PlantTFDB 提供了一個非常快速方便的轉錄因子查詢入口，有發表基因體的植物物種都有被註解。他們提供的預測服務則可以讓使用者輕鬆註解自己手邊的序列。&lt;/p&gt;
     
     </summary>
     
     
-      <category term="excel" scheme="https://rna-s1ck.github.io/tags/excel/"/>
+      <category term="excel" scheme="https://rna-sick.me/tags/excel/"/>
     
-      <category term="transcription factor" scheme="https://rna-s1ck.github.io/tags/transcription-factor/"/>
+      <category term="transcription factor" scheme="https://rna-sick.me/tags/transcription-factor/"/>
     
-      <category term="plant" scheme="https://rna-s1ck.github.io/tags/plant/"/>
+      <category term="plant" scheme="https://rna-sick.me/tags/plant/"/>
     
-      <category term="pie chart" scheme="https://rna-s1ck.github.io/tags/pie-chart/"/>
+      <category term="pie chart" scheme="https://rna-sick.me/tags/pie-chart/"/>
     
   </entry>
   
   <entry>
-    <title>客製化 seaborn 色盤 (以 CVD 為例)</title>
-    <link href="https://rna-s1ck.github.io/2018/12/21/CVD/"/>
-    <id>https://rna-s1ck.github.io/2018/12/21/CVD/</id>
+    <title>用 Cividis 色盤來畫熱圖吧</title>
+    <link href="https://rna-sick.me/2018/12/21/CVD/"/>
+    <id>https://rna-sick.me/2018/12/21/CVD/</id>
     <published>2018-12-20T16:21:51.000Z</published>
-    <updated>2019-05-09T16:07:35.792Z</updated>
+    <updated>2019-05-10T10:27:41.015Z</updated>
     
-    <content type="html"><![CDATA[<p>今年夏天看到<a href="https://doi.org/10.1371/journal.pone.0199239" target="_blank" rel="noopener">這篇文章</a>，強調科學繪圖過程中色調的選用若不夠謹慎，很有可能會造成誤導的結果，甚至影響有色覺辨認障礙 (Color vision deficiency, CVD) 的人知的權益，因此他們開發了一個python 套件 cmaputil 用以產生 CVD 最佳化的色盤。</p><a id="more"></a><p><img src="https://i.imgur.com/2V8DLlt.png" alt="image"></p><p>愛拖延如我，一直到這週氣溫降到二十度以下了才下載了套件想要試用看看，這才發現他的運作方式好複雜。似乎因為他原本的應用場景主要是替資料上色，所以有一套模擬 CVD 與顏色轉換的過程，過程基本上完全看不懂。</p><p><img src="/2018/12/21/CVD/2.png" alt=""></p><p>雖然如此，單純用個套件應該不會很難吧，沒想到剛裝完還是不能用，因為原本是寫給 python 2.7 用的，有兩個地方要自己去修改成 python 3 的 print 語法。而且他的文件跟一般的套件比起來比較簡陋，網路上討論也不多，所以老實說完全不知道怎麼用，我只是想要畫個簡單的熱圖而已啊ＱＱ～</p><p><img src="/2018/12/21/CVD/3.png" alt=""></p><p>在他們的 <a href="https://github.com/pnnl/cmaputil" target="_blank" rel="noopener">github</a> 上翻著翻著找到了附上的<a href="https://github.com/pnnl/cmaputil/blob/master/colormaps/cividisHexValues.txt" target="_blank" rel="noopener">色調值</a>，便有了下列的簡單解法：</p><ol><li><p>先下載<a href="https://github.com/pnnl/cmaputil/blob/master/colormaps/cividisHexValues.txt" target="_blank" rel="noopener">色調值</a>並另存成 CVD.txt</p></li><li><p>讀取檔案載入成 matplotlib 的 cmap</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">with</span> open(<span class="string">'CVD.txt'</span>) <span class="keyword">as</span> f:</span><br><span class="line">    colors = f.readlines()</span><br><span class="line">colors = [j[:<span class="number">-1</span>] <span class="keyword">for</span> j <span class="keyword">in</span> colors]</span><br><span class="line">cmap = matplotlib.colors.ListedColormap(colors)</span><br></pre></td></tr></table></figure></li><li><p>繪圖時把自己客製化的 cmap 傳入就好囉</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sns.clustermap(dataFrame, cmap=cmap)</span><br></pre></td></tr></table></figure></li></ol><p>以上就是使用 python 三步驟輕鬆畫幅 CVD 友善的圖～</p><p><img src="/2018/12/21/CVD/eg.png" alt=""></p><p>雖然顏色看起來有點黯淡，但是想到背後的意義就覺得有股『啊～我又堅持了個沒什麼人會在意的細節了呢真是讚讚』的感覺～嘻嘻</p>]]></content>
+    <content type="html"><![CDATA[<!-- excerpt --><!--TOC--><h5 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h5><p>今年夏天看到<a href="https://doi.org/10.1371/journal.pone.0199239" target="_blank" rel="noopener">這篇文章</a>，強調科學繪圖過程中色調的選用若不夠謹慎，很有可能會造成誤導的結果，甚至影響有色覺辨認障礙 (Color vision deficiency, CVD) 的人知的權益，因此他們開發了一個python 套件 cmaputil 用以產生 CVD 最佳化的色盤。</p><p><img src="https://res.cloudinary.com/rna-sick/image/upload/v1557417950/CVD/1_xqf4zv.png" alt="paper_cover"></p><p>愛拖延如我，一直到這週氣溫降到二十度以下了才下載了套件想要試用看看，這才發現他的運作方式好複雜。似乎因為他原本的應用場景主要是替資料上色，所以有一套模擬 CVD 與顏色轉換的過程，過程基本上完全看不懂。</p><p><img src="https://res.cloudinary.com/rna-sick/image/upload/v1557417949/CVD/2_a1ykhh.png" alt="PaperFig1"></p><h5 id="套件修改以供-python-3-使用"><a href="#套件修改以供-python-3-使用" class="headerlink" title="套件修改以供 python 3 使用"></a>套件修改以供 python 3 使用</h5><p>雖然如此，單純用個套件應該不會很難吧，沒想到剛裝完還是不能用，因為原本是寫給 python 2.7 用的，有兩個地方要自己去修改成 python 3 的 print 語法。而且他的文件跟一般的套件比起來比較簡陋，網路上討論也不多，所以老實說完全不知道怎麼用，我只是想要畫個簡單的熱圖而已啊ＱＱ～</p><p><img src="https://res.cloudinary.com/rna-sick/image/upload/v1557417948/CVD/3_t5jhlb.png" alt="github_solution"></p><h5 id="下載色調值客製化-seaborn-matplotlib-色盤"><a href="#下載色調值客製化-seaborn-matplotlib-色盤" class="headerlink" title="下載色調值客製化 seaborn/matplotlib 色盤"></a>下載色調值客製化 seaborn/matplotlib 色盤</h5><p>在他們的 <a href="https://github.com/pnnl/cmaputil" target="_blank" rel="noopener">github</a> 上翻著翻著找到了附上的<a href="https://github.com/pnnl/cmaputil/blob/master/colormaps/cividisHexValues.txt" target="_blank" rel="noopener">色調值</a>，便有了下列的簡單解法：</p><ol><li><p>先下載<a href="https://github.com/pnnl/cmaputil/blob/master/colormaps/cividisHexValues.txt" target="_blank" rel="noopener">色調值</a>並另存成 CVD.txt</p></li><li><p>讀取檔案載入成 matplotlib 的 cmap</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">with</span> open(<span class="string">'CVD.txt'</span>) <span class="keyword">as</span> f:</span><br><span class="line">    colors = f.readlines()</span><br><span class="line">colors = [j[:<span class="number">-1</span>] <span class="keyword">for</span> j <span class="keyword">in</span> colors]</span><br><span class="line">cmap = matplotlib.colors.ListedColormap(colors)</span><br></pre></td></tr></table></figure></li><li><p>繪圖時把自己客製化的 cmap 傳入就好囉</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sns.clustermap(dataFrame, cmap=cmap)</span><br></pre></td></tr></table></figure></li></ol><p>以上就是使用 python 三步驟輕鬆畫幅 CVD 友善的圖～</p><p><img src="https://res.cloudinary.com/rna-sick/image/upload/v1557417947/CVD/eg_ojwvz8.png" alt="TF_example"></p><p>雖然顏色看起來有點黯淡，但是想到背後的意義就覺得有股</p><blockquote><p>『啊～我又堅持了沒什麼人會在意的細節了呢～真是讚讚！』</p></blockquote><p>的感覺～嘻嘻</p>]]></content>
     
     <summary type="html">
     
-      &lt;p&gt;今年夏天看到&lt;a href=&quot;https://doi.org/10.1371/journal.pone.0199239&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;這篇文章&lt;/a&gt;，強調科學繪圖過程中色調的選用若不夠謹慎，很有可能會造成誤導的結果，甚至影響有色覺辨認障礙 (Color vision deficiency, CVD) 的人知的權益，因此他們開發了一個python 套件 cmaputil 用以產生 CVD 最佳化的色盤。&lt;/p&gt;
+      &lt;p&gt;科學繪圖過程中色調的選用若不夠謹慎，很有可能會造成誤導的結果，甚至影響有色覺辨認障礙 (Color vision deficiency, CVD) 的人知的權益，因此選用 Cividis 這個色盤也是一種對知識的尊重ＸＤ&lt;/p&gt;
     
     </summary>
     
     
-      <category term="python" scheme="https://rna-s1ck.github.io/tags/python/"/>
+      <category term="python" scheme="https://rna-sick.me/tags/python/"/>
     
-      <category term="繪圖" scheme="https://rna-s1ck.github.io/tags/%E7%B9%AA%E5%9C%96/"/>
+      <category term="繪圖" scheme="https://rna-sick.me/tags/%E7%B9%AA%E5%9C%96/"/>
     
-      <category term="seaborn" scheme="https://rna-s1ck.github.io/tags/seaborn/"/>
+      <category term="seaborn" scheme="https://rna-sick.me/tags/seaborn/"/>
     
-      <category term="palette" scheme="https://rna-s1ck.github.io/tags/palette/"/>
+      <category term="palette" scheme="https://rna-sick.me/tags/palette/"/>
     
   </entry>
   
