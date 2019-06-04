@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://rna-sick.me/"/>
-  <updated>2019-05-15T14:48:52.962Z</updated>
+  <updated>2019-06-04T08:19:07.124Z</updated>
   <id>https://rna-sick.me/</id>
   
   <author>
@@ -17,9 +17,35 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>Genome-wide Identification and Analysis of MADS-box Gene Family in Bitter Gourd -- Method Details</title>
+    <link href="https://rna-sick.me/McMADS/"/>
+    <id>https://rna-sick.me/McMADS/</id>
+    <published>2019-06-14T04:30:00.000Z</published>
+    <updated>2019-06-04T08:19:07.124Z</updated>
+    
+    <content type="html"><![CDATA[<p>​    This page is used to document method details in the poster “Genome-wide Identification and Analysis of MADS-box Gene Family in Bitter Gourd” presented at the “2019 Poster Competition of Department of Horticulture and Landscape Architechture, NTU”.</p><a id="more"></a><!-- TOC --><hr><h4 id="Genome-wide-identification-of-MADS-box-genes-Under-contruction"><a href="#Genome-wide-identification-of-MADS-box-genes-Under-contruction" class="headerlink" title="Genome-wide identification of MADS-box genes (Under contruction)"></a>Genome-wide identification of MADS-box genes (Under contruction)</h4><h4 id="Phylogenetic-analyses-of-MADS-box-genes"><a href="#Phylogenetic-analyses-of-MADS-box-genes" class="headerlink" title="Phylogenetic analyses of MADS-box genes"></a>Phylogenetic analyses of MADS-box genes</h4><p>Multiple sequence alignments were performed between full-length MADS-box protein sequences from bitter gourd, <em>Arabidopsis</em>, and watermelon using MUSCLE (Edgar, 2004) with default settings in Seqotron (Fourment and Holmes, 2016). An unrooted maximum-likelihood (ML) tree was constructed using the MEGA7. The tree nodes were evaluated by bootstrap analysis for 1000 replicates. </p><h4 id="Conserved-Motif-analysis"><a href="#Conserved-Motif-analysis" class="headerlink" title="Conserved Motif analysis"></a>Conserved Motif analysis</h4><p>MEME-suite (Bailey <em>et al.</em>, 1994; Bailey <em>et al.</em>, 2009) was applied to predict the conserved motifs of the MADS-box with the following parameter settings: number of repetitions -anr (any number of repetitions), maximum number of motifs -7, minimum motif width -6 and maximum motif width -69.</p><h4 id="Collection-of-plant-material-Under-contruction"><a href="#Collection-of-plant-material-Under-contruction" class="headerlink" title="Collection of plant material (Under contruction)"></a>Collection of plant material (Under contruction)</h4><h4 id="Expression-analysis-of-MADS-box-genes-Under-contruction"><a href="#Expression-analysis-of-MADS-box-genes-Under-contruction" class="headerlink" title="Expression analysis of MADS-box genes (Under contruction)"></a>Expression analysis of MADS-box genes (Under contruction)</h4><h4 id="Cis-acting-element-analysis-of-promoter-region"><a href="#Cis-acting-element-analysis-of-promoter-region" class="headerlink" title="Cis-acting element analysis of promoter region"></a>Cis-acting element analysis of promoter region</h4><p>New PLACE database (<a href="https://www.dna.affrc.go.jp/PLACE/?action=newplace" target="_blank" rel="noopener">https://www.dna.affrc.go.jp/PLACE/?action=newplace</a>) was used to predict cis-acting elements in the <em>McMADS</em>s’ promoter (1.5 kb upstream from the<br>predicted transcription start site, TSS). In this study, cis-acting elements related to seven biological related categories of interest were selected. The seven categories are hormone responsive elements, tissue specific elements, circadian responsive elements, cell cycle regulation, stress responsive element, TF regulation, light responsive elements. Category related cis-acting elements were picked up according to the presence of keywords in corresponding publication title.</p><h4 id="References"><a href="#References" class="headerlink" title="References:"></a>References:</h4><p>Bailey, T.L., M. Bodén, F.A. Buske, M. Frith, C.E. Grant, L. Clementi, J.Y. Ren, W.W. Li, S.N. William. 2009. MEME SUITE: tools for motif discovery and searching. Nucleic Acids Research. 37:W202-W208.</p><p>Bailey, T.L., and C. Elkan. 1994. Fitting a mixture model by expectation maximization to discover motifs in biopolymers. Proceedings of the Second International Conference on Intelligent Systems for Molecular Biology. 28-36.</p><p>Edgar R.C. 2004. MUSCLE: multiple sequence alignment with high accuracy and high throughput. Nucleic Acids Research. 32(5) 1792-1797.</p><p>Fourment, M., and E.C. Holmes. 2016. Seqotron: a user-friendly sequence editor for Mac OS X. BMC Research Notes. 9(106)</p><p>Higo, K., Ugawa, Y., Iwamoto, M. and Korenaga, T. 1999. Plant cis-acting regulatory DNA elements (PLACE) database. Nucleic Acids Research. 2(1) 297-300.</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;​    This page is used to document method details in the poster “Genome-wide Identification and Analysis of MADS-box Gene Family in Bitter Gourd” presented at the “2019 Poster Competition of Department of Horticulture and Landscape Architechture, NTU”.&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="苦瓜" scheme="https://rna-sick.me/tags/%E8%8B%A6%E7%93%9C/"/>
+    
+      <category term="海報" scheme="https://rna-sick.me/tags/%E6%B5%B7%E5%A0%B1/"/>
+    
+      <category term="MADS-box" scheme="https://rna-sick.me/tags/MADS-box/"/>
+    
+      <category term="bioinformatics" scheme="https://rna-sick.me/tags/bioinformatics/"/>
+    
+  </entry>
+  
+  <entry>
     <title>ORCΛ：來費解的二維語言遊樂場玩耍</title>
-    <link href="https://rna-sick.me/2019/05/15/ORC%CE%9B/"/>
-    <id>https://rna-sick.me/2019/05/15/ORCΛ/</id>
+    <link href="https://rna-sick.me/ORCA/"/>
+    <id>https://rna-sick.me/ORCA/</id>
     <published>2019-05-15T10:06:08.000Z</published>
     <updated>2019-05-15T14:48:52.962Z</updated>
     
@@ -48,8 +74,8 @@
   
   <entry>
     <title>用 Cividis 色盤來畫熱圖吧</title>
-    <link href="https://rna-sick.me/2019/03/21/CVD/"/>
-    <id>https://rna-sick.me/2019/03/21/CVD/</id>
+    <link href="https://rna-sick.me/CVD/"/>
+    <id>https://rna-sick.me/CVD/</id>
     <published>2019-03-20T16:21:51.000Z</published>
     <updated>2019-05-15T05:10:48.437Z</updated>
     
@@ -74,8 +100,8 @@
   
   <entry>
     <title>托福兩周衝刺一戰破百 (字神)</title>
-    <link href="https://rna-sick.me/2019/03/14/%E6%89%98%E7%A6%8F%E5%85%A9%E5%91%A8%E8%A1%9D%E5%88%BA%E4%B8%80%E6%88%B0%E7%A0%B4%E7%99%BE-%E5%AD%97%E7%A5%9E/"/>
-    <id>https://rna-sick.me/2019/03/14/托福兩周衝刺一戰破百-字神/</id>
+    <link href="https://rna-sick.me/%E6%89%98%E7%A6%8F%E5%85%A9%E5%91%A8%E8%A1%9D%E5%88%BA%E4%B8%80%E6%88%B0%E7%A0%B4%E7%99%BE-%E5%AD%97%E7%A5%9E/"/>
+    <id>https://rna-sick.me/托福兩周衝刺一戰破百-字神/</id>
     <published>2019-03-14T09:24:10.000Z</published>
     <updated>2019-05-15T14:36:40.757Z</updated>
     
@@ -96,8 +122,8 @@
   
   <entry>
     <title>107 年公費留考採收後處理面試篇</title>
-    <link href="https://rna-sick.me/2019/01/23/107-%E5%B9%B4%E5%85%AC%E8%B2%BB%E7%95%99%E8%80%83%E9%9D%A2%E8%A9%A6%E7%AF%87/"/>
-    <id>https://rna-sick.me/2019/01/23/107-年公費留考面試篇/</id>
+    <link href="https://rna-sick.me/107-%E5%B9%B4%E5%85%AC%E8%B2%BB%E7%95%99%E8%80%83%E9%9D%A2%E8%A9%A6%E7%AF%87/"/>
+    <id>https://rna-sick.me/107-年公費留考面試篇/</id>
     <published>2019-01-23T10:32:31.000Z</published>
     <updated>2019-05-15T09:07:42.564Z</updated>
     
@@ -120,8 +146,8 @@
   
   <entry>
     <title>用 excel 畫分裂圓餅圖，調整想要的分割比例</title>
-    <link href="https://rna-sick.me/2019/01/16/%E7%94%A8-excel-%E7%95%AB%E5%88%86%E8%A3%82%E5%9C%93%E9%A4%85%E5%9C%96%EF%BC%8C%E8%AA%BF%E6%95%B4%E6%83%B3%E8%A6%81%E7%9A%84%E5%88%86%E5%89%B2%E6%AF%94%E4%BE%8B/"/>
-    <id>https://rna-sick.me/2019/01/16/用-excel-畫分裂圓餅圖，調整想要的分割比例/</id>
+    <link href="https://rna-sick.me/%E7%94%A8-excel-%E7%95%AB%E5%88%86%E8%A3%82%E5%9C%93%E9%A4%85%E5%9C%96%EF%BC%8C%E8%AA%BF%E6%95%B4%E6%83%B3%E8%A6%81%E7%9A%84%E5%88%86%E5%89%B2%E6%AF%94%E4%BE%8B/"/>
+    <id>https://rna-sick.me/用-excel-畫分裂圓餅圖，調整想要的分割比例/</id>
     <published>2019-01-16T08:48:31.000Z</published>
     <updated>2019-05-11T14:34:11.883Z</updated>
     
@@ -146,8 +172,8 @@
   
   <entry>
     <title>107 年公費留考採收後處理筆試篇</title>
-    <link href="https://rna-sick.me/2019/01/03/107-%E5%B9%B4%E5%85%AC%E8%B2%BB%E7%95%99%E8%80%83%E7%AD%86%E8%A9%A6%E7%AF%87/"/>
-    <id>https://rna-sick.me/2019/01/03/107-年公費留考筆試篇/</id>
+    <link href="https://rna-sick.me/107-%E5%B9%B4%E5%85%AC%E8%B2%BB%E7%95%99%E8%80%83%E7%AD%86%E8%A9%A6%E7%AF%87/"/>
+    <id>https://rna-sick.me/107-年公費留考筆試篇/</id>
     <published>2019-01-03T10:21:45.000Z</published>
     <updated>2019-05-15T09:16:42.803Z</updated>
     
@@ -170,8 +196,8 @@
   
   <entry>
     <title>使用 PlantTFDB 預測胺基酸序列是否為轉錄因子</title>
-    <link href="https://rna-sick.me/2018/12/27/TFDB/"/>
-    <id>https://rna-sick.me/2018/12/27/TFDB/</id>
+    <link href="https://rna-sick.me/TFDB/"/>
+    <id>https://rna-sick.me/TFDB/</id>
     <published>2018-12-27T04:47:21.000Z</published>
     <updated>2019-05-11T14:33:57.344Z</updated>
     

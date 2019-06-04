@@ -1,0 +1,792 @@
+
+<!DOCTYPE html>
+<html lang="en">
+    
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="generator" content="RNA-Sick">
+    <title>使用 PlantTFDB 預測胺基酸序列是否為轉錄因子 - RNA-Sick</title>
+    <meta name="author" content="Chen Hsieh">
+    
+        <meta name="keywords" content="horticulture,台大園藝,bioinformatic,生物資訊,Chen Hsieh,horticulture,台大園藝,bioinformatic,生物資訊,Chen Hsieh">
+    
+    
+        <link rel="icon" href="https://rna-sick.me/assets/images/favicon.png">
+    
+    
+        <link rel="alternate" type="application/atom+xml" title="RSS" href="/atom.xml">
+    
+    <script type="application/ld+json">{"@context":"http://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Chen Hsieh","sameAs":["https://drive.google.com/file/d/1xiDPR2J_w4IWM83P-xutthcnzteJUaxg/view?usp=sharing","mailto:bendjamin101001@gmail.com"],"image":"https://www.gravatar.com/avatar/0cfd0a510d29343e15c5701627444bb8"},"articleBody":"\n\n\n前言Transcriptome 分析的文章中，有時候會出現一個小章節用來描述總共註解到了多少轉錄因子，或是有哪些轉錄因子上調或下調。像是這篇萵苣抽薹有關的研究中，便用圓餅圖表示了各種可供未來研究參考的轉錄因子家族名稱。\n\n\n在實際的分析上，因為轉錄因子序列比較短，用一般的註解軟體容易錯過，或是僅因為有特定的區段就有把酵素類的蛋白質誤解為轉錄因子的情形。\n\nPlantTFDB 替大家解決了這個問題，網站除了可以直接查詢他們的研究團隊已經預測過的物種中的轉錄因子以外，也有提供了基於他們人為透過文獻閱讀歸納出來的轉錄因子家族指定規則進行預測的服務。\n\n只要輸入胺基酸序列，稍等一下就可以得到預測結果。以下將會簡單介紹網頁以及 step by step 紀錄預測功能的使用，並且銜接到使用 excel 繪製轉錄因子比例圓餅圖的操作。\nPlant TFDB 網頁基本功能首先首頁就可以看到五十八種轉錄因子的分類以及已經註解到的數量，每次改版過程中註解方式或是說指定規則可能會因爲文獻而略有更動，像是最近一版就把參與轉錄調節但是不具有直接 DNA 結合區段的類別移除了。\n\n隨便選擇一個沒有聽過的 E2F/DP 點進去，有該種轉錄因子在各種物種中的家族成員數量，和簡單的文字敘述及引用文獻，讓人可以快速了解該分類，或是本身在進行該家族的基因研究的話，也可以參考不同物種中的成員數量以評估註解情形。\n\n紅色的 bar chart 標出了他們所註解的基因體中含有的該家族的轉錄因子數量。只可惜是以圖片的方式呈現，所以不方便在網頁上直接用搜尋找到自己感興趣的物種資料，可能還是要回到首頁搜尋比較方便。\n\n轉錄因子頁面下方就有簡單的文字描述，看完就大概知道要怎樣簡單介紹這個轉錄因子，譬如基本的蛋白質功能區段 (domain)、常見的作用型態、目標基因、以及可能參與的生理調控。\n使用轉錄因子預測服務接下來終於要進入正題，如何使用ＴＦＤＢ提供的轉錄因子註解服務：\n\n進入預測的頁面：\n\n\n輸入 fasta 格式的序列，或是直接上傳 fasta 檔案\n\n勾選 Best Hit in Arabidopsis Thaliana 的話會附上一筆對應的阿拉伯芥基因資訊，未來銜接其他分析也方便，然後用力地按下 Pridiction\n\n四萬多筆資料，過兩分鐘就有結果出來了，可以在這個頁面的表格上簡單地操作瀏覽一下\n\n\n在文字敘述中按 Download list，這就是輸出用以後續分析的格式，column 分別為我們所提供的胺基酸序列之 ID、轉錄因子基因家族、Best Hit in Arabidopsis Thaliana 之基因、p-value、Best Hit in Arabidopsis Thaliana 基因之註解\n\n\n下載下來的是純文字檔案，雖然副檔名是 “.list”，但還是可以對著檔案點右鍵，選擇用 excel 打開以方便檢視\n\n由這個檔案，就可以看到輸入的胺基酸序列代號，以及其所對應的轉錄因子家族。雖然這樣子全自動預測的服務很方便，最好還是要人工檢核 (manual curation) 一下，再進行下一步的分析比較保險。除了看看感興趣的基因究竟是什麼轉錄因子以外，通常會想看看各個家族的比例。如何直接使用這個輸出的預測結果檔案，不寫程式使用 excel 畫成可以呈現各個基因家族比例的圓餅圖，且待下回分曉～\n\n","dateCreated":"2018-12-27T12:47:21+08:00","dateModified":"2019-05-11T22:33:57+08:00","datePublished":"2018-12-27T12:47:21+08:00","description":"PlantTFDB 提供了一個非常快速方便的轉錄因子查詢入口，有發表基因體的植物物種都有被註解。他們提供的預測服務則可以讓使用者輕鬆註解自己手邊的序列。","headline":"使用 PlantTFDB 預測胺基酸序列是否為轉錄因子","image":["https://res.cloudinary.com/rna-sick/image/upload/v1557476782/TFDB/002tfdb_dh20u4.jpg","https://res.cloudinary.com/rna-sick/image/upload/v1557483649/TFDB/whatyouneed_wwmgni.jpg"],"mainEntityOfPage":{"@type":"WebPage","@id":"https://rna-sick.me/TFDB/"},"publisher":{"@type":"Organization","name":"Chen Hsieh","sameAs":["https://drive.google.com/file/d/1xiDPR2J_w4IWM83P-xutthcnzteJUaxg/view?usp=sharing","mailto:bendjamin101001@gmail.com"],"image":"https://www.gravatar.com/avatar/0cfd0a510d29343e15c5701627444bb8","logo":{"@type":"ImageObject","url":"https://www.gravatar.com/avatar/0cfd0a510d29343e15c5701627444bb8"}},"url":"https://rna-sick.me/TFDB/","keywords":"excel, transcription factor, plant, pie chart","thumbnailUrl":"https://res.cloudinary.com/rna-sick/image/upload/v1557476782/TFDB/002tfdb_dh20u4.jpg"}</script>
+    <meta name="description" content="PlantTFDB 提供了一個非常快速方便的轉錄因子查詢入口，有發表基因體的植物物種都有被註解。他們提供的預測服務則可以讓使用者輕鬆註解自己手邊的序列。">
+<meta name="keywords" content="horticulture,台大園藝,bioinformatic,生物資訊,Chen Hsieh">
+<meta property="og:type" content="blog">
+<meta property="og:title" content="使用 PlantTFDB 預測胺基酸序列是否為轉錄因子">
+<meta property="og:url" content="https://rna-sick.me/TFDB/index.html">
+<meta property="og:site_name" content="RNA-Sick">
+<meta property="og:description" content="PlantTFDB 提供了一個非常快速方便的轉錄因子查詢入口，有發表基因體的植物物種都有被註解。他們提供的預測服務則可以讓使用者輕鬆註解自己手邊的序列。">
+<meta property="og:locale" content="en">
+<meta property="og:image" content="https://res.cloudinary.com/rna-sick/image/upload/v1557476521/TFDB/1_etdhp9.png">
+<meta property="og:image" content="https://res.cloudinary.com/rna-sick/image/upload/v1557476523/TFDB/2_rpmdzn.png">
+<meta property="og:image" content="https://res.cloudinary.com/rna-sick/image/upload/v1557476525/TFDB/2.5_xe0cwr.png">
+<meta property="og:image" content="https://res.cloudinary.com/rna-sick/image/upload/v1557476539/TFDB/21_zghszl.png">
+<meta property="og:image" content="https://res.cloudinary.com/rna-sick/image/upload/v1557476524/TFDB/5_dvovqk.png">
+<meta property="og:image" content="https://res.cloudinary.com/rna-sick/image/upload/v1557476521/TFDB/6_elncgl.png">
+<meta property="og:image" content="https://res.cloudinary.com/rna-sick/image/upload/v1557476521/TFDB/7_tjuwbe.png">
+<meta property="og:image" content="https://res.cloudinary.com/rna-sick/image/upload/v1557476522/TFDB/4_awor70.png">
+<meta property="og:image" content="https://res.cloudinary.com/rna-sick/image/upload/v1557476521/TFDB/3_qabku9.png">
+<meta property="og:image" content="https://res.cloudinary.com/rna-sick/image/upload/v1557476526/TFDB/8_urmrrx.png">
+<meta property="og:image" content="https://res.cloudinary.com/rna-sick/image/upload/v1557476528/TFDB/9_mjglar.png">
+<meta property="og:updated_time" content="2019-05-11T14:33:57.344Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="使用 PlantTFDB 預測胺基酸序列是否為轉錄因子">
+<meta name="twitter:description" content="PlantTFDB 提供了一個非常快速方便的轉錄因子查詢入口，有發表基因體的植物物種都有被註解。他們提供的預測服務則可以讓使用者輕鬆註解自己手邊的序列。">
+<meta name="twitter:image" content="https://res.cloudinary.com/rna-sick/image/upload/v1557476521/TFDB/1_etdhp9.png">
+    
+    
+        
+    
+    
+        <meta property="og:image" content="https://www.gravatar.com/avatar/0cfd0a510d29343e15c5701627444bb8?s=640"/>
+    
+    
+        <meta property="og:image" content="https://res.cloudinary.com/rna-sick/image/upload/v1557476782/TFDB/002tfdb_dh20u4.jpg"/>
+        <meta class="swiftype" name="image" data-type="enum" content="https://res.cloudinary.com/rna-sick/image/upload/v1557476782/TFDB/002tfdb_dh20u4.jpg" />
+    
+    
+        <meta property="og:image" content="https://res.cloudinary.com/rna-sick/image/upload/v1557483649/TFDB/whatyouneed_wwmgni.jpg"/>
+        <meta class="swiftype" name="image" data-type="enum" content="https://res.cloudinary.com/rna-sick/image/upload/v1557483649/TFDB/whatyouneed_wwmgni.jpg" />
+    
+    
+    <!--STYLES-->
+    <link rel="stylesheet" href="/assets/css/style-c4ozcsklz4kht2pebhp44xorvyverh23toayhn7i6ubrpyedak24hv1v0hyd.min.css">
+    <!--STYLES END-->
+    
+
+    
+</head>
+
+    <body>
+        <div id="blog">
+            <!-- Define author's picture -->
+
+
+<header id="header" data-behavior="4">
+    <i id="btn-open-sidebar" class="fa fa-lg fa-bars"></i>
+    <div class="header-title">
+        <a class="header-title-link" href="/ ">RNA-Sick</a>
+    </div>
+    
+        
+            <a class="header-right-icon open-algolia-search" href="#search">
+        
+        
+            <i class="fa fa-search fa-lg"></i>
+        
+        </a>
+    
+</header>
+
+            <!-- Define author's picture -->
+
+
+    
+
+<nav id="sidebar" data-behavior="4">
+    <div class="sidebar-container">
+        
+            <div class="sidebar-profile">
+                <a href="/#about">
+                    <img class="sidebar-profile-picture" src="https://www.gravatar.com/avatar/0cfd0a510d29343e15c5701627444bb8?s=110" alt="Author&#39;s picture">
+                </a>
+                <h4 class="sidebar-profile-name">Chen Hsieh</h4>
+                
+                    <h5 class="sidebar-profile-bio"><p>I don’t need time, I need a deadline.</p>
+</h5>
+                
+            </div>
+        
+        
+            <ul class="sidebar-buttons">
+            
+                <li class="sidebar-button">
+                    
+                        <a class="sidebar-button-link " href="/ " title="RNA-Sick">
+                    
+                        <i class="sidebar-button-icon fa fa-home" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">RNA-Sick</span>
+                    </a>
+            </li>
+            
+                <li class="sidebar-button">
+                    
+                        <a class="sidebar-button-link " href="/all-tags" title="Tags">
+                    
+                        <i class="sidebar-button-icon fa fa-tags" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">Tags</span>
+                    </a>
+            </li>
+            
+                <li class="sidebar-button">
+                    
+                        <a class="sidebar-button-link " href="/all-archives" title="Archives">
+                    
+                        <i class="sidebar-button-icon fa fa-archive" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">Archives</span>
+                    </a>
+            </li>
+            
+                <li class="sidebar-button">
+                    
+                        <a class="sidebar-button-link open-algolia-search" href="#search" title="Search">
+                    
+                        <i class="sidebar-button-icon fa fa-search" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">Search</span>
+                    </a>
+            </li>
+            
+                <li class="sidebar-button">
+                    
+                        <a class="sidebar-button-link " href="#about" title="About">
+                    
+                        <i class="sidebar-button-icon fa fa-question" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">About</span>
+                    </a>
+            </li>
+            
+        </ul>
+        
+            <ul class="sidebar-buttons">
+            
+                <li class="sidebar-button">
+                    
+                        <a class="sidebar-button-link " href="https://drive.google.com/file/d/1xiDPR2J_w4IWM83P-xutthcnzteJUaxg/view?usp=sharing" target="_blank" rel="noopener" title="CV">
+                    
+                        <i class="sidebar-button-icon fa fa-file" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">CV</span>
+                    </a>
+            </li>
+            
+                <li class="sidebar-button">
+                    
+                        <a class="sidebar-button-link " href="mailto:bendjamin101001@gmail.com" target="_blank" rel="noopener" title="Contact me">
+                    
+                        <i class="sidebar-button-icon fa fa-envelope" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">Contact me</span>
+                    </a>
+            </li>
+            
+        </ul>
+        
+            <ul class="sidebar-buttons">
+            
+                <li class="sidebar-button">
+                    
+                        <a class="sidebar-button-link " href="/atom.xml" title="RSS">
+                    
+                        <i class="sidebar-button-icon fa fa-rss" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">RSS</span>
+                    </a>
+            </li>
+            
+        </ul>
+        
+    </div>
+</nav>
+
+            
+        <div class="post-header-cover
+                    text-center
+                    post-header-cover--full" style="background-image:url('https://res.cloudinary.com/rna-sick/image/upload/v1557483649/TFDB/whatyouneed_wwmgni.jpg');" data-behavior="4">
+            
+        </div>
+
+            <div id="main" data-behavior="4"
+                 class="hasCover
+                        hasCoverMetaOut
+                        hasCoverCaption">
+                
+<article class="post">
+    
+        <span class="post-header-cover-caption caption">實在是個很方便的轉錄因子分析服務啊～ (截圖來自呆伯特動畫)</span>
+    
+    
+        <div class="post-header main-content-wrap text-center">
+    
+        <h1 class="post-title">
+            使用 PlantTFDB 預測胺基酸序列是否為轉錄因子
+        </h1>
+    
+    
+        <div class="post-meta">
+    <time datetime="2018-12-27T12:47:21+08:00">
+	
+		    Dec 27, 2018
+    	
+    </time>
+    
+</div>
+
+    
+</div>
+
+    
+    <div class="post-content markdown">
+        <div class="main-content-wrap">
+            <!-- excerpt -->
+<h1 id="table-of-contents">Table of Contents</h1><ol class="toc"><li class="toc-item toc-level-5"><a class="toc-link" href="#前言"><span class="toc-text">前言</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#Plant-TFDB-網頁基本功能"><span class="toc-text">Plant TFDB 網頁基本功能</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#使用轉錄因子預測服務"><span class="toc-text">使用轉錄因子預測服務</span></a></li></ol>
+<hr>
+<h5 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h5><p>Transcriptome 分析的文章中，有時候會出現一個小章節用來描述總共註解到了多少轉錄因子，或是有哪些轉錄因子上調或下調。像是這篇萵苣抽薹有關的研究中，便用圓餅圖表示了各種可供未來研究參考的轉錄因子家族名稱。</p>
+<p><img src="https://res.cloudinary.com/rna-sick/image/upload/v1557476521/TFDB/1_etdhp9.png" alt="paper_cover"></p>
+<p><img src="https://res.cloudinary.com/rna-sick/image/upload/v1557476523/TFDB/2_rpmdzn.png" alt="pie chart"></p>
+<p>在實際的分析上，因為轉錄因子序列比較短，用一般的註解軟體容易錯過，或是僅因為有特定的區段就有把酵素類的蛋白質誤解為轉錄因子的情形。</p>
+<p><img src="https://res.cloudinary.com/rna-sick/image/upload/v1557476525/TFDB/2.5_xe0cwr.png" alt="TFDBhomepage"></p>
+<p><a href="http://planttfdb.cbi.pku.edu.cn" target="_blank" rel="noopener">PlantTFDB</a> 替大家解決了這個問題，網站除了可以直接查詢他們的研究團隊已經預測過的物種中的轉錄因子以外，也有提供了基於他們人為透過文獻閱讀歸納出來的轉錄因子家族指定規則進行預測的服務。</p>
+<p><img src="https://res.cloudinary.com/rna-sick/image/upload/v1557476539/TFDB/21_zghszl.png" alt="assignmentRules"></p>
+<p>只要輸入胺基酸序列，稍等一下就可以得到預測結果。以下將會簡單介紹網頁以及 step by step 紀錄預測功能的使用，並且銜接到使用 excel 繪製轉錄因子比例圓餅圖的操作。</p>
+<h5 id="Plant-TFDB-網頁基本功能"><a href="#Plant-TFDB-網頁基本功能" class="headerlink" title="Plant TFDB 網頁基本功能"></a>Plant TFDB 網頁基本功能</h5><p>首先首頁就可以看到五十八種轉錄因子的分類以及已經註解到的數量，每次改版過程中註解方式或是說指定規則可能會因爲文獻而略有更動，像是最近一版就把參與轉錄調節但是不具有直接 DNA 結合區段的類別移除了。</p>
+<p><img src="https://res.cloudinary.com/rna-sick/image/upload/v1557476524/TFDB/5_dvovqk.png" alt="all those family types"></p>
+<p>隨便選擇一個沒有聽過的 E2F/DP 點進去，有該種轉錄因子在各種物種中的家族成員數量，和簡單的文字敘述及引用文獻，讓人可以快速了解該分類，或是本身在進行該家族的基因研究的話，也可以參考不同物種中的成員數量以評估註解情形。</p>
+<p><img src="https://res.cloudinary.com/rna-sick/image/upload/v1557476521/TFDB/6_elncgl.png" alt="family page"></p>
+<p>紅色的 bar chart 標出了他們所註解的基因體中含有的該家族的轉錄因子數量。只可惜是以圖片的方式呈現，所以不方便在網頁上直接用搜尋找到自己感興趣的物種資料，可能還是要回到首頁搜尋比較方便。</p>
+<p><img src="https://res.cloudinary.com/rna-sick/image/upload/v1557476521/TFDB/7_tjuwbe.png" alt="page family description"></p>
+<p>轉錄因子頁面下方就有簡單的文字描述，看完就大概知道要怎樣簡單介紹這個轉錄因子，譬如基本的蛋白質功能區段 (domain)、常見的作用型態、目標基因、以及可能參與的生理調控。</p>
+<h5 id="使用轉錄因子預測服務"><a href="#使用轉錄因子預測服務" class="headerlink" title="使用轉錄因子預測服務"></a>使用轉錄因子預測服務</h5><p>接下來終於要進入正題，如何使用ＴＦＤＢ提供的轉錄因子註解服務：</p>
+<ol>
+<li><p>進入預測的<a href="http://planttfdb.cbi.pku.edu.cn/prediction.php" target="_blank" rel="noopener">頁面</a>：</p>
+<p><img src="https://res.cloudinary.com/rna-sick/image/upload/v1557476522/TFDB/4_awor70.png" alt="prediction page"></p>
+</li>
+<li><p>輸入 fasta 格式的序列，或是直接上傳 fasta 檔案</p>
+</li>
+<li><p>勾選 Best Hit in <em>Arabidopsis Thaliana</em> 的話會附上一筆對應的阿拉伯芥基因資訊，未來銜接其他分析也方便，然後用力地按下 Pridiction</p>
+</li>
+<li><p>四萬多筆資料，過兩分鐘就有結果出來了，可以在這個頁面的表格上簡單地操作瀏覽一下</p>
+<p><img src="https://res.cloudinary.com/rna-sick/image/upload/v1557476521/TFDB/3_qabku9.png" alt="TF prediction results"></p>
+</li>
+<li><p>在文字敘述中按 Download list，這就是輸出用以後續分析的格式，column 分別為我們所提供的胺基酸序列之 ID、轉錄因子基因家族、Best Hit in <em>Arabidopsis Thaliana</em> 之基因、p-value、Best Hit in <em>Arabidopsis Thaliana</em> 基因之註解</p>
+<p><img src="https://res.cloudinary.com/rna-sick/image/upload/v1557476526/TFDB/8_urmrrx.png" alt="result"></p>
+</li>
+<li><p>下載下來的是純文字檔案，雖然副檔名是 “.list”，但還是可以對著檔案點右鍵，選擇用 excel 打開以方便檢視</p>
+<p><img src="https://res.cloudinary.com/rna-sick/image/upload/v1557476528/TFDB/9_mjglar.png" alt="opening by excel"></p>
+<p>由這個檔案，就可以看到輸入的胺基酸序列代號，以及其所對應的轉錄因子家族。雖然這樣子全自動預測的服務很方便，最好還是要人工檢核 (manual curation) 一下，再進行下一步的分析比較保險。除了看看感興趣的基因究竟是什麼轉錄因子以外，通常會想看看各個家族的比例。如何直接使用這個輸出的預測結果檔案，不寫程式使用 excel 畫成可以呈現各個基因家族比例的圓餅圖，且待下回分曉～</p>
+</li>
+</ol>
+            
+
+        </div>
+    </div>
+    <div id="post-footer" class="post-footer main-content-wrap">
+        
+            <div class="post-footer-tags">
+                <span class="text-color-light text-small">TAGGED IN</span><br>
+                
+    <a class="tag tag--primary tag--small t-link" href="/tags/excel/">excel</a> <a class="tag tag--primary tag--small t-link" href="/tags/pie-chart/">pie chart</a> <a class="tag tag--primary tag--small t-link" href="/tags/plant/">plant</a> <a class="tag tag--primary tag--small t-link" href="/tags/transcription-factor/">transcription factor</a>
+
+            </div>
+        
+        
+            <div class="post-actions-wrap">
+    <nav>
+        <ul class="post-actions post-action-nav">
+            <li class="post-action">
+                
+                    
+                    <a class="post-action-btn btn btn--default tooltip--top" href="/107-年公費留考筆試篇/" data-tooltip="107 年公費留考採收後處理筆試篇" aria-label="PREVIOUS: 107 年公費留考採收後處理筆試篇">
+                
+                    <i class="fa fa-angle-left" aria-hidden="true"></i>
+                    <span class="hide-xs hide-sm text-small icon-ml">PREVIOUS</span>
+                </a>
+            </li>
+            <li class="post-action">
+                
+                    <a class="post-action-btn btn btn--disabled">
+                
+                    <span class="hide-xs hide-sm text-small icon-mr">NEXT</span>
+                    <i class="fa fa-angle-right" aria-hidden="true"></i>
+                </a>
+            </li>
+        </ul>
+    </nav>
+    <ul class="post-actions post-action-share">
+        <li class="post-action hide-lg hide-md hide-sm">
+            <a class="post-action-btn btn btn--default btn-open-shareoptions" href="#btn-open-shareoptions" aria-label="Share this post">
+                <i class="fa fa-share-alt" aria-hidden="true"></i>
+            </a>
+        </li>
+        
+            
+            
+            <li class="post-action hide-xs">
+                <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://rna-sick.me/TFDB/" title="Share on Facebook">
+                    <i class="fab fa-facebook" aria-hidden="true"></i>
+                </a>
+            </li>
+        
+            
+            
+            <li class="post-action hide-xs">
+                <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://rna-sick.me/TFDB/" title="Share on Twitter">
+                    <i class="fab fa-twitter" aria-hidden="true"></i>
+                </a>
+            </li>
+        
+            
+            
+            <li class="post-action hide-xs">
+                <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=https://rna-sick.me/TFDB/" title="Share on Google+">
+                    <i class="fab fa-google-plus" aria-hidden="true"></i>
+                </a>
+            </li>
+        
+        
+            
+                <li class="post-action">
+                    <a class="post-action-btn btn btn--default" href="#disqus_thread">
+                        <i class="fa fa-comment"></i>
+                    </a>
+                </li>
+            
+        
+        <li class="post-action">
+            
+                <a class="post-action-btn btn btn--default" href="#table-of-contents" aria-label="Table of Contents">
+            
+                <i class="fa fa-list" aria-hidden="true"></i>
+            </a>
+        </li>
+    </ul>
+</div>
+
+
+        
+        
+            
+                <div id="disqus_thread">
+    <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+            
+        
+    </div>
+</article>
+
+
+
+                <footer id="footer" class="main-content-wrap">
+    <span class="copyrights">
+        Copyrights &copy; 2019 Chen Hsieh. All Rights Reserved.
+    </span>
+</footer>
+
+            </div>
+            
+                <div id="bottom-bar" class="post-bottom-bar" data-behavior="4">
+                    <div class="post-actions-wrap">
+    <nav>
+        <ul class="post-actions post-action-nav">
+            <li class="post-action">
+                
+                    
+                    <a class="post-action-btn btn btn--default tooltip--top" href="/107-年公費留考筆試篇/" data-tooltip="107 年公費留考採收後處理筆試篇" aria-label="PREVIOUS: 107 年公費留考採收後處理筆試篇">
+                
+                    <i class="fa fa-angle-left" aria-hidden="true"></i>
+                    <span class="hide-xs hide-sm text-small icon-ml">PREVIOUS</span>
+                </a>
+            </li>
+            <li class="post-action">
+                
+                    <a class="post-action-btn btn btn--disabled">
+                
+                    <span class="hide-xs hide-sm text-small icon-mr">NEXT</span>
+                    <i class="fa fa-angle-right" aria-hidden="true"></i>
+                </a>
+            </li>
+        </ul>
+    </nav>
+    <ul class="post-actions post-action-share">
+        <li class="post-action hide-lg hide-md hide-sm">
+            <a class="post-action-btn btn btn--default btn-open-shareoptions" href="#btn-open-shareoptions" aria-label="Share this post">
+                <i class="fa fa-share-alt" aria-hidden="true"></i>
+            </a>
+        </li>
+        
+            
+            
+            <li class="post-action hide-xs">
+                <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://rna-sick.me/TFDB/" title="Share on Facebook">
+                    <i class="fab fa-facebook" aria-hidden="true"></i>
+                </a>
+            </li>
+        
+            
+            
+            <li class="post-action hide-xs">
+                <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://rna-sick.me/TFDB/" title="Share on Twitter">
+                    <i class="fab fa-twitter" aria-hidden="true"></i>
+                </a>
+            </li>
+        
+            
+            
+            <li class="post-action hide-xs">
+                <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=https://rna-sick.me/TFDB/" title="Share on Google+">
+                    <i class="fab fa-google-plus" aria-hidden="true"></i>
+                </a>
+            </li>
+        
+        
+            
+                <li class="post-action">
+                    <a class="post-action-btn btn btn--default" href="#disqus_thread">
+                        <i class="fa fa-comment"></i>
+                    </a>
+                </li>
+            
+        
+        <li class="post-action">
+            
+                <a class="post-action-btn btn btn--default" href="#table-of-contents" aria-label="Table of Contents">
+            
+                <i class="fa fa-list" aria-hidden="true"></i>
+            </a>
+        </li>
+    </ul>
+</div>
+
+
+                </div>
+                
+    <div id="share-options-bar" class="share-options-bar" data-behavior="4">
+        <i id="btn-close-shareoptions" class="fa fa-times"></i>
+        <ul class="share-options">
+            
+                
+                
+                <li class="share-option">
+                    <a class="share-option-btn" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://rna-sick.me/TFDB/">
+                        <i class="fab fa-facebook" aria-hidden="true"></i><span>Share on Facebook</span>
+                    </a>
+                </li>
+            
+                
+                
+                <li class="share-option">
+                    <a class="share-option-btn" target="new" href="https://twitter.com/intent/tweet?text=https://rna-sick.me/TFDB/">
+                        <i class="fab fa-twitter" aria-hidden="true"></i><span>Share on Twitter</span>
+                    </a>
+                </li>
+            
+                
+                
+                <li class="share-option">
+                    <a class="share-option-btn" target="new" href="https://plus.google.com/share?url=https://rna-sick.me/TFDB/">
+                        <i class="fab fa-google-plus" aria-hidden="true"></i><span>Share on Google+</span>
+                    </a>
+                </li>
+            
+        </ul>
+    </div>
+
+
+            
+        </div>
+        
+
+
+    
+
+<div id="about">
+    <div id="about-card">
+        <div id="about-btn-close">
+            <i class="fa fa-times"></i>
+        </div>
+        
+            <img id="about-card-picture" src="https://www.gravatar.com/avatar/0cfd0a510d29343e15c5701627444bb8?s=110" alt="Author&#39;s picture">
+        
+            <h4 id="about-card-name">Chen Hsieh</h4>
+        
+            <div id="about-card-bio"><p>I don’t need time, I need a deadline.</p>
+</div>
+        
+        
+            <div id="about-card-job">
+                <i class="fa fa-briefcase"></i>
+                <br>
+                <p>Master Student in Department of Horticulture and Landscape Architechture, National Taiwan University</p>
+
+            </div>
+        
+        
+            <div id="about-card-location">
+                <i class="fa fa-map-marker-alt"></i>
+                <br>
+                Taiwan, Taipei
+            </div>
+        
+    </div>
+</div>
+
+        
+            <div id="algolia-search-modal" class="modal-container">
+    <div class="modal">
+        <div class="modal-header">
+            <span class="close-button"><i class="fa fa-times"></i></span>
+            <a href="https://algolia.com" target="_blank" rel="noopener" class="searchby-algolia text-color-light link-unstyled">
+                <span class="searchby-algolia-text text-color-light text-small">by</span>
+                <img class="searchby-algolia-logo" src="https://www.algolia.com/static_assets/images/press/downloads/algolia-light.svg">
+            </a>
+            <i class="search-icon fa fa-search"></i>
+            <form id="algolia-search-form">
+                <input type="text" id="algolia-search-input" name="search" class="form-control input--large search-input" placeholder="Search ">
+            </form>
+        </div>
+        <div class="modal-body">
+            <div class="no-result text-color-light text-center">no post found</div>
+            <div class="results">
+                
+                <div class="media">
+                    
+                    <div class="media-left">
+                        <a class="link-unstyled" href="https://rna-sick.me/TFDB/">
+                            <img class="media-image" src="https://res.cloudinary.com/rna-sick/image/upload/v1557476782/TFDB/002tfdb_dh20u4.jpg" width="90" height="90">
+                        </a>
+                    </div>
+                    
+                    <div class="media-body">
+                        <a class="link-unstyled" href="https://rna-sick.me/TFDB/">
+                            <h3 class="media-heading">使用 PlantTFDB 預測胺基酸序列是否為轉錄因子</h3>
+                        </a>
+                        <span class="media-meta">
+                            <span class="media-date text-small">
+                                
+                                    Dec 27, 2018
+                                
+                            </span>
+                        </span>
+                        <div class="media-content hide-xs font-merryweather"><p>PlantTFDB 提供了一個非常快速方便的轉錄因子查詢入口，有發表基因體的植物物種都有被註解。他們提供的預測服務則可以讓使用者輕鬆註解自己手邊的序列。</p></div>
+                    </div>
+                    <div style="clear:both;"></div>
+                    <hr>
+                </div>
+                
+                <div class="media">
+                    
+                    <div class="media-left">
+                        <a class="link-unstyled" href="https://rna-sick.me/107-年公費留考筆試篇/">
+                            <img class="media-image" src="https://res.cloudinary.com/rna-sick/image/upload/v1557492588/107%20%E5%85%AC%E8%B2%BB%E7%95%99%E8%80%83/%E7%AD%86%E8%A9%A6%E7%AF%87/cover_woi6s1.png" width="90" height="90">
+                        </a>
+                    </div>
+                    
+                    <div class="media-body">
+                        <a class="link-unstyled" href="https://rna-sick.me/107-年公費留考筆試篇/">
+                            <h3 class="media-heading">107 年公費留考採收後處理筆試篇</h3>
+                        </a>
+                        <span class="media-meta">
+                            <span class="media-date text-small">
+                                
+                                    Jan 3, 2019
+                                
+                            </span>
+                        </span>
+                        <div class="media-content hide-xs font-merryweather"><p>悚動版標題：兩週衝刺！一次就上公費留考！實際上：花了二十五年準備，因為從出生以來的人生每一步都替未來鋪路，才有這個以我的普通出身家庭來說，算是幸運的結果。我報考的學群與科目：農林漁牧類農作物安全管理之採收後處理。在這邊把些許還記得的部分記錄下來，希望能幫到有需要的人。</p></div>
+                    </div>
+                    <div style="clear:both;"></div>
+                    <hr>
+                </div>
+                
+                <div class="media">
+                    
+                    <div class="media-left">
+                        <a class="link-unstyled" href="https://rna-sick.me/用-excel-畫分裂圓餅圖，調整想要的分割比例/">
+                            <img class="media-image" src="https://res.cloudinary.com/rna-sick/image/upload/v1557488413/TFDB/pieChart_qjozss.jpg" width="90" height="90">
+                        </a>
+                    </div>
+                    
+                    <div class="media-body">
+                        <a class="link-unstyled" href="https://rna-sick.me/用-excel-畫分裂圓餅圖，調整想要的分割比例/">
+                            <h3 class="media-heading">用 excel 畫分裂圓餅圖，調整想要的分割比例</h3>
+                        </a>
+                        <span class="media-meta">
+                            <span class="media-date text-small">
+                                
+                                    Jan 16, 2019
+                                
+                            </span>
+                        </span>
+                        <div class="media-content hide-xs font-merryweather"><p>圓餅圖是呈現數據中各個類別比例的好方法，但是當類別超過三個的時候，圓餅圖的呈現方式反而有可能造成誤導。這種時候最好改用長條圖或是分裂圓餅圖。</p></div>
+                    </div>
+                    <div style="clear:both;"></div>
+                    <hr>
+                </div>
+                
+                <div class="media">
+                    
+                    <div class="media-left">
+                        <a class="link-unstyled" href="https://rna-sick.me/107-年公費留考面試篇/">
+                            <img class="media-image" src="https://res.cloudinary.com/rna-sick/image/upload/v1557576720/107%20%E5%85%AC%E8%B2%BB%E7%95%99%E8%80%83/%E9%9D%A2%E8%A9%A6%E7%AF%87/Screen_Shot_2018-10-16_at_22.14.34_negeee.png" width="90" height="90">
+                        </a>
+                    </div>
+                    
+                    <div class="media-body">
+                        <a class="link-unstyled" href="https://rna-sick.me/107-年公費留考面試篇/">
+                            <h3 class="media-heading">107 年公費留考採收後處理面試篇</h3>
+                        </a>
+                        <span class="media-meta">
+                            <span class="media-date text-small">
+                                
+                                    Jan 23, 2019
+                                
+                            </span>
+                        </span>
+                        <div class="media-content hide-xs font-merryweather"><p>悚動版標題：兩週衝刺！一次就上公費留考！實際上：花了二十五年準備，因為從出生以來的人生每一步都替未來鋪路，才有這個以我的普通出身家庭來說，算是幸運的結果。我報考的學群與科目：農林漁牧類農作物安全管理之採收後處理。在這邊把些許還記得的部分記錄下來，希望能幫到有需要的人。</p></div>
+                    </div>
+                    <div style="clear:both;"></div>
+                    <hr>
+                </div>
+                
+                <div class="media">
+                    
+                    <div class="media-left">
+                        <a class="link-unstyled" href="https://rna-sick.me/托福兩周衝刺一戰破百-字神/">
+                            <img class="media-image" src="https://res.cloudinary.com/rna-sick/image/upload/v1557912859/%E6%89%98%E7%A6%8F/Screen_Shot_2018-07-06_at_21.45.42_hcptig.png" width="90" height="90">
+                        </a>
+                    </div>
+                    
+                    <div class="media-body">
+                        <a class="link-unstyled" href="https://rna-sick.me/托福兩周衝刺一戰破百-字神/">
+                            <h3 class="media-heading">托福兩周衝刺一戰破百 (字神)</h3>
+                        </a>
+                        <span class="media-meta">
+                            <span class="media-date text-small">
+                                
+                                    Mar 14, 2019
+                                
+                            </span>
+                        </span>
+                        <div class="media-content hide-xs font-merryweather"><p>這是當初申請字神獎學金的備考心得，其實我花了 27k 報了全科班之後上不到一半的課，只有口說有全部上完，在這邊把一些還記得的備考心態紀錄一下，提供給本來就不排斥英語，主要希望加強考試技巧的人～</p></div>
+                    </div>
+                    <div style="clear:both;"></div>
+                    <hr>
+                </div>
+                
+                <div class="media">
+                    
+                    <div class="media-left">
+                        <a class="link-unstyled" href="https://rna-sick.me/CVD/">
+                            <img class="media-image" src="https://res.cloudinary.com/rna-sick/image/upload/v1557417948/CVD/thumbnailCVD_ge39vw.jpg" width="90" height="90">
+                        </a>
+                    </div>
+                    
+                    <div class="media-body">
+                        <a class="link-unstyled" href="https://rna-sick.me/CVD/">
+                            <h3 class="media-heading">用 Cividis 色盤來畫熱圖吧</h3>
+                        </a>
+                        <span class="media-meta">
+                            <span class="media-date text-small">
+                                
+                                    Mar 21, 2019
+                                
+                            </span>
+                        </span>
+                        <div class="media-content hide-xs font-merryweather"><p>科學繪圖過程中色調的選用若不夠謹慎，很有可能會造成誤導的結果，甚至影響有色覺辨認障礙 (Color vision deficiency, CVD) 的人知的權益，因此選用 Cividis 這個色盤也是一種對知識的尊重ＸＤ</p></div>
+                    </div>
+                    <div style="clear:both;"></div>
+                    <hr>
+                </div>
+                
+                <div class="media">
+                    
+                    <div class="media-left">
+                        <a class="link-unstyled" href="https://rna-sick.me/ORCA/">
+                            <img class="media-image" src="https://res.cloudinary.com/rna-sick/image/upload/v1557925293/%E7%B4%94%20cover/orca_shd4gr.png" width="90" height="90">
+                        </a>
+                    </div>
+                    
+                    <div class="media-body">
+                        <a class="link-unstyled" href="https://rna-sick.me/ORCA/">
+                            <h3 class="media-heading">ORCΛ：來費解的二維語言遊樂場玩耍</h3>
+                        </a>
+                        <span class="media-meta">
+                            <span class="media-date text-small">
+                                
+                                    May 15, 2019
+                                
+                            </span>
+                        </span>
+                        <div class="media-content hide-xs font-merryweather"><p>ORCΛ 讓我回想到小時候玩電路的感動，在視覺化的程序遊樂場上，以艱澀的符號開啟一段重新思考敘事、設計、以及意義的二維航行。</p></div>
+                    </div>
+                    <div style="clear:both;"></div>
+                    <hr>
+                </div>
+                
+                <div class="media">
+                    
+                    <div class="media-left">
+                        <a class="link-unstyled" href="https://rna-sick.me/McMADS/">
+                            <img class="media-image" src="https://res.cloudinary.com/rna-sick/image/upload/v1559552701/McMADS/test_u1fqkw.png" width="90" height="90">
+                        </a>
+                    </div>
+                    
+                    <div class="media-body">
+                        <a class="link-unstyled" href="https://rna-sick.me/McMADS/">
+                            <h3 class="media-heading">Genome-wide Identification and Analysis of MADS-box Gene Family in Bitter Gourd -- Method Details</h3>
+                        </a>
+                        <span class="media-meta">
+                            <span class="media-date text-small">
+                                
+                                    Jun 14, 2019
+                                
+                            </span>
+                        </span>
+                        <div class="media-content hide-xs font-merryweather"><p>​    This page is used to document method details in the poster “Genome-wide Identification and Analysis of MADS-box Gene Family in Bitter Gourd” presented at the “2019 Poster Competition of Department of Horticulture and Landscape Architechture, NTU”.</p></div>
+                    </div>
+                    <div style="clear:both;"></div>
+                    <hr>
+                </div>
+                
+            </div>
+        </div>
+        <div class="modal-footer">
+            <p class="results-count text-medium" data-message-zero="no post found" data-message-one="1 post found" data-message-other="{n} posts found">
+                8 posts found
+            </p>
+        </div>
+    </div>
+</div>
+
+        
+        
+<div id="cover" style="background-image:url('/assets/images/cover.jpg');"></div>
+        <!--SCRIPTS-->
+<script src="/assets/js/script-dbd16rvloemmuxdzniplmnxxvwoz24eya9wol0b7vvmlokgqsjivmb8dnscy.min.js"></script>
+<!--SCRIPTS END-->
+
+    
+        <script>
+             var disqus_config = function () {
+                 this.page.url = 'https://rna-sick.me/TFDB/';
+                 
+                    this.page.identifier = 'TFDB/';
+                 
+             };
+            (function() {
+                var d = document, s = d.createElement('script');
+                var disqus_shortname = 'bendjamin101001';
+                s.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+
+                s.setAttribute('data-timestamp', +new Date());
+                (d.head || d.body).appendChild(s);
+            })();
+        </script>
+    
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.14.1/moment-with-locales.min.js"></script>
+    <script src="//cdn.jsdelivr.net/algoliasearch/3/algoliasearch.min.js"></script>
+    <script>
+        var algoliaClient = algoliasearch('QGN7RMCZMJ', 'ed68e4b318661d9c778cd11597520432');
+        var algoliaIndex = algoliaClient.initIndex('RNA-SICK');
+    </script>
+
+
+    </body>
+</html>
