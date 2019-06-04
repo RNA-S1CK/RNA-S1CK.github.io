@@ -6,10 +6,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="generator" content="RNA-Sick">
-    <title>使用 PlantTFDB 預測胺基酸序列是否為轉錄因子 - RNA-Sick</title>
+    <title>ORCΛ：來費解的二維語言遊樂場玩耍 - RNA-Sick</title>
     <meta name="author" content="Chen Hsieh">
     
-        <meta name="keywords" content="horticulture,台大園藝,bioinformatic,生物資訊,Chen Hsieh,horticulture,台大園藝,bioinformatic,生物資訊,Chen Hsieh">
+        <meta name="keywords" content="horticulture,台大園藝,bioinformatic,生物資訊,Chen Hsieh,digital art,live coding,數位藝術,horticulture,台大園藝,bioinformatic,生物資訊,Chen Hsieh,謝晨">
     
     
         <link rel="icon" href="https://rna-sick.me/assets/images/favicon.png">
@@ -17,31 +17,22 @@
     
         <link rel="alternate" type="application/atom+xml" title="RSS" href="/atom.xml">
     
-    <script type="application/ld+json">{"@context":"http://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Chen Hsieh","sameAs":["https://drive.google.com/file/d/1xiDPR2J_w4IWM83P-xutthcnzteJUaxg/view?usp=sharing","mailto:bendjamin101001@gmail.com"],"image":"https://www.gravatar.com/avatar/0cfd0a510d29343e15c5701627444bb8"},"articleBody":"\n\n\n前言Transcriptome 分析的文章中，有時候會出現一個小章節用來描述總共註解到了多少轉錄因子，或是有哪些轉錄因子上調或下調。像是這篇萵苣抽薹有關的研究中，便用圓餅圖表示了各種可供未來研究參考的轉錄因子家族名稱。\n\n\n在實際的分析上，因為轉錄因子序列比較短，用一般的註解軟體容易錯過，或是僅因為有特定的區段就有把酵素類的蛋白質誤解為轉錄因子的情形。\n\nPlantTFDB 替大家解決了這個問題，網站除了可以直接查詢他們的研究團隊已經預測過的物種中的轉錄因子以外，也有提供了基於他們人為透過文獻閱讀歸納出來的轉錄因子家族指定規則進行預測的服務。\n\n只要輸入胺基酸序列，稍等一下就可以得到預測結果。以下將會簡單介紹網頁以及 step by step 紀錄預測功能的使用，並且銜接到使用 excel 繪製轉錄因子比例圓餅圖的操作。\nPlant TFDB 網頁基本功能首先首頁就可以看到五十八種轉錄因子的分類以及已經註解到的數量，每次改版過程中註解方式或是說指定規則可能會因爲文獻而略有更動，像是最近一版就把參與轉錄調節但是不具有直接 DNA 結合區段的類別移除了。\n\n隨便選擇一個沒有聽過的 E2F/DP 點進去，有該種轉錄因子在各種物種中的家族成員數量，和簡單的文字敘述及引用文獻，讓人可以快速了解該分類，或是本身在進行該家族的基因研究的話，也可以參考不同物種中的成員數量以評估註解情形。\n\n紅色的 bar chart 標出了他們所註解的基因體中含有的該家族的轉錄因子數量。只可惜是以圖片的方式呈現，所以不方便在網頁上直接用搜尋找到自己感興趣的物種資料，可能還是要回到首頁搜尋比較方便。\n\n轉錄因子頁面下方就有簡單的文字描述，看完就大概知道要怎樣簡單介紹這個轉錄因子，譬如基本的蛋白質功能區段 (domain)、常見的作用型態、目標基因、以及可能參與的生理調控。\n使用轉錄因子預測服務接下來終於要進入正題，如何使用ＴＦＤＢ提供的轉錄因子註解服務：\n\n進入預測的頁面：\n\n\n輸入 fasta 格式的序列，或是直接上傳 fasta 檔案\n\n勾選 Best Hit in Arabidopsis Thaliana 的話會附上一筆對應的阿拉伯芥基因資訊，未來銜接其他分析也方便，然後用力地按下 Pridiction\n\n四萬多筆資料，過兩分鐘就有結果出來了，可以在這個頁面的表格上簡單地操作瀏覽一下\n\n\n在文字敘述中按 Download list，這就是輸出用以後續分析的格式，column 分別為我們所提供的胺基酸序列之 ID、轉錄因子基因家族、Best Hit in Arabidopsis Thaliana 之基因、p-value、Best Hit in Arabidopsis Thaliana 基因之註解\n\n\n下載下來的是純文字檔案，雖然副檔名是 “.list”，但還是可以對著檔案點右鍵，選擇用 excel 打開以方便檢視\n\n由這個檔案，就可以看到輸入的胺基酸序列代號，以及其所對應的轉錄因子家族。雖然這樣子全自動預測的服務很方便，最好還是要人工檢核 (manual curation) 一下，再進行下一步的分析比較保險。除了看看感興趣的基因究竟是什麼轉錄因子以外，通常會想看看各個家族的比例。如何直接使用這個輸出的預測結果檔案，不寫程式使用 excel 畫成可以呈現各個基因家族比例的圓餅圖，且待下回分曉～\n\n","dateCreated":"2018-12-27T12:47:21+08:00","dateModified":"2019-05-11T22:33:57+08:00","datePublished":"2018-12-27T12:47:21+08:00","description":"PlantTFDB 提供了一個非常快速方便的轉錄因子查詢入口，有發表基因體的植物物種都有被註解。他們提供的預測服務則可以讓使用者輕鬆註解自己手邊的序列。","headline":"使用 PlantTFDB 預測胺基酸序列是否為轉錄因子","image":["https://res.cloudinary.com/rna-sick/image/upload/v1557476782/TFDB/002tfdb_dh20u4.jpg","https://res.cloudinary.com/rna-sick/image/upload/v1557483649/TFDB/whatyouneed_wwmgni.jpg"],"mainEntityOfPage":{"@type":"WebPage","@id":"https://rna-sick.me/2018/12/27/TFDB/"},"publisher":{"@type":"Organization","name":"Chen Hsieh","sameAs":["https://drive.google.com/file/d/1xiDPR2J_w4IWM83P-xutthcnzteJUaxg/view?usp=sharing","mailto:bendjamin101001@gmail.com"],"image":"https://www.gravatar.com/avatar/0cfd0a510d29343e15c5701627444bb8","logo":{"@type":"ImageObject","url":"https://www.gravatar.com/avatar/0cfd0a510d29343e15c5701627444bb8"}},"url":"https://rna-sick.me/2018/12/27/TFDB/","keywords":"excel, transcription factor, plant, pie chart","thumbnailUrl":"https://res.cloudinary.com/rna-sick/image/upload/v1557476782/TFDB/002tfdb_dh20u4.jpg"}</script>
-    <meta name="description" content="PlantTFDB 提供了一個非常快速方便的轉錄因子查詢入口，有發表基因體的植物物種都有被註解。他們提供的預測服務則可以讓使用者輕鬆註解自己手邊的序列。">
-<meta name="keywords" content="horticulture,台大園藝,bioinformatic,生物資訊,Chen Hsieh">
+    <script type="application/ld+json">{"@context":"http://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Chen Hsieh","sameAs":["https://drive.google.com/file/d/1xiDPR2J_w4IWM83P-xutthcnzteJUaxg/view?usp=sharing","mailto:bendjamin101001@gmail.com"],"image":"https://www.gravatar.com/avatar/0cfd0a510d29343e15c5701627444bb8"},"articleBody":"ORCΛ 讓我回想到小時候玩電路的感動，在視覺化的程序遊樂場上，以艱澀的符號開啟一段重新思考敘事、設計、以及意義的二維航行。\n\n\n\n前言2019 年四月中，在 TOPLAP 的 live coding 列表上，發現了 ORCΛ，接著逛進創作者 Devine Lu Linvega 的個人記錄系統 XXIIVV。深奧的專案名稱、獨特的直白敘事風格、以及亂碼般的時間系統，記錄著驚人的驚人創作質量。瀏覽一個個條目的過程，彷彿掉進某種架空世界觀的數位藝術工作者準備的兔子洞，直到眼睛酸澀背脊疲倦，抬起頭來才發現我的肉身還在。\n簡介ORCΛ 是一種程式語言，開發環境會即時運算，輸出 MIDI, OSC or UDP 等等控制訊號，依據搭配的軟硬體，產生聲音、影像、或硬體控制。奇特之處在於，26 個英文字母每個都會執行一種運算，大寫字母每幀執行，小寫字母則是被激發時才作動。\n\n\n“Each letter of the alphabet is an operation, uppercase letters operate each frame, lowercase letters operate on bang.”\n\n撰寫方式是在一片可伸縮的二維等寬字型空間，用方向鍵操作 “＠” 字符決定輸入位置，輸入字母後，該字母代表的運算中，鄰近相對應的用以接收輸入與輸出的格子位置會被保留並持續運作。與其說是寫作，更像是硬核的機構設計遊戲，在麵包板上插計數器、加法器之類的晶片一樣，規劃程序的過程中增添了二維空間關係的限制，卻也賦予了開發過程一種「不必要所帶來的樂趣」。\n馬上體會 ORCΛ 的魅力老實說，雖然作者系統性的創作哲學很迷人，但相對地也是使用者不友善的體驗。這裡提供一個最快的讓人體會 ORCΛ 魅力的流程，下載、複製貼上、調整音量、然後關燈，就可以暫時享受一段逃離現實體驗。\n免費下載開發環境\n下載開發環境 \n點選金額上方的小字 “No thanks, just take me to the downloads“，之後想要支持他們再來付錢也可以\n選擇自己作業系統的壓縮檔案下載，解壓縮後直接右鍵執行 ORCΛ\n\n下載 Pilot 合成器\nORCΛ 只負責產生控制訊號，作者創作了一個極簡的合成器可以配合著使用\n點選金額上方的小字 “No thanks, just take me to the downloads“，之後想要支持他們再來付錢也可以\n選擇自己作業系統的壓縮檔案下載，解壓縮後直接右鍵執行 Pilot\n\n貼上範例檔案\n複製範例程序 1234567891011121314151617..........................................#.PILOT.#............................................................................8C2.......8C2.....2C4..2C4...C4..4C8..gC3.12TFG.gC5.12TBG..A06..A02..A14..A64...23TCEG....13TEAG..lV6..mV2..jV5..kVa.....1VG.......2VA.....D8....Cg.D2....Cg.....2C2.2K12.4C5........;aut29...;cho49.......0Y02TGA..14T3424..Da....Cg.D6....C4........nVG....oV4.......;tre49...;vib41...............................................D34Kjon...D84Kk.n...Da4Kkon...D84K..n.....Y.;54Gf4..Y.;a1Gf8..Y.;a4Gf6..Y.;e1Gf4...........................................D24Klon...D44Km.n...D24Kion...D44K..n.....Y.;64G....Y.;24G....Y.;14G....Y.;c1G............................................\n\n\n\n在 ORCΛ 中貼上，應該就可以聽到律動了\n\n\nTrobleshooting\n\n是否 ORCΛ 跟 Pilot 都開啟著\nORCΛ 上方 UDP 選項是否選擇著 Default(49161)，點選使其為 Active\n電腦總音量有沒有開\n\n\n\n如果你有一路跟著操作到這邊的話，可以看看 ORCΛ 中閃爍著的符號，搭配本文下方各個字母功能的說明，慢慢研究運作的方式。\n\n以這個範例來說：\n(1) 上方的六坨含有 V 的文字負責變數隨著時間有節奏性地輪流切換，提供給下方的八坨有 ; 的敘述使用。\n(2) 下方八坨敘述的 ; 負責發送 UDP 訊號，發送給 Pilot 的內容就是 ; 右方的淺色文字，功能是使合成器發出聲音。發送內容受到上一排的變數控制隨著 (1) 中的設定來切換，而且只有由 D 控制的 * 出現時才會發送。\n(3) 右上中間也有 ; 的敘述負責發送效果器設定的訊號給 Pilot。\n可以試著更改畫面上的字母、刪除發送訊息的 ; ，看看聲音或是畫面上的閃爍產生的改變來慢慢探索。\n\n\n看看字母操作子字典26 個字母各自有其運算功能，但還是可以歸類成此處所說的幾種類別。如果要串接不同的合成器或 DAW 的話可以參考這邊。\n延伸探索這算是一個滿新的 live coding 環境，可以看到 twitter 與 youtube 上作者本人 Devine Lu Linvega 與某些活躍藝術家的創作，ORCΛ 開放源碼所以有許多精彩的改造版本，作者本人最近也要在 ALGO/MESH 上演出與舉辦工作坊。很喜歡這種貫徹創作哲學又與眾不同的風格，我經濟能力不足以直接支持他們，所以只能像本文一樣撰寫中文的介紹，希望可以幫忙拓展用戶，讓更多人有機會認識他們。以下先記錄幾點學習資源，之後有機會再寫更細的介紹～\n\nPilot 的說明書\n\nΛioi：接收 ORCΛ 的 UDP 並發送 OSC 到其他軟體，可以用來同步 Processing, SuperCollider, TidalCycles, Veda 等等產生的影像與聲音\n\n\n","dateCreated":"2019-05-15T18:06:08+08:00","dateModified":"2019-05-15T22:48:52+08:00","datePublished":"2019-05-15T18:06:08+08:00","description":"ORCΛ 讓我回想到小時候玩電路的感動，在視覺化的程序遊樂場上，以艱澀的符號開啟一段重新思考敘事、設計、以及意義的二維航行。","headline":"ORCΛ：來費解的二維語言遊樂場玩耍","image":["","https://res.cloudinary.com/rna-sick/image/upload/v1557925293/%E7%B4%94%20cover/orca_shd4gr.png"],"mainEntityOfPage":{"@type":"WebPage","@id":"https://rna-sick.me/2019/05/15/ORCA/"},"publisher":{"@type":"Organization","name":"Chen Hsieh","sameAs":["https://drive.google.com/file/d/1xiDPR2J_w4IWM83P-xutthcnzteJUaxg/view?usp=sharing","mailto:bendjamin101001@gmail.com"],"image":"https://www.gravatar.com/avatar/0cfd0a510d29343e15c5701627444bb8","logo":{"@type":"ImageObject","url":"https://www.gravatar.com/avatar/0cfd0a510d29343e15c5701627444bb8"}},"url":"https://rna-sick.me/2019/05/15/ORCA/","keywords":"tool, IDE, live coding, visual, audio, 數位藝術","thumbnailUrl":"https://res.cloudinary.com/rna-sick/image/upload/v1557925293/%E7%B4%94%20cover/orca_shd4gr.png"}</script>
+    <meta name="description" content="ORCΛ 讓我回想到小時候玩電路的感動，在視覺化的程序遊樂場上，以艱澀的符號開啟一段重新思考敘事、設計、以及意義的二維航行。">
+<meta name="keywords" content="digital art,live coding,數位藝術,horticulture,台大園藝,bioinformatic,生物資訊,Chen Hsieh,謝晨">
 <meta property="og:type" content="blog">
-<meta property="og:title" content="使用 PlantTFDB 預測胺基酸序列是否為轉錄因子">
-<meta property="og:url" content="https://rna-sick.me/2018/12/27/TFDB/index.html">
+<meta property="og:title" content="ORCΛ：來費解的二維語言遊樂場玩耍">
+<meta property="og:url" content="https://rna-sick.me/2019/05/15/ORCA/index.html">
 <meta property="og:site_name" content="RNA-Sick">
-<meta property="og:description" content="PlantTFDB 提供了一個非常快速方便的轉錄因子查詢入口，有發表基因體的植物物種都有被註解。他們提供的預測服務則可以讓使用者輕鬆註解自己手邊的序列。">
+<meta property="og:description" content="ORCΛ 讓我回想到小時候玩電路的感動，在視覺化的程序遊樂場上，以艱澀的符號開啟一段重新思考敘事、設計、以及意義的二維航行。">
 <meta property="og:locale" content="en">
-<meta property="og:image" content="https://res.cloudinary.com/rna-sick/image/upload/v1557476521/TFDB/1_etdhp9.png">
-<meta property="og:image" content="https://res.cloudinary.com/rna-sick/image/upload/v1557476523/TFDB/2_rpmdzn.png">
-<meta property="og:image" content="https://res.cloudinary.com/rna-sick/image/upload/v1557476525/TFDB/2.5_xe0cwr.png">
-<meta property="og:image" content="https://res.cloudinary.com/rna-sick/image/upload/v1557476539/TFDB/21_zghszl.png">
-<meta property="og:image" content="https://res.cloudinary.com/rna-sick/image/upload/v1557476524/TFDB/5_dvovqk.png">
-<meta property="og:image" content="https://res.cloudinary.com/rna-sick/image/upload/v1557476521/TFDB/6_elncgl.png">
-<meta property="og:image" content="https://res.cloudinary.com/rna-sick/image/upload/v1557476521/TFDB/7_tjuwbe.png">
-<meta property="og:image" content="https://res.cloudinary.com/rna-sick/image/upload/v1557476522/TFDB/4_awor70.png">
-<meta property="og:image" content="https://res.cloudinary.com/rna-sick/image/upload/v1557476521/TFDB/3_qabku9.png">
-<meta property="og:image" content="https://res.cloudinary.com/rna-sick/image/upload/v1557476526/TFDB/8_urmrrx.png">
-<meta property="og:image" content="https://res.cloudinary.com/rna-sick/image/upload/v1557476528/TFDB/9_mjglar.png">
-<meta property="og:updated_time" content="2019-05-11T14:33:57.344Z">
+<meta property="og:image" content="https://res.cloudinary.com/rna-sick/image/upload/v1557931678/ORCA/Screen_Shot_2019-05-15_at_22.46.47_ke74no.png">
+<meta property="og:image" content="https://media.giphy.com/media/LNkRpVbxZfwrK4sGvY/giphy.gif">
+<meta property="og:updated_time" content="2019-05-15T14:48:52.962Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="使用 PlantTFDB 預測胺基酸序列是否為轉錄因子">
-<meta name="twitter:description" content="PlantTFDB 提供了一個非常快速方便的轉錄因子查詢入口，有發表基因體的植物物種都有被註解。他們提供的預測服務則可以讓使用者輕鬆註解自己手邊的序列。">
-<meta name="twitter:image" content="https://res.cloudinary.com/rna-sick/image/upload/v1557476521/TFDB/1_etdhp9.png">
+<meta name="twitter:title" content="ORCΛ：來費解的二維語言遊樂場玩耍">
+<meta name="twitter:description" content="ORCΛ 讓我回想到小時候玩電路的感動，在視覺化的程序遊樂場上，以艱澀的符號開啟一段重新思考敘事、設計、以及意義的二維航行。">
+<meta name="twitter:image" content="https://res.cloudinary.com/rna-sick/image/upload/v1557931678/ORCA/Screen_Shot_2019-05-15_at_22.46.47_ke74no.png">
     
     
         
@@ -50,12 +41,9 @@
         <meta property="og:image" content="https://www.gravatar.com/avatar/0cfd0a510d29343e15c5701627444bb8?s=640"/>
     
     
-        <meta property="og:image" content="https://res.cloudinary.com/rna-sick/image/upload/v1557476782/TFDB/002tfdb_dh20u4.jpg"/>
-        <meta class="swiftype" name="image" data-type="enum" content="https://res.cloudinary.com/rna-sick/image/upload/v1557476782/TFDB/002tfdb_dh20u4.jpg" />
     
-    
-        <meta property="og:image" content="https://res.cloudinary.com/rna-sick/image/upload/v1557483649/TFDB/whatyouneed_wwmgni.jpg"/>
-        <meta class="swiftype" name="image" data-type="enum" content="https://res.cloudinary.com/rna-sick/image/upload/v1557483649/TFDB/whatyouneed_wwmgni.jpg" />
+        <meta property="og:image" content="https://res.cloudinary.com/rna-sick/image/upload/v1557925293/%E7%B4%94%20cover/orca_shd4gr.png"/>
+        <meta class="swiftype" name="image" data-type="enum" content="https://res.cloudinary.com/rna-sick/image/upload/v1557925293/%E7%B4%94%20cover/orca_shd4gr.png" />
     
     
     <!--STYLES-->
@@ -197,7 +185,7 @@
             
         <div class="post-header-cover
                     text-center
-                    post-header-cover--full" style="background-image:url('https://res.cloudinary.com/rna-sick/image/upload/v1557483649/TFDB/whatyouneed_wwmgni.jpg');" data-behavior="4">
+                    post-header-cover--full" style="background-image:url('https://res.cloudinary.com/rna-sick/image/upload/v1557925293/%E7%B4%94%20cover/orca_shd4gr.png');" data-behavior="4">
             
         </div>
 
@@ -208,20 +196,20 @@
                 
 <article class="post">
     
-        <span class="post-header-cover-caption caption">實在是個很方便的轉錄因子分析服務啊～ (截圖來自呆伯特動畫)</span>
+        <span class="post-header-cover-caption caption">認識這款軟體的過程讓我重新思考好多事情，好像換了張臉的感覺 (截圖來自動畫 JOJO 的奇妙冒險第四部：不滅鑽石)</span>
     
     
         <div class="post-header main-content-wrap text-center">
     
         <h1 class="post-title">
-            使用 PlantTFDB 預測胺基酸序列是否為轉錄因子
+            ORCΛ：來費解的二維語言遊樂場玩耍
         </h1>
     
     
         <div class="post-meta">
-    <time datetime="2018-12-27T12:47:21+08:00">
+    <time datetime="2019-05-15T18:06:08+08:00">
 	
-		    Dec 27, 2018
+		    May 15, 2019
     	
     </time>
     
@@ -233,44 +221,62 @@
     
     <div class="post-content markdown">
         <div class="main-content-wrap">
-            <!-- excerpt -->
-<h1 id="table-of-contents">Table of Contents</h1><ol class="toc"><li class="toc-item toc-level-5"><a class="toc-link" href="#前言"><span class="toc-text">前言</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#Plant-TFDB-網頁基本功能"><span class="toc-text">Plant TFDB 網頁基本功能</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#使用轉錄因子預測服務"><span class="toc-text">使用轉錄因子預測服務</span></a></li></ol>
+            <p>ORCΛ 讓我回想到小時候玩電路的感動，在視覺化的程序遊樂場上，以艱澀的符號開啟一段重新思考敘事、設計、以及意義的二維航行。</p>
+<a id="more"></a>
+<h1 id="table-of-contents">Table of Contents</h1><ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#前言"><span class="toc-text">前言</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#簡介"><span class="toc-text">簡介</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#馬上體會-ORCΛ-的魅力"><span class="toc-text">馬上體會 ORCΛ 的魅力</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#免費下載開發環境"><span class="toc-text">免費下載開發環境</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#下載-Pilot-合成器"><span class="toc-text">下載 Pilot 合成器</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#貼上範例檔案"><span class="toc-text">貼上範例檔案</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#看看字母操作子字典"><span class="toc-text">看看字母操作子字典</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#延伸探索"><span class="toc-text">延伸探索</span></a></li></ol>
 <hr>
-<h5 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h5><p>Transcriptome 分析的文章中，有時候會出現一個小章節用來描述總共註解到了多少轉錄因子，或是有哪些轉錄因子上調或下調。像是這篇萵苣抽薹有關的研究中，便用圓餅圖表示了各種可供未來研究參考的轉錄因子家族名稱。</p>
-<p><img src="https://res.cloudinary.com/rna-sick/image/upload/v1557476521/TFDB/1_etdhp9.png" alt="paper_cover"></p>
-<p><img src="https://res.cloudinary.com/rna-sick/image/upload/v1557476523/TFDB/2_rpmdzn.png" alt="pie chart"></p>
-<p>在實際的分析上，因為轉錄因子序列比較短，用一般的註解軟體容易錯過，或是僅因為有特定的區段就有把酵素類的蛋白質誤解為轉錄因子的情形。</p>
-<p><img src="https://res.cloudinary.com/rna-sick/image/upload/v1557476525/TFDB/2.5_xe0cwr.png" alt="TFDBhomepage"></p>
-<p><a href="http://planttfdb.cbi.pku.edu.cn" target="_blank" rel="noopener">PlantTFDB</a> 替大家解決了這個問題，網站除了可以直接查詢他們的研究團隊已經預測過的物種中的轉錄因子以外，也有提供了基於他們人為透過文獻閱讀歸納出來的轉錄因子家族指定規則進行預測的服務。</p>
-<p><img src="https://res.cloudinary.com/rna-sick/image/upload/v1557476539/TFDB/21_zghszl.png" alt="assignmentRules"></p>
-<p>只要輸入胺基酸序列，稍等一下就可以得到預測結果。以下將會簡單介紹網頁以及 step by step 紀錄預測功能的使用，並且銜接到使用 excel 繪製轉錄因子比例圓餅圖的操作。</p>
-<h5 id="Plant-TFDB-網頁基本功能"><a href="#Plant-TFDB-網頁基本功能" class="headerlink" title="Plant TFDB 網頁基本功能"></a>Plant TFDB 網頁基本功能</h5><p>首先首頁就可以看到五十八種轉錄因子的分類以及已經註解到的數量，每次改版過程中註解方式或是說指定規則可能會因爲文獻而略有更動，像是最近一版就把參與轉錄調節但是不具有直接 DNA 結合區段的類別移除了。</p>
-<p><img src="https://res.cloudinary.com/rna-sick/image/upload/v1557476524/TFDB/5_dvovqk.png" alt="all those family types"></p>
-<p>隨便選擇一個沒有聽過的 E2F/DP 點進去，有該種轉錄因子在各種物種中的家族成員數量，和簡單的文字敘述及引用文獻，讓人可以快速了解該分類，或是本身在進行該家族的基因研究的話，也可以參考不同物種中的成員數量以評估註解情形。</p>
-<p><img src="https://res.cloudinary.com/rna-sick/image/upload/v1557476521/TFDB/6_elncgl.png" alt="family page"></p>
-<p>紅色的 bar chart 標出了他們所註解的基因體中含有的該家族的轉錄因子數量。只可惜是以圖片的方式呈現，所以不方便在網頁上直接用搜尋找到自己感興趣的物種資料，可能還是要回到首頁搜尋比較方便。</p>
-<p><img src="https://res.cloudinary.com/rna-sick/image/upload/v1557476521/TFDB/7_tjuwbe.png" alt="page family description"></p>
-<p>轉錄因子頁面下方就有簡單的文字描述，看完就大概知道要怎樣簡單介紹這個轉錄因子，譬如基本的蛋白質功能區段 (domain)、常見的作用型態、目標基因、以及可能參與的生理調控。</p>
-<h5 id="使用轉錄因子預測服務"><a href="#使用轉錄因子預測服務" class="headerlink" title="使用轉錄因子預測服務"></a>使用轉錄因子預測服務</h5><p>接下來終於要進入正題，如何使用ＴＦＤＢ提供的轉錄因子註解服務：</p>
-<ol>
-<li><p>進入預測的<a href="http://planttfdb.cbi.pku.edu.cn/prediction.php" target="_blank" rel="noopener">頁面</a>：</p>
-<p><img src="https://res.cloudinary.com/rna-sick/image/upload/v1557476522/TFDB/4_awor70.png" alt="prediction page"></p>
-</li>
-<li><p>輸入 fasta 格式的序列，或是直接上傳 fasta 檔案</p>
-</li>
-<li><p>勾選 Best Hit in <em>Arabidopsis Thaliana</em> 的話會附上一筆對應的阿拉伯芥基因資訊，未來銜接其他分析也方便，然後用力地按下 Pridiction</p>
-</li>
-<li><p>四萬多筆資料，過兩分鐘就有結果出來了，可以在這個頁面的表格上簡單地操作瀏覽一下</p>
-<p><img src="https://res.cloudinary.com/rna-sick/image/upload/v1557476521/TFDB/3_qabku9.png" alt="TF prediction results"></p>
-</li>
-<li><p>在文字敘述中按 Download list，這就是輸出用以後續分析的格式，column 分別為我們所提供的胺基酸序列之 ID、轉錄因子基因家族、Best Hit in <em>Arabidopsis Thaliana</em> 之基因、p-value、Best Hit in <em>Arabidopsis Thaliana</em> 基因之註解</p>
-<p><img src="https://res.cloudinary.com/rna-sick/image/upload/v1557476526/TFDB/8_urmrrx.png" alt="result"></p>
-</li>
-<li><p>下載下來的是純文字檔案，雖然副檔名是 “.list”，但還是可以對著檔案點右鍵，選擇用 excel 打開以方便檢視</p>
-<p><img src="https://res.cloudinary.com/rna-sick/image/upload/v1557476528/TFDB/9_mjglar.png" alt="opening by excel"></p>
-<p>由這個檔案，就可以看到輸入的胺基酸序列代號，以及其所對應的轉錄因子家族。雖然這樣子全自動預測的服務很方便，最好還是要人工檢核 (manual curation) 一下，再進行下一步的分析比較保險。除了看看感興趣的基因究竟是什麼轉錄因子以外，通常會想看看各個家族的比例。如何直接使用這個輸出的預測結果檔案，不寫程式使用 excel 畫成可以呈現各個基因家族比例的圓餅圖，且待下回分曉～</p>
+<h4 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h4><p>2019 年四月中，在 TOPLAP 的 <a href="https://github.com/toplap/awesome-livecoding" target="_blank" rel="noopener">live coding 列表</a>上，發現了 <a href="https://github.com/hundredrabbits/Orca" target="_blank" rel="noopener">ORCΛ</a>，接著逛進創作者 Devine Lu Linvega 的<a href="https://wiki.xxiivv.com/#about" target="_blank" rel="noopener">個人記錄系統 XXIIVV</a>。深奧的專案名稱、獨特的直白敘事風格、以及亂碼般的<a href="https://wiki.xxiivv.com/#time" target="_blank" rel="noopener">時間系統</a>，記錄著驚人的驚人創作質量。瀏覽一個個條目的過程，彷彿掉進某種架空世界觀的數位藝術工作者準備的兔子洞，直到眼睛酸澀背脊疲倦，抬起頭來才發現我的肉身還在。</p>
+<h4 id="簡介"><a href="#簡介" class="headerlink" title="簡介"></a>簡介</h4><p>ORCΛ 是一種程式語言，<a href="https://hundredrabbits.itch.io/orca/purchase?popup=1" target="_blank" rel="noopener">開發環境</a>會即時運算，輸出 MIDI, OSC or UDP 等等控制訊號，依據搭配的軟硬體，產生聲音、影像、或硬體控制。奇特之處在於，26 個英文字母每個都會執行一種運算，大寫字母每幀執行，小寫字母則是被激發時才作動。</p>
+<p><img src="https://res.cloudinary.com/rna-sick/image/upload/v1557931678/ORCA/Screen_Shot_2019-05-15_at_22.46.47_ke74no.png" alt="orca"></p>
+<blockquote>
+<p>“Each letter of the alphabet is an operation, uppercase letters operate each frame, lowercase letters operate on bang.”</p>
+</blockquote>
+<p>撰寫方式是在一片可伸縮的二維等寬字型空間，用方向鍵操作 “＠” 字符決定輸入位置，輸入字母後，該字母代表的運算中，鄰近相對應的用以接收輸入與輸出的格子位置會被保留並持續運作。與其說是寫作，更像是硬核的機構設計遊戲，在麵包板上插計數器、加法器之類的晶片一樣，規劃程序的過程中增添了二維空間關係的限制，卻也賦予了開發過程一種「不必要所帶來的樂趣」。</p>
+<h4 id="馬上體會-ORCΛ-的魅力"><a href="#馬上體會-ORCΛ-的魅力" class="headerlink" title="馬上體會 ORCΛ 的魅力"></a>馬上體會 ORCΛ 的魅力</h4><p>老實說，雖然作者系統性的創作哲學很迷人，但相對地也是使用者不友善的體驗。這裡提供一個最快的讓人體會 ORCΛ 魅力的流程，下載、複製貼上、調整音量、然後關燈，就可以暫時享受一段逃離現實體驗。</p>
+<h5 id="免費下載開發環境"><a href="#免費下載開發環境" class="headerlink" title="免費下載開發環境"></a>免費下載開發環境</h5><ol>
+<li>下載<a href="https://hundredrabbits.itch.io/orca/purchase?popup=1" target="_blank" rel="noopener">開發環境</a> </li>
+<li>點選金額上方的小字 “<a href="https://hundredrabbits.itch.io/orca/purchase?popup=1" target="_blank" rel="noopener">No thanks, just take me to the downloads</a>“，之後想要支持他們再來付錢也可以</li>
+<li>選擇自己作業系統的壓縮檔案下載，解壓縮後直接右鍵執行 ORCΛ</li>
+</ol>
+<h5 id="下載-Pilot-合成器"><a href="#下載-Pilot-合成器" class="headerlink" title="下載 Pilot 合成器"></a>下載 Pilot 合成器</h5><ol>
+<li>ORCΛ 只負責產生控制訊號，作者創作了一個<a href="https://wiki.xxiivv.com/#pilot" target="_blank" rel="noopener">極簡的合成器</a>可以配合著使用</li>
+<li>點選金額上方的小字 “<a href="https://hundredrabbits.itch.io/pilot/purchase?popup=1" target="_blank" rel="noopener">No thanks, just take me to the downloads</a>“，之後想要支持他們再來付錢也可以</li>
+<li>選擇自己作業系統的壓縮檔案下載，解壓縮後直接右鍵執行 Pilot</li>
+</ol>
+<h5 id="貼上範例檔案"><a href="#貼上範例檔案" class="headerlink" title="貼上範例檔案"></a>貼上範例檔案</h5><ol>
+<li>複製範例程序 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">.........................................</span><br><span class="line">.#.PILOT.#...............................</span><br><span class="line">.........................................</span><br><span class="line">....8C2.......8C2.....2C4..2C4...C4..4C8.</span><br><span class="line">.gC3.12TFG.gC5.12TBG..A06..A02..A14..A64.</span><br><span class="line">..23TCEG....13TEAG..lV6..mV2..jV5..kVa...</span><br><span class="line">..1VG.......2VA.....D8....Cg.D2....Cg....</span><br><span class="line">.2C2.2K12.4C5........;aut29...;cho49.....</span><br><span class="line">..0Y02TGA..14T3424..Da....Cg.D6....C4....</span><br><span class="line">....nVG....oV4.......;tre49...;vib41.....</span><br><span class="line">.........................................</span><br><span class="line">.D34Kjon...D84Kk.n...Da4Kkon...D84K..n...</span><br><span class="line">..Y.;54Gf4..Y.;a1Gf8..Y.;a4Gf6..Y.;e1Gf4.</span><br><span class="line">.........................................</span><br><span class="line">.D24Klon...D44Km.n...D24Kion...D44K..n...</span><br><span class="line">..Y.;64G....Y.;24G....Y.;14G....Y.;c1G...</span><br><span class="line">.........................................</span><br></pre></td></tr></table></figure>
 </li>
 </ol>
+<ol start="2">
+<li><p>在 ORCΛ 中貼上，應該就可以聽到律動了</p>
+<p><img src="https://media.giphy.com/media/LNkRpVbxZfwrK4sGvY/giphy.gif" alt="eg"></p>
+<blockquote>
+<p>Trobleshooting</p>
+<ol>
+<li>是否 ORCΛ 跟 Pilot 都開啟著</li>
+<li>ORCΛ 上方 UDP 選項是否選擇著 Default(49161)，點選使其為 Active</li>
+<li>電腦總音量有沒有開</li>
+</ol>
+</blockquote>
+</li>
+<li><p>如果你有一路跟著操作到這邊的話，可以看看 ORCΛ 中閃爍著的符號，搭配本文下方各個字母功能的說明，慢慢研究運作的方式。</p>
+</li>
+<li><p>以這個範例來說：</p>
+<p>(1) 上方的六坨含有 V 的文字負責變數隨著時間有節奏性地輪流切換，提供給下方的八坨有 ; 的敘述使用。</p>
+<p>(2) 下方八坨敘述的 ; 負責發送 UDP 訊號，發送給 Pilot 的內容就是 ; 右方的淺色文字，功能是使合成器發出聲音。發送內容受到上一排的變數控制隨著 (1) 中的設定來切換，而且只有由 D 控制的 * 出現時才會發送。</p>
+<p>(3) 右上中間也有 ; 的敘述負責發送效果器設定的訊號給 Pilot。</p>
+<p>可以試著更改畫面上的字母、刪除發送訊息的 ; ，看看聲音或是畫面上的閃爍產生的改變來慢慢探索。</p>
+</li>
+</ol>
+<h5 id="看看字母操作子字典"><a href="#看看字母操作子字典" class="headerlink" title="看看字母操作子字典"></a>看看字母操作子字典</h5><p><a href="https://github.com/hundredrabbits/Orca#operators" target="_blank" rel="noopener">26 個字母</a>各自有其運算功能，但還是可以歸類成<a href="https://github.com/hundredrabbits/Orca/blob/master/WORKSHOP.md" target="_blank" rel="noopener">此處</a>所說的幾種類別。如果要串接不同的合成器或 DAW 的話可以參考<a href="https://github.com/hundredrabbits/Orca/blob/master/TUTORIAL.md" target="_blank" rel="noopener">這邊</a>。</p>
+<h4 id="延伸探索"><a href="#延伸探索" class="headerlink" title="延伸探索"></a>延伸探索</h4><p>這算是一個滿新的 live coding 環境，可以看到 <a href="https://twitter.com/hashtag/ORCΛ?src=hash" target="_blank" rel="noopener">twitter</a> 與 <a href="https://www.youtube.com/watch?v=KzUQlmQvtjI&amp;list=PLb1uDATFJPcEEG3w715GzbD4AE232Pdcu" target="_blank" rel="noopener">youtube</a> 上作者本人 Devine Lu Linvega 與某些<a href="https://twitter.com/nobodycarestrue" target="_blank" rel="noopener">活躍藝術家</a>的創作，ORCΛ 開放源碼所以有許多精彩的<a href="https://www.youtube.com/watch?v=ontAk2fZCJU" target="_blank" rel="noopener">改造版本</a>，作者本人最近也要在 <a href="https://algomech.com/2019/artists/alicef/" target="_blank" rel="noopener">ALGO/MESH</a> 上演出與舉辦工作坊。很喜歡這種貫徹創作哲學又與眾不同的風格，我經濟能力不足以直接<a href="https://www.patreon.com/100" target="_blank" rel="noopener">支持他們</a>，所以只能像本文一樣撰寫中文的介紹，希望可以幫忙拓展用戶，讓更多人有機會認識他們。以下先記錄幾點學習資源，之後有機會再寫更細的介紹～</p>
+<ul>
+<li><p><a href="https://github.com/hundredrabbits/Pilot" target="_blank" rel="noopener">Pilot 的說明書</a></p>
+</li>
+<li><p><a href="https://github.com/MAKIO135/aioi" target="_blank" rel="noopener">Λioi</a>：接收 ORCΛ 的 UDP 並發送 OSC 到其他軟體，可以用來同步 Processing, SuperCollider, TidalCycles, Veda 等等產生的影像與聲音</p>
+</li>
+</ul>
+
             
 
         </div>
@@ -280,7 +286,7 @@
             <div class="post-footer-tags">
                 <span class="text-color-light text-small">TAGGED IN</span><br>
                 
-    <a class="tag tag--primary tag--small t-link" href="/tags/excel/">excel</a> <a class="tag tag--primary tag--small t-link" href="/tags/pie-chart/">pie chart</a> <a class="tag tag--primary tag--small t-link" href="/tags/plant/">plant</a> <a class="tag tag--primary tag--small t-link" href="/tags/transcription-factor/">transcription factor</a>
+    <a class="tag tag--primary tag--small t-link" href="/tags/IDE/">IDE</a> <a class="tag tag--primary tag--small t-link" href="/tags/audio/">audio</a> <a class="tag tag--primary tag--small t-link" href="/tags/live-coding/">live coding</a> <a class="tag tag--primary tag--small t-link" href="/tags/tool/">tool</a> <a class="tag tag--primary tag--small t-link" href="/tags/visual/">visual</a> <a class="tag tag--primary tag--small t-link" href="/tags/數位藝術/">數位藝術</a>
 
             </div>
         
@@ -291,7 +297,7 @@
             <li class="post-action">
                 
                     
-                    <a class="post-action-btn btn btn--default tooltip--top" href="/2019/01/03/107-年公費留考筆試篇/" data-tooltip="107 年公費留考採收後處理筆試篇" aria-label="PREVIOUS: 107 年公費留考採收後處理筆試篇">
+                    <a class="post-action-btn btn btn--default tooltip--top" href="/2019/06/14/McMADS/" data-tooltip="Genome-wide Identification and Analysis of MADS-box Gene Family in Bitter Gourd -- Method Details" aria-label="PREVIOUS: Genome-wide Identification and Analysis of MADS-box Gene Family in Bitter Gourd -- Method Details">
                 
                     <i class="fa fa-angle-left" aria-hidden="true"></i>
                     <span class="hide-xs hide-sm text-small icon-ml">PREVIOUS</span>
@@ -299,7 +305,8 @@
             </li>
             <li class="post-action">
                 
-                    <a class="post-action-btn btn btn--disabled">
+                    
+                    <a class="post-action-btn btn btn--default tooltip--top" href="/2019/03/21/CVD/" data-tooltip="用 Cividis 色盤來畫熱圖吧" aria-label="NEXT: 用 Cividis 色盤來畫熱圖吧">
                 
                     <span class="hide-xs hide-sm text-small icon-mr">NEXT</span>
                     <i class="fa fa-angle-right" aria-hidden="true"></i>
@@ -317,7 +324,7 @@
             
             
             <li class="post-action hide-xs">
-                <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://rna-sick.me/2018/12/27/TFDB/" title="Share on Facebook">
+                <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://rna-sick.me/2019/05/15/ORCA/" title="Share on Facebook">
                     <i class="fab fa-facebook" aria-hidden="true"></i>
                 </a>
             </li>
@@ -325,7 +332,7 @@
             
             
             <li class="post-action hide-xs">
-                <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://rna-sick.me/2018/12/27/TFDB/" title="Share on Twitter">
+                <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://rna-sick.me/2019/05/15/ORCA/" title="Share on Twitter">
                     <i class="fab fa-twitter" aria-hidden="true"></i>
                 </a>
             </li>
@@ -333,7 +340,7 @@
             
             
             <li class="post-action hide-xs">
-                <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=https://rna-sick.me/2018/12/27/TFDB/" title="Share on Google+">
+                <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=https://rna-sick.me/2019/05/15/ORCA/" title="Share on Google+">
                     <i class="fab fa-google-plus" aria-hidden="true"></i>
                 </a>
             </li>
@@ -386,7 +393,7 @@
             <li class="post-action">
                 
                     
-                    <a class="post-action-btn btn btn--default tooltip--top" href="/2019/01/03/107-年公費留考筆試篇/" data-tooltip="107 年公費留考採收後處理筆試篇" aria-label="PREVIOUS: 107 年公費留考採收後處理筆試篇">
+                    <a class="post-action-btn btn btn--default tooltip--top" href="/2019/06/14/McMADS/" data-tooltip="Genome-wide Identification and Analysis of MADS-box Gene Family in Bitter Gourd -- Method Details" aria-label="PREVIOUS: Genome-wide Identification and Analysis of MADS-box Gene Family in Bitter Gourd -- Method Details">
                 
                     <i class="fa fa-angle-left" aria-hidden="true"></i>
                     <span class="hide-xs hide-sm text-small icon-ml">PREVIOUS</span>
@@ -394,7 +401,8 @@
             </li>
             <li class="post-action">
                 
-                    <a class="post-action-btn btn btn--disabled">
+                    
+                    <a class="post-action-btn btn btn--default tooltip--top" href="/2019/03/21/CVD/" data-tooltip="用 Cividis 色盤來畫熱圖吧" aria-label="NEXT: 用 Cividis 色盤來畫熱圖吧">
                 
                     <span class="hide-xs hide-sm text-small icon-mr">NEXT</span>
                     <i class="fa fa-angle-right" aria-hidden="true"></i>
@@ -412,7 +420,7 @@
             
             
             <li class="post-action hide-xs">
-                <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://rna-sick.me/2018/12/27/TFDB/" title="Share on Facebook">
+                <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://rna-sick.me/2019/05/15/ORCA/" title="Share on Facebook">
                     <i class="fab fa-facebook" aria-hidden="true"></i>
                 </a>
             </li>
@@ -420,7 +428,7 @@
             
             
             <li class="post-action hide-xs">
-                <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://rna-sick.me/2018/12/27/TFDB/" title="Share on Twitter">
+                <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://rna-sick.me/2019/05/15/ORCA/" title="Share on Twitter">
                     <i class="fab fa-twitter" aria-hidden="true"></i>
                 </a>
             </li>
@@ -428,7 +436,7 @@
             
             
             <li class="post-action hide-xs">
-                <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=https://rna-sick.me/2018/12/27/TFDB/" title="Share on Google+">
+                <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=https://rna-sick.me/2019/05/15/ORCA/" title="Share on Google+">
                     <i class="fab fa-google-plus" aria-hidden="true"></i>
                 </a>
             </li>
@@ -462,7 +470,7 @@
                 
                 
                 <li class="share-option">
-                    <a class="share-option-btn" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://rna-sick.me/2018/12/27/TFDB/">
+                    <a class="share-option-btn" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://rna-sick.me/2019/05/15/ORCA/">
                         <i class="fab fa-facebook" aria-hidden="true"></i><span>Share on Facebook</span>
                     </a>
                 </li>
@@ -470,7 +478,7 @@
                 
                 
                 <li class="share-option">
-                    <a class="share-option-btn" target="new" href="https://twitter.com/intent/tweet?text=https://rna-sick.me/2018/12/27/TFDB/">
+                    <a class="share-option-btn" target="new" href="https://twitter.com/intent/tweet?text=https://rna-sick.me/2019/05/15/ORCA/">
                         <i class="fab fa-twitter" aria-hidden="true"></i><span>Share on Twitter</span>
                     </a>
                 </li>
@@ -478,7 +486,7 @@
                 
                 
                 <li class="share-option">
-                    <a class="share-option-btn" target="new" href="https://plus.google.com/share?url=https://rna-sick.me/2018/12/27/TFDB/">
+                    <a class="share-option-btn" target="new" href="https://plus.google.com/share?url=https://rna-sick.me/2019/05/15/ORCA/">
                         <i class="fab fa-google-plus" aria-hidden="true"></i><span>Share on Google+</span>
                     </a>
                 </li>
@@ -763,9 +771,9 @@
     
         <script>
              var disqus_config = function () {
-                 this.page.url = 'https://rna-sick.me/2018/12/27/TFDB/';
+                 this.page.url = 'https://rna-sick.me/2019/05/15/ORCA/';
                  
-                    this.page.identifier = '2018/12/27/TFDB/';
+                    this.page.identifier = '2019/05/15/ORCA/';
                  
              };
             (function() {

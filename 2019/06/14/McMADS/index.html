@@ -6,10 +6,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="generator" content="RNA-Sick">
-    <title>使用 PlantTFDB 預測胺基酸序列是否為轉錄因子 - RNA-Sick</title>
+    <title>Genome-wide Identification and Analysis of MADS-box Gene Family in Bitter Gourd -- Method Details - RNA-Sick</title>
     <meta name="author" content="Chen Hsieh">
     
-        <meta name="keywords" content="horticulture,台大園藝,bioinformatic,生物資訊,Chen Hsieh,horticulture,台大園藝,bioinformatic,生物資訊,Chen Hsieh">
+        <meta name="keywords" content="horticulture,台大園藝,bioinformatic,生物資訊,Chen Hsieh,horticulture,台大園藝,bioinformatics,生物資訊,Chen Hsieh,謝晨">
     
     
         <link rel="icon" href="https://rna-sick.me/assets/images/favicon.png">
@@ -17,31 +17,19 @@
     
         <link rel="alternate" type="application/atom+xml" title="RSS" href="/atom.xml">
     
-    <script type="application/ld+json">{"@context":"http://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Chen Hsieh","sameAs":["https://drive.google.com/file/d/1xiDPR2J_w4IWM83P-xutthcnzteJUaxg/view?usp=sharing","mailto:bendjamin101001@gmail.com"],"image":"https://www.gravatar.com/avatar/0cfd0a510d29343e15c5701627444bb8"},"articleBody":"\n\n\n前言Transcriptome 分析的文章中，有時候會出現一個小章節用來描述總共註解到了多少轉錄因子，或是有哪些轉錄因子上調或下調。像是這篇萵苣抽薹有關的研究中，便用圓餅圖表示了各種可供未來研究參考的轉錄因子家族名稱。\n\n\n在實際的分析上，因為轉錄因子序列比較短，用一般的註解軟體容易錯過，或是僅因為有特定的區段就有把酵素類的蛋白質誤解為轉錄因子的情形。\n\nPlantTFDB 替大家解決了這個問題，網站除了可以直接查詢他們的研究團隊已經預測過的物種中的轉錄因子以外，也有提供了基於他們人為透過文獻閱讀歸納出來的轉錄因子家族指定規則進行預測的服務。\n\n只要輸入胺基酸序列，稍等一下就可以得到預測結果。以下將會簡單介紹網頁以及 step by step 紀錄預測功能的使用，並且銜接到使用 excel 繪製轉錄因子比例圓餅圖的操作。\nPlant TFDB 網頁基本功能首先首頁就可以看到五十八種轉錄因子的分類以及已經註解到的數量，每次改版過程中註解方式或是說指定規則可能會因爲文獻而略有更動，像是最近一版就把參與轉錄調節但是不具有直接 DNA 結合區段的類別移除了。\n\n隨便選擇一個沒有聽過的 E2F/DP 點進去，有該種轉錄因子在各種物種中的家族成員數量，和簡單的文字敘述及引用文獻，讓人可以快速了解該分類，或是本身在進行該家族的基因研究的話，也可以參考不同物種中的成員數量以評估註解情形。\n\n紅色的 bar chart 標出了他們所註解的基因體中含有的該家族的轉錄因子數量。只可惜是以圖片的方式呈現，所以不方便在網頁上直接用搜尋找到自己感興趣的物種資料，可能還是要回到首頁搜尋比較方便。\n\n轉錄因子頁面下方就有簡單的文字描述，看完就大概知道要怎樣簡單介紹這個轉錄因子，譬如基本的蛋白質功能區段 (domain)、常見的作用型態、目標基因、以及可能參與的生理調控。\n使用轉錄因子預測服務接下來終於要進入正題，如何使用ＴＦＤＢ提供的轉錄因子註解服務：\n\n進入預測的頁面：\n\n\n輸入 fasta 格式的序列，或是直接上傳 fasta 檔案\n\n勾選 Best Hit in Arabidopsis Thaliana 的話會附上一筆對應的阿拉伯芥基因資訊，未來銜接其他分析也方便，然後用力地按下 Pridiction\n\n四萬多筆資料，過兩分鐘就有結果出來了，可以在這個頁面的表格上簡單地操作瀏覽一下\n\n\n在文字敘述中按 Download list，這就是輸出用以後續分析的格式，column 分別為我們所提供的胺基酸序列之 ID、轉錄因子基因家族、Best Hit in Arabidopsis Thaliana 之基因、p-value、Best Hit in Arabidopsis Thaliana 基因之註解\n\n\n下載下來的是純文字檔案，雖然副檔名是 “.list”，但還是可以對著檔案點右鍵，選擇用 excel 打開以方便檢視\n\n由這個檔案，就可以看到輸入的胺基酸序列代號，以及其所對應的轉錄因子家族。雖然這樣子全自動預測的服務很方便，最好還是要人工檢核 (manual curation) 一下，再進行下一步的分析比較保險。除了看看感興趣的基因究竟是什麼轉錄因子以外，通常會想看看各個家族的比例。如何直接使用這個輸出的預測結果檔案，不寫程式使用 excel 畫成可以呈現各個基因家族比例的圓餅圖，且待下回分曉～\n\n","dateCreated":"2018-12-27T12:47:21+08:00","dateModified":"2019-05-11T22:33:57+08:00","datePublished":"2018-12-27T12:47:21+08:00","description":"PlantTFDB 提供了一個非常快速方便的轉錄因子查詢入口，有發表基因體的植物物種都有被註解。他們提供的預測服務則可以讓使用者輕鬆註解自己手邊的序列。","headline":"使用 PlantTFDB 預測胺基酸序列是否為轉錄因子","image":["https://res.cloudinary.com/rna-sick/image/upload/v1557476782/TFDB/002tfdb_dh20u4.jpg","https://res.cloudinary.com/rna-sick/image/upload/v1557483649/TFDB/whatyouneed_wwmgni.jpg"],"mainEntityOfPage":{"@type":"WebPage","@id":"https://rna-sick.me/2018/12/27/TFDB/"},"publisher":{"@type":"Organization","name":"Chen Hsieh","sameAs":["https://drive.google.com/file/d/1xiDPR2J_w4IWM83P-xutthcnzteJUaxg/view?usp=sharing","mailto:bendjamin101001@gmail.com"],"image":"https://www.gravatar.com/avatar/0cfd0a510d29343e15c5701627444bb8","logo":{"@type":"ImageObject","url":"https://www.gravatar.com/avatar/0cfd0a510d29343e15c5701627444bb8"}},"url":"https://rna-sick.me/2018/12/27/TFDB/","keywords":"excel, transcription factor, plant, pie chart","thumbnailUrl":"https://res.cloudinary.com/rna-sick/image/upload/v1557476782/TFDB/002tfdb_dh20u4.jpg"}</script>
-    <meta name="description" content="PlantTFDB 提供了一個非常快速方便的轉錄因子查詢入口，有發表基因體的植物物種都有被註解。他們提供的預測服務則可以讓使用者輕鬆註解自己手邊的序列。">
-<meta name="keywords" content="horticulture,台大園藝,bioinformatic,生物資訊,Chen Hsieh">
+    <script type="application/ld+json">{"@context":"http://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Chen Hsieh","sameAs":["https://drive.google.com/file/d/1xiDPR2J_w4IWM83P-xutthcnzteJUaxg/view?usp=sharing","mailto:bendjamin101001@gmail.com"],"image":"https://www.gravatar.com/avatar/0cfd0a510d29343e15c5701627444bb8"},"articleBody":"​    This page is used to document method details in the poster “Genome-wide Identification and Analysis of MADS-box Gene Family in Bitter Gourd” presented at the “2019 Poster Competition of Department of Horticulture and Landscape Architechture, NTU”.\n\n\n\nGenome-wide identification of MADS-box genes (Under contruction)Phylogenetic analyses of MADS-box genesMultiple sequence alignments were performed between full-length MADS-box protein sequences from bitter gourd, Arabidopsis, and watermelon using MUSCLE (Edgar, 2004) with default settings in Seqotron (Fourment and Holmes, 2016). An unrooted maximum-likelihood (ML) tree was constructed using the MEGA7. The tree nodes were evaluated by bootstrap analysis for 1000 replicates. \nConserved Motif analysisMEME-suite (Bailey et al., 1994; Bailey et al., 2009) was applied to predict the conserved motifs of the MADS-box with the following parameter settings: number of repetitions -anr (any number of repetitions), maximum number of motifs -7, minimum motif width -6 and maximum motif width -69.\nCollection of plant material (Under contruction)Expression analysis of MADS-box genes (Under contruction)Cis-acting element analysis of promoter regionNew PLACE database (https://www.dna.affrc.go.jp/PLACE/?action=newplace) was used to predict cis-acting elements in the McMADSs’ promoter (1.5 kb upstream from thepredicted transcription start site, TSS). In this study, cis-acting elements related to seven biological related categories of interest were selected. The seven categories are hormone responsive elements, tissue specific elements, circadian responsive elements, cell cycle regulation, stress responsive element, TF regulation, light responsive elements. Category related cis-acting elements were picked up according to the presence of keywords in corresponding publication title.\nReferences:Bailey, T.L., M. Bodén, F.A. Buske, M. Frith, C.E. Grant, L. Clementi, J.Y. Ren, W.W. Li, S.N. William. 2009. MEME SUITE: tools for motif discovery and searching. Nucleic Acids Research. 37:W202-W208.\nBailey, T.L., and C. Elkan. 1994. Fitting a mixture model by expectation maximization to discover motifs in biopolymers. Proceedings of the Second International Conference on Intelligent Systems for Molecular Biology. 28-36.\nEdgar R.C. 2004. MUSCLE: multiple sequence alignment with high accuracy and high throughput. Nucleic Acids Research. 32(5) 1792-1797.\nFourment, M., and E.C. Holmes. 2016. Seqotron: a user-friendly sequence editor for Mac OS X. BMC Research Notes. 9(106)\nHigo, K., Ugawa, Y., Iwamoto, M. and Korenaga, T. 1999. Plant cis-acting regulatory DNA elements (PLACE) database. Nucleic Acids Research. 2(1) 297-300.\n","dateCreated":"2019-06-14T12:30:00+08:00","dateModified":"2019-06-04T16:19:07+08:00","datePublished":"2019-06-14T12:30:00+08:00","description":"​    This page is used to document method details in the poster “Genome-wide Identification and Analysis of MADS-box Gene Family in Bitter Gourd” presented at the “2019 Poster Competition of Department of Horticulture and Landscape Architechture, NTU”.","headline":"Genome-wide Identification and Analysis of MADS-box Gene Family in Bitter Gourd -- Method Details","image":["","https://res.cloudinary.com/rna-sick/image/upload/v1559552701/McMADS/test_u1fqkw.png"],"mainEntityOfPage":{"@type":"WebPage","@id":"https://rna-sick.me/2019/06/14/McMADS/"},"publisher":{"@type":"Organization","name":"Chen Hsieh","sameAs":["https://drive.google.com/file/d/1xiDPR2J_w4IWM83P-xutthcnzteJUaxg/view?usp=sharing","mailto:bendjamin101001@gmail.com"],"image":"https://www.gravatar.com/avatar/0cfd0a510d29343e15c5701627444bb8","logo":{"@type":"ImageObject","url":"https://www.gravatar.com/avatar/0cfd0a510d29343e15c5701627444bb8"}},"url":"https://rna-sick.me/2019/06/14/McMADS/","keywords":"苦瓜, 海報, MADS-box, bioinformatics","thumbnailUrl":"https://res.cloudinary.com/rna-sick/image/upload/v1559552701/McMADS/test_u1fqkw.png"}</script>
+    <meta name="description" content="​    This page is used to document method details in the poster “Genome-wide Identification and Analysis of MADS-box Gene Family in Bitter Gourd” presented at the “2019 Poster Competition of Departmen">
+<meta name="keywords" content="horticulture,台大園藝,bioinformatics,生物資訊,Chen Hsieh,謝晨">
 <meta property="og:type" content="blog">
-<meta property="og:title" content="使用 PlantTFDB 預測胺基酸序列是否為轉錄因子">
-<meta property="og:url" content="https://rna-sick.me/2018/12/27/TFDB/index.html">
+<meta property="og:title" content="Genome-wide Identification and Analysis of MADS-box Gene Family in Bitter Gourd -- Method Details">
+<meta property="og:url" content="https://rna-sick.me/2019/06/14/McMADS/index.html">
 <meta property="og:site_name" content="RNA-Sick">
-<meta property="og:description" content="PlantTFDB 提供了一個非常快速方便的轉錄因子查詢入口，有發表基因體的植物物種都有被註解。他們提供的預測服務則可以讓使用者輕鬆註解自己手邊的序列。">
+<meta property="og:description" content="​    This page is used to document method details in the poster “Genome-wide Identification and Analysis of MADS-box Gene Family in Bitter Gourd” presented at the “2019 Poster Competition of Departmen">
 <meta property="og:locale" content="en">
-<meta property="og:image" content="https://res.cloudinary.com/rna-sick/image/upload/v1557476521/TFDB/1_etdhp9.png">
-<meta property="og:image" content="https://res.cloudinary.com/rna-sick/image/upload/v1557476523/TFDB/2_rpmdzn.png">
-<meta property="og:image" content="https://res.cloudinary.com/rna-sick/image/upload/v1557476525/TFDB/2.5_xe0cwr.png">
-<meta property="og:image" content="https://res.cloudinary.com/rna-sick/image/upload/v1557476539/TFDB/21_zghszl.png">
-<meta property="og:image" content="https://res.cloudinary.com/rna-sick/image/upload/v1557476524/TFDB/5_dvovqk.png">
-<meta property="og:image" content="https://res.cloudinary.com/rna-sick/image/upload/v1557476521/TFDB/6_elncgl.png">
-<meta property="og:image" content="https://res.cloudinary.com/rna-sick/image/upload/v1557476521/TFDB/7_tjuwbe.png">
-<meta property="og:image" content="https://res.cloudinary.com/rna-sick/image/upload/v1557476522/TFDB/4_awor70.png">
-<meta property="og:image" content="https://res.cloudinary.com/rna-sick/image/upload/v1557476521/TFDB/3_qabku9.png">
-<meta property="og:image" content="https://res.cloudinary.com/rna-sick/image/upload/v1557476526/TFDB/8_urmrrx.png">
-<meta property="og:image" content="https://res.cloudinary.com/rna-sick/image/upload/v1557476528/TFDB/9_mjglar.png">
-<meta property="og:updated_time" content="2019-05-11T14:33:57.344Z">
+<meta property="og:updated_time" content="2019-06-04T08:19:07.124Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="使用 PlantTFDB 預測胺基酸序列是否為轉錄因子">
-<meta name="twitter:description" content="PlantTFDB 提供了一個非常快速方便的轉錄因子查詢入口，有發表基因體的植物物種都有被註解。他們提供的預測服務則可以讓使用者輕鬆註解自己手邊的序列。">
-<meta name="twitter:image" content="https://res.cloudinary.com/rna-sick/image/upload/v1557476521/TFDB/1_etdhp9.png">
+<meta name="twitter:title" content="Genome-wide Identification and Analysis of MADS-box Gene Family in Bitter Gourd -- Method Details">
+<meta name="twitter:description" content="​    This page is used to document method details in the poster “Genome-wide Identification and Analysis of MADS-box Gene Family in Bitter Gourd” presented at the “2019 Poster Competition of Departmen">
     
     
         
@@ -50,12 +38,9 @@
         <meta property="og:image" content="https://www.gravatar.com/avatar/0cfd0a510d29343e15c5701627444bb8?s=640"/>
     
     
-        <meta property="og:image" content="https://res.cloudinary.com/rna-sick/image/upload/v1557476782/TFDB/002tfdb_dh20u4.jpg"/>
-        <meta class="swiftype" name="image" data-type="enum" content="https://res.cloudinary.com/rna-sick/image/upload/v1557476782/TFDB/002tfdb_dh20u4.jpg" />
     
-    
-        <meta property="og:image" content="https://res.cloudinary.com/rna-sick/image/upload/v1557483649/TFDB/whatyouneed_wwmgni.jpg"/>
-        <meta class="swiftype" name="image" data-type="enum" content="https://res.cloudinary.com/rna-sick/image/upload/v1557483649/TFDB/whatyouneed_wwmgni.jpg" />
+        <meta property="og:image" content="https://res.cloudinary.com/rna-sick/image/upload/v1559552701/McMADS/test_u1fqkw.png"/>
+        <meta class="swiftype" name="image" data-type="enum" content="https://res.cloudinary.com/rna-sick/image/upload/v1559552701/McMADS/test_u1fqkw.png" />
     
     
     <!--STYLES-->
@@ -197,7 +182,7 @@
             
         <div class="post-header-cover
                     text-center
-                    post-header-cover--full" style="background-image:url('https://res.cloudinary.com/rna-sick/image/upload/v1557483649/TFDB/whatyouneed_wwmgni.jpg');" data-behavior="4">
+                    post-header-cover--partial" style="background-image:url('https://res.cloudinary.com/rna-sick/image/upload/v1559552701/McMADS/test_u1fqkw.png');" data-behavior="4">
             
         </div>
 
@@ -208,20 +193,20 @@
                 
 <article class="post">
     
-        <span class="post-header-cover-caption caption">實在是個很方便的轉錄因子分析服務啊～ (截圖來自呆伯特動畫)</span>
+        <span class="post-header-cover-caption caption">Never enough phylogenetic trees.</span>
     
     
         <div class="post-header main-content-wrap text-center">
     
         <h1 class="post-title">
-            使用 PlantTFDB 預測胺基酸序列是否為轉錄因子
+            Genome-wide Identification and Analysis of MADS-box Gene Family in Bitter Gourd -- Method Details
         </h1>
     
     
         <div class="post-meta">
-    <time datetime="2018-12-27T12:47:21+08:00">
+    <time datetime="2019-06-14T12:30:00+08:00">
 	
-		    Dec 27, 2018
+		    Jun 14, 2019
     	
     </time>
     
@@ -233,44 +218,19 @@
     
     <div class="post-content markdown">
         <div class="main-content-wrap">
-            <!-- excerpt -->
-<h1 id="table-of-contents">Table of Contents</h1><ol class="toc"><li class="toc-item toc-level-5"><a class="toc-link" href="#前言"><span class="toc-text">前言</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#Plant-TFDB-網頁基本功能"><span class="toc-text">Plant TFDB 網頁基本功能</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#使用轉錄因子預測服務"><span class="toc-text">使用轉錄因子預測服務</span></a></li></ol>
+            <p>​    This page is used to document method details in the poster “Genome-wide Identification and Analysis of MADS-box Gene Family in Bitter Gourd” presented at the “2019 Poster Competition of Department of Horticulture and Landscape Architechture, NTU”.</p>
+<a id="more"></a>
+<h1 id="table-of-contents">Table of Contents</h1><ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#Genome-wide-identification-of-MADS-box-genes-Under-contruction"><span class="toc-text">Genome-wide identification of MADS-box genes (Under contruction)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Phylogenetic-analyses-of-MADS-box-genes"><span class="toc-text">Phylogenetic analyses of MADS-box genes</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Conserved-Motif-analysis"><span class="toc-text">Conserved Motif analysis</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Collection-of-plant-material-Under-contruction"><span class="toc-text">Collection of plant material (Under contruction)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Expression-analysis-of-MADS-box-genes-Under-contruction"><span class="toc-text">Expression analysis of MADS-box genes (Under contruction)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Cis-acting-element-analysis-of-promoter-region"><span class="toc-text">Cis-acting element analysis of promoter region</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#References"><span class="toc-text">References:</span></a></li></ol>
 <hr>
-<h5 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h5><p>Transcriptome 分析的文章中，有時候會出現一個小章節用來描述總共註解到了多少轉錄因子，或是有哪些轉錄因子上調或下調。像是這篇萵苣抽薹有關的研究中，便用圓餅圖表示了各種可供未來研究參考的轉錄因子家族名稱。</p>
-<p><img src="https://res.cloudinary.com/rna-sick/image/upload/v1557476521/TFDB/1_etdhp9.png" alt="paper_cover"></p>
-<p><img src="https://res.cloudinary.com/rna-sick/image/upload/v1557476523/TFDB/2_rpmdzn.png" alt="pie chart"></p>
-<p>在實際的分析上，因為轉錄因子序列比較短，用一般的註解軟體容易錯過，或是僅因為有特定的區段就有把酵素類的蛋白質誤解為轉錄因子的情形。</p>
-<p><img src="https://res.cloudinary.com/rna-sick/image/upload/v1557476525/TFDB/2.5_xe0cwr.png" alt="TFDBhomepage"></p>
-<p><a href="http://planttfdb.cbi.pku.edu.cn" target="_blank" rel="noopener">PlantTFDB</a> 替大家解決了這個問題，網站除了可以直接查詢他們的研究團隊已經預測過的物種中的轉錄因子以外，也有提供了基於他們人為透過文獻閱讀歸納出來的轉錄因子家族指定規則進行預測的服務。</p>
-<p><img src="https://res.cloudinary.com/rna-sick/image/upload/v1557476539/TFDB/21_zghszl.png" alt="assignmentRules"></p>
-<p>只要輸入胺基酸序列，稍等一下就可以得到預測結果。以下將會簡單介紹網頁以及 step by step 紀錄預測功能的使用，並且銜接到使用 excel 繪製轉錄因子比例圓餅圖的操作。</p>
-<h5 id="Plant-TFDB-網頁基本功能"><a href="#Plant-TFDB-網頁基本功能" class="headerlink" title="Plant TFDB 網頁基本功能"></a>Plant TFDB 網頁基本功能</h5><p>首先首頁就可以看到五十八種轉錄因子的分類以及已經註解到的數量，每次改版過程中註解方式或是說指定規則可能會因爲文獻而略有更動，像是最近一版就把參與轉錄調節但是不具有直接 DNA 結合區段的類別移除了。</p>
-<p><img src="https://res.cloudinary.com/rna-sick/image/upload/v1557476524/TFDB/5_dvovqk.png" alt="all those family types"></p>
-<p>隨便選擇一個沒有聽過的 E2F/DP 點進去，有該種轉錄因子在各種物種中的家族成員數量，和簡單的文字敘述及引用文獻，讓人可以快速了解該分類，或是本身在進行該家族的基因研究的話，也可以參考不同物種中的成員數量以評估註解情形。</p>
-<p><img src="https://res.cloudinary.com/rna-sick/image/upload/v1557476521/TFDB/6_elncgl.png" alt="family page"></p>
-<p>紅色的 bar chart 標出了他們所註解的基因體中含有的該家族的轉錄因子數量。只可惜是以圖片的方式呈現，所以不方便在網頁上直接用搜尋找到自己感興趣的物種資料，可能還是要回到首頁搜尋比較方便。</p>
-<p><img src="https://res.cloudinary.com/rna-sick/image/upload/v1557476521/TFDB/7_tjuwbe.png" alt="page family description"></p>
-<p>轉錄因子頁面下方就有簡單的文字描述，看完就大概知道要怎樣簡單介紹這個轉錄因子，譬如基本的蛋白質功能區段 (domain)、常見的作用型態、目標基因、以及可能參與的生理調控。</p>
-<h5 id="使用轉錄因子預測服務"><a href="#使用轉錄因子預測服務" class="headerlink" title="使用轉錄因子預測服務"></a>使用轉錄因子預測服務</h5><p>接下來終於要進入正題，如何使用ＴＦＤＢ提供的轉錄因子註解服務：</p>
-<ol>
-<li><p>進入預測的<a href="http://planttfdb.cbi.pku.edu.cn/prediction.php" target="_blank" rel="noopener">頁面</a>：</p>
-<p><img src="https://res.cloudinary.com/rna-sick/image/upload/v1557476522/TFDB/4_awor70.png" alt="prediction page"></p>
-</li>
-<li><p>輸入 fasta 格式的序列，或是直接上傳 fasta 檔案</p>
-</li>
-<li><p>勾選 Best Hit in <em>Arabidopsis Thaliana</em> 的話會附上一筆對應的阿拉伯芥基因資訊，未來銜接其他分析也方便，然後用力地按下 Pridiction</p>
-</li>
-<li><p>四萬多筆資料，過兩分鐘就有結果出來了，可以在這個頁面的表格上簡單地操作瀏覽一下</p>
-<p><img src="https://res.cloudinary.com/rna-sick/image/upload/v1557476521/TFDB/3_qabku9.png" alt="TF prediction results"></p>
-</li>
-<li><p>在文字敘述中按 Download list，這就是輸出用以後續分析的格式，column 分別為我們所提供的胺基酸序列之 ID、轉錄因子基因家族、Best Hit in <em>Arabidopsis Thaliana</em> 之基因、p-value、Best Hit in <em>Arabidopsis Thaliana</em> 基因之註解</p>
-<p><img src="https://res.cloudinary.com/rna-sick/image/upload/v1557476526/TFDB/8_urmrrx.png" alt="result"></p>
-</li>
-<li><p>下載下來的是純文字檔案，雖然副檔名是 “.list”，但還是可以對著檔案點右鍵，選擇用 excel 打開以方便檢視</p>
-<p><img src="https://res.cloudinary.com/rna-sick/image/upload/v1557476528/TFDB/9_mjglar.png" alt="opening by excel"></p>
-<p>由這個檔案，就可以看到輸入的胺基酸序列代號，以及其所對應的轉錄因子家族。雖然這樣子全自動預測的服務很方便，最好還是要人工檢核 (manual curation) 一下，再進行下一步的分析比較保險。除了看看感興趣的基因究竟是什麼轉錄因子以外，通常會想看看各個家族的比例。如何直接使用這個輸出的預測結果檔案，不寫程式使用 excel 畫成可以呈現各個基因家族比例的圓餅圖，且待下回分曉～</p>
-</li>
-</ol>
+<h4 id="Genome-wide-identification-of-MADS-box-genes-Under-contruction"><a href="#Genome-wide-identification-of-MADS-box-genes-Under-contruction" class="headerlink" title="Genome-wide identification of MADS-box genes (Under contruction)"></a>Genome-wide identification of MADS-box genes (Under contruction)</h4><h4 id="Phylogenetic-analyses-of-MADS-box-genes"><a href="#Phylogenetic-analyses-of-MADS-box-genes" class="headerlink" title="Phylogenetic analyses of MADS-box genes"></a>Phylogenetic analyses of MADS-box genes</h4><p>Multiple sequence alignments were performed between full-length MADS-box protein sequences from bitter gourd, <em>Arabidopsis</em>, and watermelon using MUSCLE (Edgar, 2004) with default settings in Seqotron (Fourment and Holmes, 2016). An unrooted maximum-likelihood (ML) tree was constructed using the MEGA7. The tree nodes were evaluated by bootstrap analysis for 1000 replicates. </p>
+<h4 id="Conserved-Motif-analysis"><a href="#Conserved-Motif-analysis" class="headerlink" title="Conserved Motif analysis"></a>Conserved Motif analysis</h4><p>MEME-suite (Bailey <em>et al.</em>, 1994; Bailey <em>et al.</em>, 2009) was applied to predict the conserved motifs of the MADS-box with the following parameter settings: number of repetitions -anr (any number of repetitions), maximum number of motifs -7, minimum motif width -6 and maximum motif width -69.</p>
+<h4 id="Collection-of-plant-material-Under-contruction"><a href="#Collection-of-plant-material-Under-contruction" class="headerlink" title="Collection of plant material (Under contruction)"></a>Collection of plant material (Under contruction)</h4><h4 id="Expression-analysis-of-MADS-box-genes-Under-contruction"><a href="#Expression-analysis-of-MADS-box-genes-Under-contruction" class="headerlink" title="Expression analysis of MADS-box genes (Under contruction)"></a>Expression analysis of MADS-box genes (Under contruction)</h4><h4 id="Cis-acting-element-analysis-of-promoter-region"><a href="#Cis-acting-element-analysis-of-promoter-region" class="headerlink" title="Cis-acting element analysis of promoter region"></a>Cis-acting element analysis of promoter region</h4><p>New PLACE database (<a href="https://www.dna.affrc.go.jp/PLACE/?action=newplace" target="_blank" rel="noopener">https://www.dna.affrc.go.jp/PLACE/?action=newplace</a>) was used to predict cis-acting elements in the <em>McMADS</em>s’ promoter (1.5 kb upstream from the<br>predicted transcription start site, TSS). In this study, cis-acting elements related to seven biological related categories of interest were selected. The seven categories are hormone responsive elements, tissue specific elements, circadian responsive elements, cell cycle regulation, stress responsive element, TF regulation, light responsive elements. Category related cis-acting elements were picked up according to the presence of keywords in corresponding publication title.</p>
+<h4 id="References"><a href="#References" class="headerlink" title="References:"></a>References:</h4><p>Bailey, T.L., M. Bodén, F.A. Buske, M. Frith, C.E. Grant, L. Clementi, J.Y. Ren, W.W. Li, S.N. William. 2009. MEME SUITE: tools for motif discovery and searching. Nucleic Acids Research. 37:W202-W208.</p>
+<p>Bailey, T.L., and C. Elkan. 1994. Fitting a mixture model by expectation maximization to discover motifs in biopolymers. Proceedings of the Second International Conference on Intelligent Systems for Molecular Biology. 28-36.</p>
+<p>Edgar R.C. 2004. MUSCLE: multiple sequence alignment with high accuracy and high throughput. Nucleic Acids Research. 32(5) 1792-1797.</p>
+<p>Fourment, M., and E.C. Holmes. 2016. Seqotron: a user-friendly sequence editor for Mac OS X. BMC Research Notes. 9(106)</p>
+<p>Higo, K., Ugawa, Y., Iwamoto, M. and Korenaga, T. 1999. Plant cis-acting regulatory DNA elements (PLACE) database. Nucleic Acids Research. 2(1) 297-300.</p>
+
             
 
         </div>
@@ -280,7 +240,7 @@
             <div class="post-footer-tags">
                 <span class="text-color-light text-small">TAGGED IN</span><br>
                 
-    <a class="tag tag--primary tag--small t-link" href="/tags/excel/">excel</a> <a class="tag tag--primary tag--small t-link" href="/tags/pie-chart/">pie chart</a> <a class="tag tag--primary tag--small t-link" href="/tags/plant/">plant</a> <a class="tag tag--primary tag--small t-link" href="/tags/transcription-factor/">transcription factor</a>
+    <a class="tag tag--primary tag--small t-link" href="/tags/MADS-box/">MADS-box</a> <a class="tag tag--primary tag--small t-link" href="/tags/bioinformatics/">bioinformatics</a> <a class="tag tag--primary tag--small t-link" href="/tags/海報/">海報</a> <a class="tag tag--primary tag--small t-link" href="/tags/苦瓜/">苦瓜</a>
 
             </div>
         
@@ -290,8 +250,7 @@
         <ul class="post-actions post-action-nav">
             <li class="post-action">
                 
-                    
-                    <a class="post-action-btn btn btn--default tooltip--top" href="/2019/01/03/107-年公費留考筆試篇/" data-tooltip="107 年公費留考採收後處理筆試篇" aria-label="PREVIOUS: 107 年公費留考採收後處理筆試篇">
+                    <a class="post-action-btn btn btn--disabled">
                 
                     <i class="fa fa-angle-left" aria-hidden="true"></i>
                     <span class="hide-xs hide-sm text-small icon-ml">PREVIOUS</span>
@@ -299,7 +258,8 @@
             </li>
             <li class="post-action">
                 
-                    <a class="post-action-btn btn btn--disabled">
+                    
+                    <a class="post-action-btn btn btn--default tooltip--top" href="/2019/05/15/ORCA/" data-tooltip="ORCΛ：來費解的二維語言遊樂場玩耍" aria-label="NEXT: ORCΛ：來費解的二維語言遊樂場玩耍">
                 
                     <span class="hide-xs hide-sm text-small icon-mr">NEXT</span>
                     <i class="fa fa-angle-right" aria-hidden="true"></i>
@@ -317,7 +277,7 @@
             
             
             <li class="post-action hide-xs">
-                <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://rna-sick.me/2018/12/27/TFDB/" title="Share on Facebook">
+                <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://rna-sick.me/2019/06/14/McMADS/" title="Share on Facebook">
                     <i class="fab fa-facebook" aria-hidden="true"></i>
                 </a>
             </li>
@@ -325,7 +285,7 @@
             
             
             <li class="post-action hide-xs">
-                <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://rna-sick.me/2018/12/27/TFDB/" title="Share on Twitter">
+                <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://rna-sick.me/2019/06/14/McMADS/" title="Share on Twitter">
                     <i class="fab fa-twitter" aria-hidden="true"></i>
                 </a>
             </li>
@@ -333,7 +293,7 @@
             
             
             <li class="post-action hide-xs">
-                <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=https://rna-sick.me/2018/12/27/TFDB/" title="Share on Google+">
+                <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=https://rna-sick.me/2019/06/14/McMADS/" title="Share on Google+">
                     <i class="fab fa-google-plus" aria-hidden="true"></i>
                 </a>
             </li>
@@ -385,8 +345,7 @@
         <ul class="post-actions post-action-nav">
             <li class="post-action">
                 
-                    
-                    <a class="post-action-btn btn btn--default tooltip--top" href="/2019/01/03/107-年公費留考筆試篇/" data-tooltip="107 年公費留考採收後處理筆試篇" aria-label="PREVIOUS: 107 年公費留考採收後處理筆試篇">
+                    <a class="post-action-btn btn btn--disabled">
                 
                     <i class="fa fa-angle-left" aria-hidden="true"></i>
                     <span class="hide-xs hide-sm text-small icon-ml">PREVIOUS</span>
@@ -394,7 +353,8 @@
             </li>
             <li class="post-action">
                 
-                    <a class="post-action-btn btn btn--disabled">
+                    
+                    <a class="post-action-btn btn btn--default tooltip--top" href="/2019/05/15/ORCA/" data-tooltip="ORCΛ：來費解的二維語言遊樂場玩耍" aria-label="NEXT: ORCΛ：來費解的二維語言遊樂場玩耍">
                 
                     <span class="hide-xs hide-sm text-small icon-mr">NEXT</span>
                     <i class="fa fa-angle-right" aria-hidden="true"></i>
@@ -412,7 +372,7 @@
             
             
             <li class="post-action hide-xs">
-                <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://rna-sick.me/2018/12/27/TFDB/" title="Share on Facebook">
+                <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://rna-sick.me/2019/06/14/McMADS/" title="Share on Facebook">
                     <i class="fab fa-facebook" aria-hidden="true"></i>
                 </a>
             </li>
@@ -420,7 +380,7 @@
             
             
             <li class="post-action hide-xs">
-                <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://rna-sick.me/2018/12/27/TFDB/" title="Share on Twitter">
+                <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://rna-sick.me/2019/06/14/McMADS/" title="Share on Twitter">
                     <i class="fab fa-twitter" aria-hidden="true"></i>
                 </a>
             </li>
@@ -428,7 +388,7 @@
             
             
             <li class="post-action hide-xs">
-                <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=https://rna-sick.me/2018/12/27/TFDB/" title="Share on Google+">
+                <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=https://rna-sick.me/2019/06/14/McMADS/" title="Share on Google+">
                     <i class="fab fa-google-plus" aria-hidden="true"></i>
                 </a>
             </li>
@@ -462,7 +422,7 @@
                 
                 
                 <li class="share-option">
-                    <a class="share-option-btn" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://rna-sick.me/2018/12/27/TFDB/">
+                    <a class="share-option-btn" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://rna-sick.me/2019/06/14/McMADS/">
                         <i class="fab fa-facebook" aria-hidden="true"></i><span>Share on Facebook</span>
                     </a>
                 </li>
@@ -470,7 +430,7 @@
                 
                 
                 <li class="share-option">
-                    <a class="share-option-btn" target="new" href="https://twitter.com/intent/tweet?text=https://rna-sick.me/2018/12/27/TFDB/">
+                    <a class="share-option-btn" target="new" href="https://twitter.com/intent/tweet?text=https://rna-sick.me/2019/06/14/McMADS/">
                         <i class="fab fa-twitter" aria-hidden="true"></i><span>Share on Twitter</span>
                     </a>
                 </li>
@@ -478,7 +438,7 @@
                 
                 
                 <li class="share-option">
-                    <a class="share-option-btn" target="new" href="https://plus.google.com/share?url=https://rna-sick.me/2018/12/27/TFDB/">
+                    <a class="share-option-btn" target="new" href="https://plus.google.com/share?url=https://rna-sick.me/2019/06/14/McMADS/">
                         <i class="fab fa-google-plus" aria-hidden="true"></i><span>Share on Google+</span>
                     </a>
                 </li>
@@ -763,9 +723,9 @@
     
         <script>
              var disqus_config = function () {
-                 this.page.url = 'https://rna-sick.me/2018/12/27/TFDB/';
+                 this.page.url = 'https://rna-sick.me/2019/06/14/McMADS/';
                  
-                    this.page.identifier = '2018/12/27/TFDB/';
+                    this.page.identifier = '2019/06/14/McMADS/';
                  
              };
             (function() {
