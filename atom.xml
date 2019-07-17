@@ -168,8 +168,8 @@
   
   <entry>
     <title>用 excel 畫分裂圓餅圖，調整想要的分割比例</title>
-    <link href="https://rna-sick.me/2019/01/16/%E7%94%A8-excel-%E7%95%AB%E5%88%86%E8%A3%82%E5%9C%93%E9%A4%85%E5%9C%96%EF%BC%8C%E8%AA%BF%E6%95%B4%E6%83%B3%E8%A6%81%E7%9A%84%E5%88%86%E5%89%B2%E6%AF%94%E4%BE%8B/"/>
-    <id>https://rna-sick.me/2019/01/16/用-excel-畫分裂圓餅圖，調整想要的分割比例/</id>
+    <link href="https://rna-sick.me/2019/01/16/split-pie/"/>
+    <id>https://rna-sick.me/2019/01/16/split-pie/</id>
     <published>2019-01-16T08:48:31.000Z</published>
     <updated>2019-05-11T14:34:11.883Z</updated>
     
@@ -182,9 +182,9 @@
     </summary>
     
     
-      <category term="pie chart" scheme="https://rna-sick.me/tags/pie-chart/"/>
-    
       <category term="Excel" scheme="https://rna-sick.me/tags/Excel/"/>
+    
+      <category term="pie chart" scheme="https://rna-sick.me/tags/pie-chart/"/>
     
       <category term="figure" scheme="https://rna-sick.me/tags/figure/"/>
     
@@ -232,13 +232,13 @@
     </summary>
     
     
+      <category term="pie chart" scheme="https://rna-sick.me/tags/pie-chart/"/>
+    
       <category term="excel" scheme="https://rna-sick.me/tags/excel/"/>
     
       <category term="transcription factor" scheme="https://rna-sick.me/tags/transcription-factor/"/>
     
       <category term="plant" scheme="https://rna-sick.me/tags/plant/"/>
-    
-      <category term="pie chart" scheme="https://rna-sick.me/tags/pie-chart/"/>
     
   </entry>
   
