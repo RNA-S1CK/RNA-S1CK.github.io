@@ -7,9 +7,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="generator" content="RNA-Sick">
     <title>用 Cividis 色盤來畫熱圖吧 - RNA-Sick</title>
-    <meta name="author" content="Chen Hsieh">
+    <meta name="author" content="謝晨(Chen Hsieh)">
     
-        <meta name="keywords" content="horticulture,台大園藝,bioinformatic,生物資訊,Chen Hsieh,horticulture,台大園藝,bioinformatic,生物資訊,Chen Hsieh">
+        <meta name="keywords" content="horticulture,台大園藝,bioinformatic,生物資訊,Chen Hsieh,謝晨,horticulture,台大園藝,bioinformatic,生物資訊,Chen Hsieh">
     
     
         <link rel="icon" href="https://rna-sick.me/assets/images/favicon.png">
@@ -17,7 +17,7 @@
     
         <link rel="alternate" type="application/atom+xml" title="RSS" href="/atom.xml">
     
-    <script type="application/ld+json">{"@context":"http://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Chen Hsieh","sameAs":["https://drive.google.com/file/d/1xiDPR2J_w4IWM83P-xutthcnzteJUaxg/view?usp=sharing","mailto:bendjamin101001@gmail.com"],"image":"https://www.gravatar.com/avatar/0cfd0a510d29343e15c5701627444bb8"},"articleBody":"\n\n前言去年夏天看到這篇文章，強調科學繪圖過程中色調的選用若不夠謹慎，很有可能會造成誤導的結果，甚至影響有色覺辨認障礙 (Color vision deficiency, CVD) 的人知的權益，因此他們開發了一個python 套件 cmaputil 用以產生 CVD 最佳化的色盤。\n\n愛拖延如我，一直到這週氣溫降到二十度以下了才下載了套件想要試用看看，這才發現他的運作方式好複雜。似乎因為他原本的應用場景主要是替資料上色，所以有一套模擬 CVD 與顏色轉換的過程，過程基本上完全看不懂。\n\n套件修改以供 python 3 使用雖然如此，單純用個套件應該不會很難吧，沒想到剛裝完還是不能用，因為原本是寫給 python 2.7 用的，有兩個地方要自己去修改成 python 3 的 print 語法。而且他的文件跟一般的套件比起來比較簡陋，網路上討論也不多，所以老實說完全不知道怎麼用，我只是想要畫個簡單的熱圖而已啊ＱＱ～\n\n下載色調值客製化 seaborn/matplotlib 色盤在他們的 github 上翻著翻著找到了附上的色調值，便有了下列的簡單解法：\n\n先下載色調值並另存成 CVD.txt\n\n讀取檔案載入成 matplotlib 的 cmap\n1234with open('CVD.txt') as f:    colors = f.readlines()colors = [j[:-1] for j in colors]cmap = matplotlib.colors.ListedColormap(colors)\n\n繪圖時把自己客製化的 cmap 傳入就好囉\n1sns.clustermap(dataFrame, cmap=cmap)\n\n\n以上就是使用 python 三步驟輕鬆畫幅 CVD 友善的圖～\n\n雖然顏色看起來有點黯淡，但是想到背後的意義就覺得有股\n\n『啊～我又堅持了沒什麼人會在意的細節了呢～真是讚讚！』\n\n的感覺～嘻嘻","dateCreated":"2019-03-21T00:21:51+08:00","dateModified":"2019-05-15T13:10:48+08:00","datePublished":"2019-03-21T00:21:51+08:00","description":"科學繪圖過程中色調的選用若不夠謹慎，很有可能會造成誤導的結果，甚至影響有色覺辨認障礙 (Color vision deficiency, CVD) 的人知的權益，因此選用 Cividis 這個色盤也是一種對知識的尊重ＸＤ","headline":"用 Cividis 色盤來畫熱圖吧","image":["https://res.cloudinary.com/rna-sick/image/upload/v1557417948/CVD/thumbnailCVD_ge39vw.jpg","https://res.cloudinary.com/rna-sick/image/upload/v1557417942/CVD/Screen_Shot_2019-04-02_at_10.39.18_ekolta.png"],"mainEntityOfPage":{"@type":"WebPage","@id":"https://rna-sick.me/2019/03/21/CVD/"},"publisher":{"@type":"Organization","name":"Chen Hsieh","sameAs":["https://drive.google.com/file/d/1xiDPR2J_w4IWM83P-xutthcnzteJUaxg/view?usp=sharing","mailto:bendjamin101001@gmail.com"],"image":"https://www.gravatar.com/avatar/0cfd0a510d29343e15c5701627444bb8","logo":{"@type":"ImageObject","url":"https://www.gravatar.com/avatar/0cfd0a510d29343e15c5701627444bb8"}},"url":"https://rna-sick.me/2019/03/21/CVD/","keywords":"python, 繪圖, seaborn, palette","thumbnailUrl":"https://res.cloudinary.com/rna-sick/image/upload/v1557417948/CVD/thumbnailCVD_ge39vw.jpg"}</script>
+    <script type="application/ld+json">{"@context":"http://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"謝晨(Chen Hsieh)","sameAs":["https://drive.google.com/file/d/1xiDPR2J_w4IWM83P-xutthcnzteJUaxg/view?usp=sharing","mailto:bendjamin101001@gmail.com"],"image":"https://www.gravatar.com/avatar/0cfd0a510d29343e15c5701627444bb8"},"articleBody":"\n\n前言去年夏天看到這篇文章，強調科學繪圖過程中色調的選用若不夠謹慎，很有可能會造成誤導的結果，甚至影響有色覺辨認障礙 (Color vision deficiency, CVD) 的人知的權益，因此他們開發了一個python 套件 cmaputil 用以產生 CVD 最佳化的色盤。\n\n愛拖延如我，一直到這週氣溫降到二十度以下了才下載了套件想要試用看看，這才發現他的運作方式好複雜。似乎因為他原本的應用場景主要是替資料上色，所以有一套模擬 CVD 與顏色轉換的過程，過程基本上完全看不懂。\n\n套件修改以供 python 3 使用雖然如此，單純用個套件應該不會很難吧，沒想到剛裝完還是不能用，因為原本是寫給 python 2.7 用的，有兩個地方要自己去修改成 python 3 的 print 語法。而且他的文件跟一般的套件比起來比較簡陋，網路上討論也不多，所以老實說完全不知道怎麼用，我只是想要畫個簡單的熱圖而已啊ＱＱ～\n\n下載色調值客製化 seaborn/matplotlib 色盤在他們的 github 上翻著翻著找到了附上的色調值，便有了下列的簡單解法：\n\n先下載色調值並另存成 CVD.txt\n\n讀取檔案載入成 matplotlib 的 cmap\n1234with open('CVD.txt') as f:    colors = f.readlines()colors = [j[:-1] for j in colors]cmap = matplotlib.colors.ListedColormap(colors)\n\n繪圖時把自己客製化的 cmap 傳入就好囉\n1sns.clustermap(dataFrame, cmap=cmap)\n\n\n以上就是使用 python 三步驟輕鬆畫幅 CVD 友善的圖～\n\n雖然顏色看起來有點黯淡，但是想到背後的意義就覺得有股\n\n『啊～我又堅持了沒什麼人會在意的細節了呢～真是讚讚！』\n\n的感覺～嘻嘻","dateCreated":"2019-03-21T00:21:51+08:00","dateModified":"2019-05-15T13:10:48+08:00","datePublished":"2019-03-21T00:21:51+08:00","description":"科學繪圖過程中色調的選用若不夠謹慎，很有可能會造成誤導的結果，甚至影響有色覺辨認障礙 (Color vision deficiency, CVD) 的人知的權益，因此選用 Cividis 這個色盤也是一種對知識的尊重ＸＤ","headline":"用 Cividis 色盤來畫熱圖吧","image":["https://res.cloudinary.com/rna-sick/image/upload/v1557417948/CVD/thumbnailCVD_ge39vw.jpg","https://res.cloudinary.com/rna-sick/image/upload/v1557417942/CVD/Screen_Shot_2019-04-02_at_10.39.18_ekolta.png"],"mainEntityOfPage":{"@type":"WebPage","@id":"https://rna-sick.me/2019/03/21/CVD/"},"publisher":{"@type":"Organization","name":"謝晨(Chen Hsieh)","sameAs":["https://drive.google.com/file/d/1xiDPR2J_w4IWM83P-xutthcnzteJUaxg/view?usp=sharing","mailto:bendjamin101001@gmail.com"],"image":"https://www.gravatar.com/avatar/0cfd0a510d29343e15c5701627444bb8","logo":{"@type":"ImageObject","url":"https://www.gravatar.com/avatar/0cfd0a510d29343e15c5701627444bb8"}},"url":"https://rna-sick.me/2019/03/21/CVD/","keywords":"python, 繪圖, seaborn, palette","thumbnailUrl":"https://res.cloudinary.com/rna-sick/image/upload/v1557417948/CVD/thumbnailCVD_ge39vw.jpg"}</script>
     <meta name="description" content="科學繪圖過程中色調的選用若不夠謹慎，很有可能會造成誤導的結果，甚至影響有色覺辨認障礙 (Color vision deficiency, CVD) 的人知的權益，因此選用 Cividis 這個色盤也是一種對知識的尊重ＸＤ">
 <meta name="keywords" content="horticulture,台大園藝,bioinformatic,生物資訊,Chen Hsieh">
 <meta property="og:type" content="blog">
@@ -92,7 +92,7 @@
                 <a href="/#about">
                     <img class="sidebar-profile-picture" src="https://www.gravatar.com/avatar/0cfd0a510d29343e15c5701627444bb8?s=110" alt="Author&#39;s picture">
                 </a>
-                <h4 class="sidebar-profile-name">Chen Hsieh</h4>
+                <h4 class="sidebar-profile-name">謝晨(Chen Hsieh)</h4>
                 
                     <h5 class="sidebar-profile-bio"><p>I don’t need time, I need a deadline.</p>
 </h5>
@@ -355,7 +355,7 @@
 
                 <footer id="footer" class="main-content-wrap">
     <span class="copyrights">
-        Copyrights &copy; 2019 Chen Hsieh. All Rights Reserved.
+        Copyrights &copy; 2019 謝晨(Chen Hsieh). All Rights Reserved.
     </span>
 </footer>
 
@@ -485,7 +485,7 @@
         
             <img id="about-card-picture" src="https://www.gravatar.com/avatar/0cfd0a510d29343e15c5701627444bb8?s=110" alt="Author&#39;s picture">
         
-            <h4 id="about-card-name">Chen Hsieh</h4>
+            <h4 id="about-card-name">謝晨(Chen Hsieh)</h4>
         
             <div id="about-card-bio"><p>I don’t need time, I need a deadline.</p>
 </div>
