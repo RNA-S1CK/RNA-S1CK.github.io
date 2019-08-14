@@ -6,10 +6,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="generator" content="RNA-Sick">
-    <title>使用 PlantTFDB 預測胺基酸序列是否為轉錄因子 - RNA-Sick</title>
+    <title>Utilizing the open data from NCBI SRA database: a starter guide - RNA-Sick</title>
     <meta name="author" content="謝晨(Chen Hsieh)">
     
-        <meta name="keywords" content="horticulture,台大園藝,bioinformatic,生物資訊,Chen Hsieh,謝晨,horticulture,台大園藝,bioinformatic,生物資訊,Chen Hsieh">
+        <meta name="keywords" content="horticulture,台大園藝,bioinformatic,生物資訊,Chen Hsieh,謝晨,horticulture,台大園藝,bioinformatic,生物資訊,Chen Hsieh,謝晨">
     
     
         <link rel="icon" href="https://rna-sick.me/assets/images/favicon.png">
@@ -17,31 +17,35 @@
     
         <link rel="alternate" type="application/atom+xml" title="RSS" href="/atom.xml">
     
-    <script type="application/ld+json">{"@context":"http://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"謝晨(Chen Hsieh)","sameAs":["https://twitter.com/rna_sick","https://www.facebook.com/rna.sick/","https://www.instagram.com/rna.sick/","https://www.linkedin.com/in/chen-hsieh-60235a140/","https://drive.google.com/file/d/1xiDPR2J_w4IWM83P-xutthcnzteJUaxg/view?usp=sharing","mailto:bendjamin101001@gmail.com"],"image":"https://www.gravatar.com/avatar/0cfd0a510d29343e15c5701627444bb8"},"articleBody":"\n\n\n前言Transcriptome 分析的文章中，有時候會出現一個小章節用來描述總共註解到了多少轉錄因子，或是有哪些轉錄因子上調或下調。像是這篇萵苣抽薹有關的研究中，便用圓餅圖表示了各種可供未來研究參考的轉錄因子家族名稱。\n\n\n在實際的分析上，因為轉錄因子序列比較短，用一般的註解軟體容易錯過，或是僅因為有特定的區段就有把酵素類的蛋白質誤解為轉錄因子的情形。\n\nPlantTFDB 替大家解決了這個問題，網站除了可以直接查詢他們的研究團隊已經預測過的物種中的轉錄因子以外，也有提供了基於他們人為透過文獻閱讀歸納出來的轉錄因子家族指定規則進行預測的服務。\n\n只要輸入胺基酸序列，稍等一下就可以得到預測結果。以下將會簡單介紹網頁以及 step by step 紀錄預測功能的使用，並且銜接到使用 excel 繪製轉錄因子比例圓餅圖的操作。\nPlant TFDB 網頁基本功能首先首頁就可以看到五十八種轉錄因子的分類以及已經註解到的數量，每次改版過程中註解方式或是說指定規則可能會因爲文獻而略有更動，像是最近一版就把參與轉錄調節但是不具有直接 DNA 結合區段的類別移除了。\n\n隨便選擇一個沒有聽過的 E2F/DP 點進去，有該種轉錄因子在各種物種中的家族成員數量，和簡單的文字敘述及引用文獻，讓人可以快速了解該分類，或是本身在進行該家族的基因研究的話，也可以參考不同物種中的成員數量以評估註解情形。\n\n紅色的 bar chart 標出了他們所註解的基因體中含有的該家族的轉錄因子數量。只可惜是以圖片的方式呈現，所以不方便在網頁上直接用搜尋找到自己感興趣的物種資料，可能還是要回到首頁搜尋比較方便。\n\n轉錄因子頁面下方就有簡單的文字描述，看完就大概知道要怎樣簡單介紹這個轉錄因子，譬如基本的蛋白質功能區段 (domain)、常見的作用型態、目標基因、以及可能參與的生理調控。\n使用轉錄因子預測服務接下來終於要進入正題，如何使用ＴＦＤＢ提供的轉錄因子註解服務：\n\n進入預測的頁面：\n\n\n輸入 fasta 格式的序列，或是直接上傳 fasta 檔案\n\n勾選 Best Hit in Arabidopsis Thaliana 的話會附上一筆對應的阿拉伯芥基因資訊，未來銜接其他分析也方便，然後用力地按下 Pridiction\n\n四萬多筆資料，過兩分鐘就有結果出來了，可以在這個頁面的表格上簡單地操作瀏覽一下\n\n\n在文字敘述中按 Download list，這就是輸出用以後續分析的格式，column 分別為我們所提供的胺基酸序列之 ID、轉錄因子基因家族、Best Hit in Arabidopsis Thaliana 之基因、p-value、Best Hit in Arabidopsis Thaliana 基因之註解\n\n\n下載下來的是純文字檔案，雖然副檔名是 “.list”，但還是可以對著檔案點右鍵，選擇用 excel 打開以方便檢視\n\n由這個檔案，就可以看到輸入的胺基酸序列代號，以及其所對應的轉錄因子家族。雖然這樣子全自動預測的服務很方便，最好還是要人工檢核 (manual curation) 一下，再進行下一步的分析比較保險。除了看看感興趣的基因究竟是什麼轉錄因子以外，通常會想看看各個家族的比例。如何直接使用這個輸出的預測結果檔案，不寫程式使用 excel 畫成可以呈現各個基因家族比例的圓餅圖，且待下回分曉～\n\n","dateCreated":"2018-12-27T12:47:21+08:00","dateModified":"2019-07-17T20:19:25+08:00","datePublished":"2018-12-27T12:47:21+08:00","description":"PlantTFDB 提供了一個非常快速方便的轉錄因子查詢入口，有發表基因體的植物物種都有被註解。他們提供的預測服務則可以讓使用者輕鬆註解自己手邊的序列。","headline":"使用 PlantTFDB 預測胺基酸序列是否為轉錄因子","image":["https://res.cloudinary.com/rna-sick/image/upload/v1557476782/TFDB/002tfdb_dh20u4.jpg","https://res.cloudinary.com/rna-sick/image/upload/v1557483649/TFDB/whatyouneed_wwmgni.jpg"],"mainEntityOfPage":{"@type":"WebPage","@id":"https://rna-sick.me/2018/12/27/TFDB/"},"publisher":{"@type":"Organization","name":"謝晨(Chen Hsieh)","sameAs":["https://twitter.com/rna_sick","https://www.facebook.com/rna.sick/","https://www.instagram.com/rna.sick/","https://www.linkedin.com/in/chen-hsieh-60235a140/","https://drive.google.com/file/d/1xiDPR2J_w4IWM83P-xutthcnzteJUaxg/view?usp=sharing","mailto:bendjamin101001@gmail.com"],"image":"https://www.gravatar.com/avatar/0cfd0a510d29343e15c5701627444bb8","logo":{"@type":"ImageObject","url":"https://www.gravatar.com/avatar/0cfd0a510d29343e15c5701627444bb8"}},"url":"https://rna-sick.me/2018/12/27/TFDB/","keywords":"pie chart, excel, transcription factor, plant","thumbnailUrl":"https://res.cloudinary.com/rna-sick/image/upload/v1557476782/TFDB/002tfdb_dh20u4.jpg"}</script>
-    <meta name="description" content="PlantTFDB 提供了一個非常快速方便的轉錄因子查詢入口，有發表基因體的植物物種都有被註解。他們提供的預測服務則可以讓使用者輕鬆註解自己手邊的序列。">
-<meta name="keywords" content="horticulture,台大園藝,bioinformatic,生物資訊,Chen Hsieh">
+    <script type="application/ld+json">{"@context":"http://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"謝晨(Chen Hsieh)","sameAs":["https://twitter.com/rna_sick","https://www.facebook.com/rna.sick/","https://www.instagram.com/rna.sick/","https://www.linkedin.com/in/chen-hsieh-60235a140/","https://drive.google.com/file/d/1xiDPR2J_w4IWM83P-xutthcnzteJUaxg/view?usp=sharing","mailto:bendjamin101001@gmail.com"],"image":"https://www.gravatar.com/avatar/0cfd0a510d29343e15c5701627444bb8"},"articleBody":"摘要：從 NCBI 的 SRA 資料庫下載感興趣的資料，驗證、\n本文適用對象：有點懶惰不想看官方英文說明的初學者\n關鍵字：\n\n\n\nIntroductionSRA 是 Sequence Read Archive 的縮寫，這個資料庫上存放生物序列資料並且開放所有研究社群存取，期能提高試驗的可再現性，及提供一個跨研究資料比較的可能性。SRA 存放高通量定序的原始定序資料及比對 (alignment) 結果資料，目前已經包括 Roche 454 GS System®, Illumina Genome Analyzer®, Applied Biosystems SOLiD System®, Helicos Heliscope®, Complete Genomics®, and Pacific Biosciences SMRT® 等等。\nSRA 隸屬於  International Nucleotide Sequence Database Collaboration (INSDC)。每天接收、處理、封存數千筆定序資料，以 terabytes 為計數單位。that includes at the NCBI Sequence Read Archive (SRA), the European Bioinformatics Institute (EBI), and the DNA Database of Japan (DDBJ). Data submitted to any of the three organizations are shared among them.\n\n\nSRA 資料庫封存資料量之成長 (圖片來源: SRA database growth，於 20190812 存取)\n\n馬上開始動手玩玩看搜尋感興趣的主題並找到相對應的開放資料取得 SRX 的資訊列表使用 SRA Toolkit 下載Obtain search resultsTask: find RNA-Seq records for lymph node tissue in BALB/c mice in SRA Entrez \n To learn how to use Advanced Search Builder please refer to Search in SRA\n\nIn the Entrez search bar enter the query: (((“mus musculus”[Organism]) AND BALB/c) AND “lymph“) AND “rna seq”[Strategy] AND BALB/c) AND “lymph“) AND “rna seq”[Strategy] ).\nTo limit your search to only aligned data add to the above query AND aligned data”[Properties].\nClick the checkboxes next to records (experiments) to select data of interest. Leave all checkboxes unchecked to select all records (experiments) from your search.\n\nGo to:\nObtain run accessionsRun accessions are used to download SRA data. To download a list of Run accessions selected from your Entrez search:\n\nClick Send to on the top of the page, check the radiobutton File , select Accession List.\nSave this file in the location from which you are running the SRA Toolkit.\n\nGo to:\nDownload sequence data files using SRA Toolkit Please make sure you are running the most recent release of the toolkit as older versions may not be compatible with more recently loaded data or the most current network protocols.\n\nSRA Toolkit latest release \nSRA Toolkit documentation \nAccessing SRA data \nSRA Toolkit Installation and Configuration Guide \n\nDownloading public dataPrefetch is a part of the SRA toolkit. This program downloads Runs (sequence files in the compressed SRA format) and all additional data necessary to convert the Run from the SRA format to a more commonly used format. Prefetch can be used to correct and finish an incomplete Run download.\nUse this prefetch command to download the Runs from the previous example in SRA format.\n1prefetch --option-file SraAccList.txt\nfastq-dump and sam-dump are also part of the SRA toolkit and can be used to convert the prefetched Runs from compressed SRA format to fastq or sam format. For example:\n1$ fastq-dump –X 5 –Z –split-files SRR000001\nYou can also avoid the prefetch step and download and convert the Run in one step by entering just the Run accession without the .sra extension in your fastq-dump or sam-dump command:\n1$ fastq-dump –X 5 –Z –split-files SRR000001\nDownloading protected data For information on how to download dbGaP data see: Protected Data Usage Guide . \nGo to:\nDownload metadata associated with SRA dataFrom the search result pageSRA Run files do not contain any information about the metadata (sample information, etc.) linked to the data themselves. \nTo download metadata for each Run in your Entrez query click Send to on the top of the page, check the File radiobutton, and select RunInfo in pull-down menu. \nThis will generate a tabular SraRunInfo.csv file with metadata available for each Run.\nFrom Run SelectorA slightly different set of metadata can be downloaded in a tab-delimited file from Run Selector .\nTo download metadata for each Run in your Entrez query:\n\nClick Send to on the top of the page, check the Run Selector radiobutton, and click the button Go.\nIf necessary, refine your results by using various filters provided by the Run Selector‘s interface.\nClick the RunInfo Table button. This will generate a tabular SraRunTable.txt file with metadata available for each Run.\n\nGo to:\nDownload sequence data from the Run BrowserRun Browser  allows for limited download (one run at a time over HTTP) of unaligned and aligned sequences.\nUnaligned sequences example\nOpen the selected run in the Run Browser .\nClick the Reads tab.\nFind certain reads by applying a Filter or leave the Filter field empty.\nClick on the Filtered Download button.\nSelect available download format and click Download link. \n\nAligned sequences example\nOpen the selected run in the Run Browser .\nClick the Alignment tab.\nSelect available download format in pull-down menu and click on Screen or File button to output the run to the screen or into a file.\n\n參考資料：\nhttps://www.ncbi.nlm.nih.gov/sra/docs/\nhttps://www.ncbi.nlm.nih.gov/sra/docs/sradownload/\n","dateCreated":"2019-08-11T22:32:23+08:00","dateModified":"2019-08-12T17:28:30+08:00","datePublished":"2019-08-11T22:32:23+08:00","description":"摘要：從 NCBI 的 SRA 資料庫下載感興趣的資料，驗證、\n本文適用對象：有點懶惰不想看官方英文說明的初學者\n關鍵字：","headline":"Utilizing the open data from NCBI SRA database: a starter guide","image":["https://res.cloudinary.com/rna-sick/image/upload/v1565534348/NCBI_SRA/Screen_Shot_2019-03-31_at_10.08.55_pjes15.png"],"mainEntityOfPage":{"@type":"WebPage","@id":"https://rna-sick.me/2019/08/11/Utilizing-the-open-data-from-NCBI-SRA-database-a-starter-guide/"},"publisher":{"@type":"Organization","name":"謝晨(Chen Hsieh)","sameAs":["https://twitter.com/rna_sick","https://www.facebook.com/rna.sick/","https://www.instagram.com/rna.sick/","https://www.linkedin.com/in/chen-hsieh-60235a140/","https://drive.google.com/file/d/1xiDPR2J_w4IWM83P-xutthcnzteJUaxg/view?usp=sharing","mailto:bendjamin101001@gmail.com"],"image":"https://www.gravatar.com/avatar/0cfd0a510d29343e15c5701627444bb8","logo":{"@type":"ImageObject","url":"https://www.gravatar.com/avatar/0cfd0a510d29343e15c5701627444bb8"}},"url":"https://rna-sick.me/2019/08/11/Utilizing-the-open-data-from-NCBI-SRA-database-a-starter-guide/","keywords":"bioinformatics, NCBI, SRA","thumbnailUrl":"https://res.cloudinary.com/rna-sick/image/upload/v1565534348/NCBI_SRA/Screen_Shot_2019-03-31_at_10.08.55_pjes15.png"}</script>
+    <meta name="description" content="摘要：從 NCBI 的 SRA 資料庫下載感興趣的資料，驗證、 本文適用對象：有點懶惰不想看官方英文說明的初學者 關鍵字：">
+<meta name="keywords" content="horticulture,台大園藝,bioinformatic,生物資訊,Chen Hsieh,謝晨">
 <meta property="og:type" content="blog">
-<meta property="og:title" content="使用 PlantTFDB 預測胺基酸序列是否為轉錄因子">
-<meta property="og:url" content="https://rna-sick.me/2018/12/27/TFDB/index.html">
+<meta property="og:title" content="Utilizing the open data from NCBI SRA database: a starter guide">
+<meta property="og:url" content="https://rna-sick.me/2019/08/11/Utilizing-the-open-data-from-NCBI-SRA-database-a-starter-guide/index.html">
 <meta property="og:site_name" content="RNA-Sick">
-<meta property="og:description" content="PlantTFDB 提供了一個非常快速方便的轉錄因子查詢入口，有發表基因體的植物物種都有被註解。他們提供的預測服務則可以讓使用者輕鬆註解自己手邊的序列。">
+<meta property="og:description" content="摘要：從 NCBI 的 SRA 資料庫下載感興趣的資料，驗證、 本文適用對象：有點懶惰不想看官方英文說明的初學者 關鍵字：">
 <meta property="og:locale" content="en">
-<meta property="og:image" content="https://res.cloudinary.com/rna-sick/image/upload/v1557476521/TFDB/1_etdhp9.png">
-<meta property="og:image" content="https://res.cloudinary.com/rna-sick/image/upload/v1557476523/TFDB/2_rpmdzn.png">
-<meta property="og:image" content="https://res.cloudinary.com/rna-sick/image/upload/v1557476525/TFDB/2.5_xe0cwr.png">
-<meta property="og:image" content="https://res.cloudinary.com/rna-sick/image/upload/v1557476539/TFDB/21_zghszl.png">
-<meta property="og:image" content="https://res.cloudinary.com/rna-sick/image/upload/v1557476524/TFDB/5_dvovqk.png">
-<meta property="og:image" content="https://res.cloudinary.com/rna-sick/image/upload/v1557476521/TFDB/6_elncgl.png">
-<meta property="og:image" content="https://res.cloudinary.com/rna-sick/image/upload/v1557476521/TFDB/7_tjuwbe.png">
-<meta property="og:image" content="https://res.cloudinary.com/rna-sick/image/upload/v1557476522/TFDB/4_awor70.png">
-<meta property="og:image" content="https://res.cloudinary.com/rna-sick/image/upload/v1557476521/TFDB/3_qabku9.png">
-<meta property="og:image" content="https://res.cloudinary.com/rna-sick/image/upload/v1557476526/TFDB/8_urmrrx.png">
-<meta property="og:image" content="https://res.cloudinary.com/rna-sick/image/upload/v1557476528/TFDB/9_mjglar.png">
-<meta property="og:updated_time" content="2019-07-17T12:19:25.392Z">
+<meta property="og:image" content="https://www.ncbi.nlm.nih.gov/Traces/sra/i/g.png">
+<meta property="og:image" content="https://www.ncbi.nlm.nih.gov/core/assets/sra/images/offsite.png">
+<meta property="og:image" content="https://www.ncbi.nlm.nih.gov/core/assets/sra/images/galka.png">
+<meta property="og:image" content="https://www.ncbi.nlm.nih.gov/core/assets/sra/images/help_question_mark.png">
+<meta property="og:image" content="https://www.ncbi.nlm.nih.gov/core/assets/sra/images/znak.png">
+<meta property="og:image" content="https://www.ncbi.nlm.nih.gov/core/assets/sra/images/offsite.png">
+<meta property="og:image" content="https://www.ncbi.nlm.nih.gov/core/assets/sra/images/offsite.png">
+<meta property="og:image" content="https://www.ncbi.nlm.nih.gov/core/assets/sra/images/offsite.png">
+<meta property="og:image" content="https://www.ncbi.nlm.nih.gov/core/assets/sra/images/offsite.png">
+<meta property="og:image" content="https://www.ncbi.nlm.nih.gov/core/assets/sra/images/znak.png">
+<meta property="og:image" content="https://www.ncbi.nlm.nih.gov/core/assets/sra/images/offsite.png">
+<meta property="og:image" content="https://www.ncbi.nlm.nih.gov/core/assets/sra/images/offsite.png">
+<meta property="og:image" content="https://www.ncbi.nlm.nih.gov/core/assets/sra/images/offsite.png">
+<meta property="og:image" content="https://www.ncbi.nlm.nih.gov/core/assets/sra/images/offsite.png">
+<meta property="og:image" content="https://www.ncbi.nlm.nih.gov/core/assets/sra/images/offsite.png">
+<meta property="og:updated_time" content="2019-08-12T09:28:30.763Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="使用 PlantTFDB 預測胺基酸序列是否為轉錄因子">
-<meta name="twitter:description" content="PlantTFDB 提供了一個非常快速方便的轉錄因子查詢入口，有發表基因體的植物物種都有被註解。他們提供的預測服務則可以讓使用者輕鬆註解自己手邊的序列。">
-<meta name="twitter:image" content="https://res.cloudinary.com/rna-sick/image/upload/v1557476521/TFDB/1_etdhp9.png">
+<meta name="twitter:title" content="Utilizing the open data from NCBI SRA database: a starter guide">
+<meta name="twitter:description" content="摘要：從 NCBI 的 SRA 資料庫下載感興趣的資料，驗證、 本文適用對象：有點懶惰不想看官方英文說明的初學者 關鍵字：">
+<meta name="twitter:image" content="https://www.ncbi.nlm.nih.gov/Traces/sra/i/g.png">
 <meta name="twitter:creator" content="@rna_sick">
     
     
@@ -51,12 +55,9 @@
         <meta property="og:image" content="https://www.gravatar.com/avatar/0cfd0a510d29343e15c5701627444bb8?s=640"/>
     
     
-        <meta property="og:image" content="https://res.cloudinary.com/rna-sick/image/upload/v1557476782/TFDB/002tfdb_dh20u4.jpg"/>
-        <meta class="swiftype" name="image" data-type="enum" content="https://res.cloudinary.com/rna-sick/image/upload/v1557476782/TFDB/002tfdb_dh20u4.jpg" />
+        <meta property="og:image" content="https://res.cloudinary.com/rna-sick/image/upload/v1565534348/NCBI_SRA/Screen_Shot_2019-03-31_at_10.08.55_pjes15.png"/>
+        <meta class="swiftype" name="image" data-type="enum" content="https://res.cloudinary.com/rna-sick/image/upload/v1565534348/NCBI_SRA/Screen_Shot_2019-03-31_at_10.08.55_pjes15.png" />
     
-    
-        <meta property="og:image" content="https://res.cloudinary.com/rna-sick/image/upload/v1557483649/TFDB/whatyouneed_wwmgni.jpg"/>
-        <meta class="swiftype" name="image" data-type="enum" content="https://res.cloudinary.com/rna-sick/image/upload/v1557483649/TFDB/whatyouneed_wwmgni.jpg" />
     
     
     <!--STYLES-->
@@ -223,33 +224,27 @@
 </nav>
 
             
-        <div class="post-header-cover
-                    text-center
-                    post-header-cover--full" style="background-image:url('https://res.cloudinary.com/rna-sick/image/upload/v1557483649/TFDB/whatyouneed_wwmgni.jpg');" data-behavior="4">
-            
-        </div>
-
             <div id="main" data-behavior="4"
-                 class="hasCover
+                 class="
                         hasCoverMetaOut
                         hasCoverCaption">
                 
 <article class="post">
     
-        <span class="post-header-cover-caption caption">實在是個很方便的轉錄因子分析服務啊～ (截圖來自呆伯特動畫)</span>
+        <span class="post-header-cover-caption caption">創作者想像的科學家總是充滿個性啊 (截圖來自 kill la kill)</span>
     
     
         <div class="post-header main-content-wrap text-center">
     
         <h1 class="post-title">
-            使用 PlantTFDB 預測胺基酸序列是否為轉錄因子
+            Utilizing the open data from NCBI SRA database: a starter guide
         </h1>
     
     
         <div class="post-meta">
-    <time datetime="2018-12-27T12:47:21+08:00">
+    <time datetime="2019-08-11T22:32:23+08:00">
 	
-		    Dec 27, 2018
+		    Aug 11, 2019
     	
     </time>
     
@@ -261,54 +256,86 @@
     
     <div class="post-content markdown">
         <div class="main-content-wrap">
-            <!-- excerpt -->
-<h1 id="table-of-contents">Table of Contents</h1><ol class="toc"><li class="toc-item toc-level-5"><a class="toc-link" href="#前言"><span class="toc-text">前言</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#Plant-TFDB-網頁基本功能"><span class="toc-text">Plant TFDB 網頁基本功能</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#使用轉錄因子預測服務"><span class="toc-text">使用轉錄因子預測服務</span></a></li></ol>
+            <p>摘要：從 NCBI 的 SRA 資料庫下載感興趣的資料，驗證、</p>
+<p>本文適用對象：有點懶惰不想看官方英文說明的初學者</p>
+<p>關鍵字：</p>
+<a id="more"></a>
+<h1 id="table-of-contents">Table of Contents</h1><ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#Introduction"><span class="toc-text">Introduction</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#馬上開始動手玩玩看"><span class="toc-text">馬上開始動手玩玩看</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#搜尋感興趣的主題並找到相對應的開放資料"><span class="toc-text">搜尋感興趣的主題並找到相對應的開放資料</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#取得-SRX-的資訊列表"><span class="toc-text">取得 SRX 的資訊列表</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#使用-SRA-Toolkit-下載"><span class="toc-text">使用 SRA Toolkit 下載</span></a></li></ol></li></ol><li class="toc-item toc-level-2"><a class="toc-link" href="#Obtain-search-results"><span class="toc-text">Obtain search results</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Obtain-run-accessions"><span class="toc-text">Obtain run accessions</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Download-sequence-data-files-using-SRA-Toolkit"><span class="toc-text">Download sequence data files using SRA Toolkit</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Downloading-public-data"><span class="toc-text">Downloading public data</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Downloading-protected-data"><span class="toc-text">Downloading protected data</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Download-metadata-associated-with-SRA-data"><span class="toc-text">Download metadata associated with SRA data</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#From-the-search-result-page"><span class="toc-text">From the search result page</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#From-Run-Selector"><span class="toc-text">From Run Selector</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Download-sequence-data-from-the-Run-Browser"><span class="toc-text">Download sequence data from the Run Browser</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Unaligned-sequences-example"><span class="toc-text">Unaligned sequences example</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Aligned-sequences-example"><span class="toc-text">Aligned sequences example</span></a>
 <hr>
-<h5 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h5><p>Transcriptome 分析的文章中，有時候會出現一個小章節用來描述總共註解到了多少轉錄因子，或是有哪些轉錄因子上調或下調。像是這篇萵苣抽薹有關的研究中，便用圓餅圖表示了各種可供未來研究參考的轉錄因子家族名稱。</p>
-<p><img src="https://res.cloudinary.com/rna-sick/image/upload/v1557476521/TFDB/1_etdhp9.png" alt="paper_cover"></p>
-<p><img src="https://res.cloudinary.com/rna-sick/image/upload/v1557476523/TFDB/2_rpmdzn.png" alt="pie chart"></p>
-<p>在實際的分析上，因為轉錄因子序列比較短，用一般的註解軟體容易錯過，或是僅因為有特定的區段就有把酵素類的蛋白質誤解為轉錄因子的情形。</p>
-<p><img src="https://res.cloudinary.com/rna-sick/image/upload/v1557476525/TFDB/2.5_xe0cwr.png" alt="TFDBhomepage"></p>
-<p><a href="http://planttfdb.cbi.pku.edu.cn" target="_blank" rel="noopener">PlantTFDB</a> 替大家解決了這個問題，網站除了可以直接查詢他們的研究團隊已經預測過的物種中的轉錄因子以外，也有提供了基於他們人為透過文獻閱讀歸納出來的轉錄因子家族指定規則進行預測的服務。</p>
-<p><img src="https://res.cloudinary.com/rna-sick/image/upload/v1557476539/TFDB/21_zghszl.png" alt="assignmentRules"></p>
-<p>只要輸入胺基酸序列，稍等一下就可以得到預測結果。以下將會簡單介紹網頁以及 step by step 紀錄預測功能的使用，並且銜接到使用 excel 繪製轉錄因子比例圓餅圖的操作。</p>
-<h5 id="Plant-TFDB-網頁基本功能"><a href="#Plant-TFDB-網頁基本功能" class="headerlink" title="Plant TFDB 網頁基本功能"></a>Plant TFDB 網頁基本功能</h5><p>首先首頁就可以看到五十八種轉錄因子的分類以及已經註解到的數量，每次改版過程中註解方式或是說指定規則可能會因爲文獻而略有更動，像是最近一版就把參與轉錄調節但是不具有直接 DNA 結合區段的類別移除了。</p>
-<p><img src="https://res.cloudinary.com/rna-sick/image/upload/v1557476524/TFDB/5_dvovqk.png" alt="all those family types"></p>
-<p>隨便選擇一個沒有聽過的 E2F/DP 點進去，有該種轉錄因子在各種物種中的家族成員數量，和簡單的文字敘述及引用文獻，讓人可以快速了解該分類，或是本身在進行該家族的基因研究的話，也可以參考不同物種中的成員數量以評估註解情形。</p>
-<p><img src="https://res.cloudinary.com/rna-sick/image/upload/v1557476521/TFDB/6_elncgl.png" alt="family page"></p>
-<p>紅色的 bar chart 標出了他們所註解的基因體中含有的該家族的轉錄因子數量。只可惜是以圖片的方式呈現，所以不方便在網頁上直接用搜尋找到自己感興趣的物種資料，可能還是要回到首頁搜尋比較方便。</p>
-<p><img src="https://res.cloudinary.com/rna-sick/image/upload/v1557476521/TFDB/7_tjuwbe.png" alt="page family description"></p>
-<p>轉錄因子頁面下方就有簡單的文字描述，看完就大概知道要怎樣簡單介紹這個轉錄因子，譬如基本的蛋白質功能區段 (domain)、常見的作用型態、目標基因、以及可能參與的生理調控。</p>
-<h5 id="使用轉錄因子預測服務"><a href="#使用轉錄因子預測服務" class="headerlink" title="使用轉錄因子預測服務"></a>使用轉錄因子預測服務</h5><p>接下來終於要進入正題，如何使用ＴＦＤＢ提供的轉錄因子註解服務：</p>
-<ol>
-<li><p>進入預測的<a href="http://planttfdb.cbi.pku.edu.cn/prediction.php" target="_blank" rel="noopener">頁面</a>：</p>
-<p><img src="https://res.cloudinary.com/rna-sick/image/upload/v1557476522/TFDB/4_awor70.png" alt="prediction page"></p>
-</li>
-<li><p>輸入 fasta 格式的序列，或是直接上傳 fasta 檔案</p>
-</li>
-<li><p>勾選 Best Hit in <em>Arabidopsis Thaliana</em> 的話會附上一筆對應的阿拉伯芥基因資訊，未來銜接其他分析也方便，然後用力地按下 Pridiction</p>
-</li>
-<li><p>四萬多筆資料，過兩分鐘就有結果出來了，可以在這個頁面的表格上簡單地操作瀏覽一下</p>
-<p><img src="https://res.cloudinary.com/rna-sick/image/upload/v1557476521/TFDB/3_qabku9.png" alt="TF prediction results"></p>
-</li>
-<li><p>在文字敘述中按 Download list，這就是輸出用以後續分析的格式，column 分別為我們所提供的胺基酸序列之 ID、轉錄因子基因家族、Best Hit in <em>Arabidopsis Thaliana</em> 之基因、p-value、Best Hit in <em>Arabidopsis Thaliana</em> 基因之註解</p>
-<p><img src="https://res.cloudinary.com/rna-sick/image/upload/v1557476526/TFDB/8_urmrrx.png" alt="result"></p>
-</li>
-<li><p>下載下來的是純文字檔案，雖然副檔名是 “.list”，但還是可以對著檔案點右鍵，選擇用 excel 打開以方便檢視</p>
-<p><img src="https://res.cloudinary.com/rna-sick/image/upload/v1557476528/TFDB/9_mjglar.png" alt="opening by excel"></p>
-<p>由這個檔案，就可以看到輸入的胺基酸序列代號，以及其所對應的轉錄因子家族。雖然這樣子全自動預測的服務很方便，最好還是要人工檢核 (manual curation) 一下，再進行下一步的分析比較保險。除了看看感興趣的基因究竟是什麼轉錄因子以外，通常會想看看各個家族的比例。<a href="http://rna-sick.me/2019/01/16/split-pie/">如何直接使用這個輸出的預測結果檔案，不寫程式使用 excel 畫成可以呈現各個基因家族比例的圓餅圖，且待下回分曉</a>～</p>
-</li>
-</ol>
+<h4 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h4><p>SRA 是 <a href="https://www.ncbi.nlm.nih.gov/sra" target="_blank" rel="noopener">Sequence Read Archive</a> 的縮寫，這個資料庫上存放生物序列資料並且開放所有研究社群存取，期能提高試驗的可再現性，及提供一個跨研究資料比較的可能性。SRA 存放高通量定序的原始定序資料及比對 (alignment) 結果資料，目前已經包括 Roche 454 GS System®, Illumina Genome Analyzer®, Applied Biosystems SOLiD System®, Helicos Heliscope®, Complete Genomics®, and Pacific Biosciences SMRT® 等等。</p>
+<p>SRA 隸屬於  International Nucleotide Sequence Database Collaboration (INSDC)。每天接收、處理、封存數千筆定序資料，以 terabytes 為計數單位。that includes at the NCBI Sequence Read Archive (SRA), the European Bioinformatics Institute (EBI), and the DNA Database of Japan (DDBJ). Data submitted to any of the three organizations are shared among them.</p>
+<p><img src="https://www.ncbi.nlm.nih.gov/Traces/sra/i/g.png" alt="SRA database growth"></p>
+<blockquote>
+<p>SRA 資料庫封存資料量之成長 (圖片來源: <a href="https://www.ncbi.nlm.nih.gov/sra/docs/sragrowth/" target="_blank" rel="noopener">SRA database growth</a>，於 20190812 存取)</p>
+</blockquote>
+<h4 id="馬上開始動手玩玩看"><a href="#馬上開始動手玩玩看" class="headerlink" title="馬上開始動手玩玩看"></a>馬上開始動手玩玩看</h4><h5 id="搜尋感興趣的主題並找到相對應的開放資料"><a href="#搜尋感興趣的主題並找到相對應的開放資料" class="headerlink" title="搜尋感興趣的主題並找到相對應的開放資料"></a>搜尋感興趣的主題並找到相對應的開放資料</h5><h5 id="取得-SRX-的資訊列表"><a href="#取得-SRX-的資訊列表" class="headerlink" title="取得 SRX 的資訊列表"></a>取得 SRX 的資訊列表</h5><h5 id="使用-SRA-Toolkit-下載"><a href="#使用-SRA-Toolkit-下載" class="headerlink" title="使用 SRA Toolkit 下載"></a>使用 SRA Toolkit 下載</h5><h2 id="Obtain-search-results"><a href="#Obtain-search-results" class="headerlink" title="Obtain search results"></a>Obtain search results</h2><p><strong>Task</strong>: find RNA-Seq records for lymph node tissue in BALB/c mice in <a href="https://www.ncbi.nlm.nih.gov/sra/" target="_blank" rel="noopener">SRA Entrez <img src="https://www.ncbi.nlm.nih.gov/core/assets/sra/images/offsite.png" alt="offsite image"></a></p>
+<p><img src="https://www.ncbi.nlm.nih.gov/core/assets/sra/images/galka.png" alt="Check"> To learn how to use Advanced Search Builder please refer to <a href="https://www.ncbi.nlm.nih.gov/sra/docs/srasearch" target="_blank" rel="noopener">Search in SRA<img src="https://www.ncbi.nlm.nih.gov/core/assets/sra/images/help_question_mark.png" alt="HELP"></a></p>
+<ul>
+<li>In the Entrez search bar enter the query: <a href="https://www.ncbi.nlm.nih.gov/sra/?term=(((&quot;mus musculus&quot;[Organism]" target="_blank" rel="noopener">(((“mus musculus”[Organism]) AND BALB/c<em>) AND “lymph</em>“) AND “rna seq”[Strategy]</a> AND BALB/c<em>) AND “lymph</em>“) AND “rna seq”[Strategy] ).</li>
+<li>To limit your search to only aligned data add to the above query <strong>AND aligned data”[Properties]</strong>.</li>
+<li>Click the checkboxes next to records (experiments) to select data of interest. Leave all checkboxes unchecked to select all records (experiments) from your search.</li>
+</ul>
+<p><a href="https://www.ncbi.nlm.nih.gov/sra/docs/sradownload/#" target="_blank" rel="noopener">Go to:</a></p>
+<h2 id="Obtain-run-accessions"><a href="#Obtain-run-accessions" class="headerlink" title="Obtain run accessions"></a>Obtain run accessions</h2><p>Run accessions are used to download SRA data. To download a list of Run accessions selected from your Entrez search:</p>
+<ul>
+<li>Click <strong>Send to</strong> on the top of the page, check the radiobutton <strong>File</strong> , select <strong>Accession List</strong>.</li>
+<li>Save this file in the location from which you are running the SRA Toolkit.</li>
+</ul>
+<p><a href="https://www.ncbi.nlm.nih.gov/sra/docs/sradownload/#" target="_blank" rel="noopener">Go to:</a></p>
+<h2 id="Download-sequence-data-files-using-SRA-Toolkit"><a href="#Download-sequence-data-files-using-SRA-Toolkit" class="headerlink" title="Download sequence data files using SRA Toolkit"></a>Download sequence data files using SRA Toolkit</h2><p><img src="https://www.ncbi.nlm.nih.gov/core/assets/sra/images/znak.png" alt="Exclamation point"> Please make sure you are running the most recent release of the toolkit as older versions may not be compatible with more recently loaded data or the most current network protocols.</p>
+<ul>
+<li><a href="https://github.com/ncbi/sra-tools/wiki/Downloads" target="_blank" rel="noopener">SRA Toolkit latest release <img src="https://www.ncbi.nlm.nih.gov/core/assets/sra/images/offsite.png" alt="offsite image"></a></li>
+<li><a href="https://www.ncbi.nlm.nih.gov/Traces/sra/sra.cgi?view=toolkit_doc" target="_blank" rel="noopener">SRA Toolkit documentation <img src="https://www.ncbi.nlm.nih.gov/core/assets/sra/images/offsite.png" alt="offsite image"></a></li>
+<li><a href="https://github.com/ncbi/sra-tools/wiki/Download-On-Demand" target="_blank" rel="noopener">Accessing SRA data <img src="https://www.ncbi.nlm.nih.gov/core/assets/sra/images/offsite.png" alt="offsite image"></a></li>
+<li><a href="https://www.ncbi.nlm.nih.gov/Traces/sra/sra.cgi?view=toolkit_doc&amp;f=std" target="_blank" rel="noopener">SRA Toolkit Installation and Configuration Guide <img src="https://www.ncbi.nlm.nih.gov/core/assets/sra/images/offsite.png" alt="offsite image"></a></li>
+</ul>
+<h3 id="Downloading-public-data"><a href="#Downloading-public-data" class="headerlink" title="Downloading public data"></a>Downloading public data</h3><p><strong>Prefetch</strong> is a part of the SRA toolkit. This program downloads Runs (sequence files in the compressed SRA format) and all additional data necessary to convert the Run from the SRA format to a more commonly used format. <strong>Prefetch</strong> can be used to correct and finish an incomplete Run download.</p>
+<p>Use this <strong>prefetch</strong> command to download the Runs from the previous example in SRA format.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">prefetch --option-file SraAccList.txt</span><br></pre></td></tr></table></figure>
+<p><strong>fastq-dump</strong> and <strong>sam-dump</strong> are also part of the SRA toolkit and can be used to convert the prefetched Runs from compressed SRA format to <code>fastq</code> or <code>sam</code> format. For example:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ fastq-dump –X 5 –Z –split-files SRR000001</span><br></pre></td></tr></table></figure>
+<p>You can also avoid the <strong>prefetch</strong> step and download and convert the Run in one step by entering just the Run accession without the <code>.sra</code> extension in your <strong>fastq-dump</strong> or <strong>sam-dump</strong> command:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ fastq-dump –X 5 –Z –split-files SRR000001</span><br></pre></td></tr></table></figure>
+<h3 id="Downloading-protected-data"><a href="#Downloading-protected-data" class="headerlink" title="Downloading protected data"></a>Downloading protected data</h3><p><img src="https://www.ncbi.nlm.nih.gov/core/assets/sra/images/znak.png" alt="Exclamation point"> For information on how to download dbGaP data see: <a href="https://www.ncbi.nlm.nih.gov/sra/docs/sra-dbgap-download" target="_blank" rel="noopener">Protected Data Usage Guide <img src="https://www.ncbi.nlm.nih.gov/core/assets/sra/images/offsite.png" alt="offsite image"></a>. </p>
+<p><a href="https://www.ncbi.nlm.nih.gov/sra/docs/sradownload/#" target="_blank" rel="noopener">Go to:</a></p>
+<h2 id="Download-metadata-associated-with-SRA-data"><a href="#Download-metadata-associated-with-SRA-data" class="headerlink" title="Download metadata associated with SRA data"></a>Download metadata associated with SRA data</h2><h3 id="From-the-search-result-page"><a href="#From-the-search-result-page" class="headerlink" title="From the search result page"></a>From the search result page</h3><p>SRA Run files do not contain any information about the metadata (sample information, etc.) linked to the data themselves. </p>
+<p>To download metadata for each Run in your Entrez query click <strong>Send to</strong> on the top of the page, check the <strong>File</strong> radiobutton, and select <strong>RunInfo</strong> in pull-down menu. </p>
+<p>This will generate a tabular <code>SraRunInfo.csv</code> file with metadata available for each Run.</p>
+<h3 id="From-Run-Selector"><a href="#From-Run-Selector" class="headerlink" title="From Run Selector"></a>From Run Selector</h3><p>A slightly different set of metadata can be downloaded in a tab-delimited file from <a href="https://www.ncbi.nlm.nih.gov/Traces/study/?go=home" target="_blank" rel="noopener">Run Selector <img src="https://www.ncbi.nlm.nih.gov/core/assets/sra/images/offsite.png" alt="offsite image"></a>.</p>
+<p>To download metadata for each Run in your Entrez query:</p>
+<ul>
+<li>Click <strong>Send to</strong> on the top of the page, check the <strong>Run Selector</strong> radiobutton, and click the button <strong>Go</strong>.</li>
+<li>If necessary, refine your results by using various filters provided by the <strong>Run Selector</strong>‘s interface.</li>
+<li>Click the <strong>RunInfo Table</strong> button. This will generate a tabular <code>SraRunTable.txt</code> file with metadata available for each Run.</li>
+</ul>
+<p><a href="https://www.ncbi.nlm.nih.gov/sra/docs/sradownload/#" target="_blank" rel="noopener">Go to:</a></p>
+<h2 id="Download-sequence-data-from-the-Run-Browser"><a href="#Download-sequence-data-from-the-Run-Browser" class="headerlink" title="Download sequence data from the Run Browser"></a>Download sequence data from the Run Browser</h2><p><a href="https://www.ncbi.nlm.nih.gov/Traces/sra/sra.cgi?view=run_browser" target="_blank" rel="noopener">Run Browser <img src="https://www.ncbi.nlm.nih.gov/core/assets/sra/images/offsite.png" alt="offsite image"></a> allows for limited download (one run at a time over <code>HTTP</code>) of unaligned and aligned sequences.</p>
+<h3 id="Unaligned-sequences-example"><a href="#Unaligned-sequences-example" class="headerlink" title="Unaligned sequences example"></a>Unaligned sequences example</h3><ul>
+<li>Open the selected run in the <a href="https://www.ncbi.nlm.nih.gov/Traces/sra/sra.cgi?view=run_browser" target="_blank" rel="noopener">Run Browser <img src="https://www.ncbi.nlm.nih.gov/core/assets/sra/images/offsite.png" alt="offsite image"></a>.</li>
+<li>Click the <strong>Reads</strong> tab.</li>
+<li>Find certain reads by applying a <strong>Filter</strong> or leave the <strong>Filter</strong> field empty.</li>
+<li>Click on the <strong>Filtered Download</strong> button.</li>
+<li>Select available download format and click <strong>Download</strong> link. </li>
+</ul>
+<h3 id="Aligned-sequences-example"><a href="#Aligned-sequences-example" class="headerlink" title="Aligned sequences example"></a>Aligned sequences example</h3><ul>
+<li>Open the selected run in the <a href="https://www.ncbi.nlm.nih.gov/Traces/sra/sra.cgi?view=run_browser&amp;run=SRR4063605" target="_blank" rel="noopener">Run Browser <img src="https://www.ncbi.nlm.nih.gov/core/assets/sra/images/offsite.png" alt="offsite image"></a>.</li>
+<li>Click the <strong>Alignment</strong> tab.</li>
+<li>Select available download format in pull-down menu and click on <strong>Screen</strong> or <strong>File</strong> button to output the run to the screen or into a file.</li>
+</ul>
+<p>參考資料：</p>
+<p><a href="https://www.ncbi.nlm.nih.gov/sra/docs/" target="_blank" rel="noopener">https://www.ncbi.nlm.nih.gov/sra/docs/</a></p>
+<p><a href="https://www.ncbi.nlm.nih.gov/sra/docs/sradownload/" target="_blank" rel="noopener">https://www.ncbi.nlm.nih.gov/sra/docs/sradownload/</a></p>
+
             
 
-        </div>
+        </li></ol></li></div>
     </div>
     <div id="post-footer" class="post-footer main-content-wrap">
         
             <div class="post-footer-tags">
                 <span class="text-color-light text-small">TAGGED IN</span><br>
                 
-    <a class="tag tag--primary tag--small t-link" href="/tags/excel/">excel</a> <a class="tag tag--primary tag--small t-link" href="/tags/pie-chart/">pie chart</a> <a class="tag tag--primary tag--small t-link" href="/tags/plant/">plant</a> <a class="tag tag--primary tag--small t-link" href="/tags/transcription-factor/">transcription factor</a>
+    <a class="tag tag--primary tag--small t-link" href="/tags/NCBI/">NCBI</a> <a class="tag tag--primary tag--small t-link" href="/tags/SRA/">SRA</a> <a class="tag tag--primary tag--small t-link" href="/tags/bioinformatics/">bioinformatics</a>
 
             </div>
         
@@ -319,7 +346,7 @@
             <li class="post-action">
                 
                     
-                    <a class="post-action-btn btn btn--default tooltip--top" href="/2019/01/03/107-年公費留考筆試篇/" data-tooltip="107 年公費留考 - 採收後處理筆試篇" aria-label="PREVIOUS: 107 年公費留考 - 採收後處理筆試篇">
+                    <a class="post-action-btn btn btn--default tooltip--top" href="/2019/08/12/Build-a-MVP-minimal-viable-product-using-Notion-a-revolutionary-all-in-one-workspace/" data-tooltip="Build a MVP(minimal viable product) using Notion: a revolutionary all-in-one workspace" aria-label="PREVIOUS: Build a MVP(minimal viable product) using Notion: a revolutionary all-in-one workspace">
                 
                     <i class="fa fa-angle-left" aria-hidden="true"></i>
                     <span class="hide-xs hide-sm text-small icon-ml">PREVIOUS</span>
@@ -327,7 +354,8 @@
             </li>
             <li class="post-action">
                 
-                    <a class="post-action-btn btn btn--disabled">
+                    
+                    <a class="post-action-btn btn btn--default tooltip--top" href="/2019/06/14/McMADS/" data-tooltip="Genome-wide Identification and Analysis of MADS-box Gene Family in Bitter Gourd -- Method Details" aria-label="NEXT: Genome-wide Identification and Analysis of MADS-box Gene Family in Bitter Gourd -- Method Details">
                 
                     <span class="hide-xs hide-sm text-small icon-mr">NEXT</span>
                     <i class="fa fa-angle-right" aria-hidden="true"></i>
@@ -345,7 +373,7 @@
             
             
             <li class="post-action hide-xs">
-                <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://rna-sick.me/2018/12/27/TFDB/" title="Share on Facebook">
+                <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://rna-sick.me/2019/08/11/Utilizing-the-open-data-from-NCBI-SRA-database-a-starter-guide/" title="Share on Facebook">
                     <i class="fab fa-facebook" aria-hidden="true"></i>
                 </a>
             </li>
@@ -353,7 +381,7 @@
             
             
             <li class="post-action hide-xs">
-                <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://rna-sick.me/2018/12/27/TFDB/" title="Share on Twitter">
+                <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://rna-sick.me/2019/08/11/Utilizing-the-open-data-from-NCBI-SRA-database-a-starter-guide/" title="Share on Twitter">
                     <i class="fab fa-twitter" aria-hidden="true"></i>
                 </a>
             </li>
@@ -361,7 +389,7 @@
             
             
             <li class="post-action hide-xs">
-                <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=https://rna-sick.me/2018/12/27/TFDB/" title="Share on Google+">
+                <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=https://rna-sick.me/2019/08/11/Utilizing-the-open-data-from-NCBI-SRA-database-a-starter-guide/" title="Share on Google+">
                     <i class="fab fa-google-plus" aria-hidden="true"></i>
                 </a>
             </li>
@@ -414,7 +442,7 @@
             <li class="post-action">
                 
                     
-                    <a class="post-action-btn btn btn--default tooltip--top" href="/2019/01/03/107-年公費留考筆試篇/" data-tooltip="107 年公費留考 - 採收後處理筆試篇" aria-label="PREVIOUS: 107 年公費留考 - 採收後處理筆試篇">
+                    <a class="post-action-btn btn btn--default tooltip--top" href="/2019/08/12/Build-a-MVP-minimal-viable-product-using-Notion-a-revolutionary-all-in-one-workspace/" data-tooltip="Build a MVP(minimal viable product) using Notion: a revolutionary all-in-one workspace" aria-label="PREVIOUS: Build a MVP(minimal viable product) using Notion: a revolutionary all-in-one workspace">
                 
                     <i class="fa fa-angle-left" aria-hidden="true"></i>
                     <span class="hide-xs hide-sm text-small icon-ml">PREVIOUS</span>
@@ -422,7 +450,8 @@
             </li>
             <li class="post-action">
                 
-                    <a class="post-action-btn btn btn--disabled">
+                    
+                    <a class="post-action-btn btn btn--default tooltip--top" href="/2019/06/14/McMADS/" data-tooltip="Genome-wide Identification and Analysis of MADS-box Gene Family in Bitter Gourd -- Method Details" aria-label="NEXT: Genome-wide Identification and Analysis of MADS-box Gene Family in Bitter Gourd -- Method Details">
                 
                     <span class="hide-xs hide-sm text-small icon-mr">NEXT</span>
                     <i class="fa fa-angle-right" aria-hidden="true"></i>
@@ -440,7 +469,7 @@
             
             
             <li class="post-action hide-xs">
-                <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://rna-sick.me/2018/12/27/TFDB/" title="Share on Facebook">
+                <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://rna-sick.me/2019/08/11/Utilizing-the-open-data-from-NCBI-SRA-database-a-starter-guide/" title="Share on Facebook">
                     <i class="fab fa-facebook" aria-hidden="true"></i>
                 </a>
             </li>
@@ -448,7 +477,7 @@
             
             
             <li class="post-action hide-xs">
-                <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://rna-sick.me/2018/12/27/TFDB/" title="Share on Twitter">
+                <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://rna-sick.me/2019/08/11/Utilizing-the-open-data-from-NCBI-SRA-database-a-starter-guide/" title="Share on Twitter">
                     <i class="fab fa-twitter" aria-hidden="true"></i>
                 </a>
             </li>
@@ -456,7 +485,7 @@
             
             
             <li class="post-action hide-xs">
-                <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=https://rna-sick.me/2018/12/27/TFDB/" title="Share on Google+">
+                <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=https://rna-sick.me/2019/08/11/Utilizing-the-open-data-from-NCBI-SRA-database-a-starter-guide/" title="Share on Google+">
                     <i class="fab fa-google-plus" aria-hidden="true"></i>
                 </a>
             </li>
@@ -490,7 +519,7 @@
                 
                 
                 <li class="share-option">
-                    <a class="share-option-btn" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://rna-sick.me/2018/12/27/TFDB/">
+                    <a class="share-option-btn" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://rna-sick.me/2019/08/11/Utilizing-the-open-data-from-NCBI-SRA-database-a-starter-guide/">
                         <i class="fab fa-facebook" aria-hidden="true"></i><span>Share on Facebook</span>
                     </a>
                 </li>
@@ -498,7 +527,7 @@
                 
                 
                 <li class="share-option">
-                    <a class="share-option-btn" target="new" href="https://twitter.com/intent/tweet?text=https://rna-sick.me/2018/12/27/TFDB/">
+                    <a class="share-option-btn" target="new" href="https://twitter.com/intent/tweet?text=https://rna-sick.me/2019/08/11/Utilizing-the-open-data-from-NCBI-SRA-database-a-starter-guide/">
                         <i class="fab fa-twitter" aria-hidden="true"></i><span>Share on Twitter</span>
                     </a>
                 </li>
@@ -506,7 +535,7 @@
                 
                 
                 <li class="share-option">
-                    <a class="share-option-btn" target="new" href="https://plus.google.com/share?url=https://rna-sick.me/2018/12/27/TFDB/">
+                    <a class="share-option-btn" target="new" href="https://plus.google.com/share?url=https://rna-sick.me/2019/08/11/Utilizing-the-open-data-from-NCBI-SRA-database-a-starter-guide/">
                         <i class="fab fa-google-plus" aria-hidden="true"></i><span>Share on Google+</span>
                     </a>
                 </li>
@@ -843,9 +872,9 @@
     
         <script>
              var disqus_config = function () {
-                 this.page.url = 'https://rna-sick.me/2018/12/27/TFDB/';
+                 this.page.url = 'https://rna-sick.me/2019/08/11/Utilizing-the-open-data-from-NCBI-SRA-database-a-starter-guide/';
                  
-                    this.page.identifier = '2018/12/27/TFDB/';
+                    this.page.identifier = '2019/08/11/Utilizing-the-open-data-from-NCBI-SRA-database-a-starter-guide/';
                  
              };
             (function() {

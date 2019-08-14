@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://rna-sick.me/"/>
-  <updated>2019-06-11T06:53:52.779Z</updated>
+  <updated>2019-08-12T08:31:30.387Z</updated>
   <id>https://rna-sick.me/</id>
   
   <author>
@@ -15,6 +15,56 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Build a MVP(minimal viable product) using Notion: a revolutionary all-in-one workspace</title>
+    <link href="https://rna-sick.me/2019/08/12/Build-a-MVP-minimal-viable-product-using-Notion-a-revolutionary-all-in-one-workspace/"/>
+    <id>https://rna-sick.me/2019/08/12/Build-a-MVP-minimal-viable-product-using-Notion-a-revolutionary-all-in-one-workspace/</id>
+    <published>2019-08-12T08:31:30.000Z</published>
+    <updated>2019-08-12T08:31:30.387Z</updated>
+    
+    <content type="html"><![CDATA[<!-- excerpt --><a id="more"></a><!-- TOC --><hr>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;!-- excerpt --&gt;
+&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
+&lt;!-- TOC --&gt;
+&lt;hr&gt;
+      
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Utilizing the open data from NCBI SRA database: a starter guide</title>
+    <link href="https://rna-sick.me/2019/08/11/Utilizing-the-open-data-from-NCBI-SRA-database-a-starter-guide/"/>
+    <id>https://rna-sick.me/2019/08/11/Utilizing-the-open-data-from-NCBI-SRA-database-a-starter-guide/</id>
+    <published>2019-08-11T14:32:23.000Z</published>
+    <updated>2019-08-12T09:28:30.763Z</updated>
+    
+    <content type="html"><![CDATA[<p>摘要：從 NCBI 的 SRA 資料庫下載感興趣的資料，驗證、</p><p>本文適用對象：有點懶惰不想看官方英文說明的初學者</p><p>關鍵字：</p><a id="more"></a><!-- TOC --><hr><h4 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h4><p>SRA 是 <a href="https://www.ncbi.nlm.nih.gov/sra" target="_blank" rel="noopener">Sequence Read Archive</a> 的縮寫，這個資料庫上存放生物序列資料並且開放所有研究社群存取，期能提高試驗的可再現性，及提供一個跨研究資料比較的可能性。SRA 存放高通量定序的原始定序資料及比對 (alignment) 結果資料，目前已經包括 Roche 454 GS System®, Illumina Genome Analyzer®, Applied Biosystems SOLiD System®, Helicos Heliscope®, Complete Genomics®, and Pacific Biosciences SMRT® 等等。</p><p>SRA 隸屬於  International Nucleotide Sequence Database Collaboration (INSDC)。每天接收、處理、封存數千筆定序資料，以 terabytes 為計數單位。that includes at the NCBI Sequence Read Archive (SRA), the European Bioinformatics Institute (EBI), and the DNA Database of Japan (DDBJ). Data submitted to any of the three organizations are shared among them.</p><p><img src="https://www.ncbi.nlm.nih.gov/Traces/sra/i/g.png" alt="SRA database growth"></p><blockquote><p>SRA 資料庫封存資料量之成長 (圖片來源: <a href="https://www.ncbi.nlm.nih.gov/sra/docs/sragrowth/" target="_blank" rel="noopener">SRA database growth</a>，於 20190812 存取)</p></blockquote><h4 id="馬上開始動手玩玩看"><a href="#馬上開始動手玩玩看" class="headerlink" title="馬上開始動手玩玩看"></a>馬上開始動手玩玩看</h4><h5 id="搜尋感興趣的主題並找到相對應的開放資料"><a href="#搜尋感興趣的主題並找到相對應的開放資料" class="headerlink" title="搜尋感興趣的主題並找到相對應的開放資料"></a>搜尋感興趣的主題並找到相對應的開放資料</h5><h5 id="取得-SRX-的資訊列表"><a href="#取得-SRX-的資訊列表" class="headerlink" title="取得 SRX 的資訊列表"></a>取得 SRX 的資訊列表</h5><h5 id="使用-SRA-Toolkit-下載"><a href="#使用-SRA-Toolkit-下載" class="headerlink" title="使用 SRA Toolkit 下載"></a>使用 SRA Toolkit 下載</h5><h2 id="Obtain-search-results"><a href="#Obtain-search-results" class="headerlink" title="Obtain search results"></a>Obtain search results</h2><p><strong>Task</strong>: find RNA-Seq records for lymph node tissue in BALB/c mice in <a href="https://www.ncbi.nlm.nih.gov/sra/" target="_blank" rel="noopener">SRA Entrez <img src="https://www.ncbi.nlm.nih.gov/core/assets/sra/images/offsite.png" alt="offsite image"></a></p><p><img src="https://www.ncbi.nlm.nih.gov/core/assets/sra/images/galka.png" alt="Check"> To learn how to use Advanced Search Builder please refer to <a href="https://www.ncbi.nlm.nih.gov/sra/docs/srasearch" target="_blank" rel="noopener">Search in SRA<img src="https://www.ncbi.nlm.nih.gov/core/assets/sra/images/help_question_mark.png" alt="HELP"></a></p><ul><li>In the Entrez search bar enter the query: <a href="https://www.ncbi.nlm.nih.gov/sra/?term=(((&quot;mus musculus&quot;[Organism]" target="_blank" rel="noopener">(((“mus musculus”[Organism]) AND BALB/c<em>) AND “lymph</em>“) AND “rna seq”[Strategy]</a> AND BALB/c<em>) AND “lymph</em>“) AND “rna seq”[Strategy] ).</li><li>To limit your search to only aligned data add to the above query <strong>AND aligned data”[Properties]</strong>.</li><li>Click the checkboxes next to records (experiments) to select data of interest. Leave all checkboxes unchecked to select all records (experiments) from your search.</li></ul><p><a href="https://www.ncbi.nlm.nih.gov/sra/docs/sradownload/#" target="_blank" rel="noopener">Go to:</a></p><h2 id="Obtain-run-accessions"><a href="#Obtain-run-accessions" class="headerlink" title="Obtain run accessions"></a>Obtain run accessions</h2><p>Run accessions are used to download SRA data. To download a list of Run accessions selected from your Entrez search:</p><ul><li>Click <strong>Send to</strong> on the top of the page, check the radiobutton <strong>File</strong> , select <strong>Accession List</strong>.</li><li>Save this file in the location from which you are running the SRA Toolkit.</li></ul><p><a href="https://www.ncbi.nlm.nih.gov/sra/docs/sradownload/#" target="_blank" rel="noopener">Go to:</a></p><h2 id="Download-sequence-data-files-using-SRA-Toolkit"><a href="#Download-sequence-data-files-using-SRA-Toolkit" class="headerlink" title="Download sequence data files using SRA Toolkit"></a>Download sequence data files using SRA Toolkit</h2><p><img src="https://www.ncbi.nlm.nih.gov/core/assets/sra/images/znak.png" alt="Exclamation point"> Please make sure you are running the most recent release of the toolkit as older versions may not be compatible with more recently loaded data or the most current network protocols.</p><ul><li><a href="https://github.com/ncbi/sra-tools/wiki/Downloads" target="_blank" rel="noopener">SRA Toolkit latest release <img src="https://www.ncbi.nlm.nih.gov/core/assets/sra/images/offsite.png" alt="offsite image"></a></li><li><a href="https://www.ncbi.nlm.nih.gov/Traces/sra/sra.cgi?view=toolkit_doc" target="_blank" rel="noopener">SRA Toolkit documentation <img src="https://www.ncbi.nlm.nih.gov/core/assets/sra/images/offsite.png" alt="offsite image"></a></li><li><a href="https://github.com/ncbi/sra-tools/wiki/Download-On-Demand" target="_blank" rel="noopener">Accessing SRA data <img src="https://www.ncbi.nlm.nih.gov/core/assets/sra/images/offsite.png" alt="offsite image"></a></li><li><a href="https://www.ncbi.nlm.nih.gov/Traces/sra/sra.cgi?view=toolkit_doc&amp;f=std" target="_blank" rel="noopener">SRA Toolkit Installation and Configuration Guide <img src="https://www.ncbi.nlm.nih.gov/core/assets/sra/images/offsite.png" alt="offsite image"></a></li></ul><h3 id="Downloading-public-data"><a href="#Downloading-public-data" class="headerlink" title="Downloading public data"></a>Downloading public data</h3><p><strong>Prefetch</strong> is a part of the SRA toolkit. This program downloads Runs (sequence files in the compressed SRA format) and all additional data necessary to convert the Run from the SRA format to a more commonly used format. <strong>Prefetch</strong> can be used to correct and finish an incomplete Run download.</p><p>Use this <strong>prefetch</strong> command to download the Runs from the previous example in SRA format.</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">prefetch --option-file SraAccList.txt</span><br></pre></td></tr></table></figure><p><strong>fastq-dump</strong> and <strong>sam-dump</strong> are also part of the SRA toolkit and can be used to convert the prefetched Runs from compressed SRA format to <code>fastq</code> or <code>sam</code> format. For example:</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ fastq-dump –X 5 –Z –split-files SRR000001</span><br></pre></td></tr></table></figure><p>You can also avoid the <strong>prefetch</strong> step and download and convert the Run in one step by entering just the Run accession without the <code>.sra</code> extension in your <strong>fastq-dump</strong> or <strong>sam-dump</strong> command:</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ fastq-dump –X 5 –Z –split-files SRR000001</span><br></pre></td></tr></table></figure><h3 id="Downloading-protected-data"><a href="#Downloading-protected-data" class="headerlink" title="Downloading protected data"></a>Downloading protected data</h3><p><img src="https://www.ncbi.nlm.nih.gov/core/assets/sra/images/znak.png" alt="Exclamation point"> For information on how to download dbGaP data see: <a href="https://www.ncbi.nlm.nih.gov/sra/docs/sra-dbgap-download" target="_blank" rel="noopener">Protected Data Usage Guide <img src="https://www.ncbi.nlm.nih.gov/core/assets/sra/images/offsite.png" alt="offsite image"></a>. </p><p><a href="https://www.ncbi.nlm.nih.gov/sra/docs/sradownload/#" target="_blank" rel="noopener">Go to:</a></p><h2 id="Download-metadata-associated-with-SRA-data"><a href="#Download-metadata-associated-with-SRA-data" class="headerlink" title="Download metadata associated with SRA data"></a>Download metadata associated with SRA data</h2><h3 id="From-the-search-result-page"><a href="#From-the-search-result-page" class="headerlink" title="From the search result page"></a>From the search result page</h3><p>SRA Run files do not contain any information about the metadata (sample information, etc.) linked to the data themselves. </p><p>To download metadata for each Run in your Entrez query click <strong>Send to</strong> on the top of the page, check the <strong>File</strong> radiobutton, and select <strong>RunInfo</strong> in pull-down menu. </p><p>This will generate a tabular <code>SraRunInfo.csv</code> file with metadata available for each Run.</p><h3 id="From-Run-Selector"><a href="#From-Run-Selector" class="headerlink" title="From Run Selector"></a>From Run Selector</h3><p>A slightly different set of metadata can be downloaded in a tab-delimited file from <a href="https://www.ncbi.nlm.nih.gov/Traces/study/?go=home" target="_blank" rel="noopener">Run Selector <img src="https://www.ncbi.nlm.nih.gov/core/assets/sra/images/offsite.png" alt="offsite image"></a>.</p><p>To download metadata for each Run in your Entrez query:</p><ul><li>Click <strong>Send to</strong> on the top of the page, check the <strong>Run Selector</strong> radiobutton, and click the button <strong>Go</strong>.</li><li>If necessary, refine your results by using various filters provided by the <strong>Run Selector</strong>‘s interface.</li><li>Click the <strong>RunInfo Table</strong> button. This will generate a tabular <code>SraRunTable.txt</code> file with metadata available for each Run.</li></ul><p><a href="https://www.ncbi.nlm.nih.gov/sra/docs/sradownload/#" target="_blank" rel="noopener">Go to:</a></p><h2 id="Download-sequence-data-from-the-Run-Browser"><a href="#Download-sequence-data-from-the-Run-Browser" class="headerlink" title="Download sequence data from the Run Browser"></a>Download sequence data from the Run Browser</h2><p><a href="https://www.ncbi.nlm.nih.gov/Traces/sra/sra.cgi?view=run_browser" target="_blank" rel="noopener">Run Browser <img src="https://www.ncbi.nlm.nih.gov/core/assets/sra/images/offsite.png" alt="offsite image"></a> allows for limited download (one run at a time over <code>HTTP</code>) of unaligned and aligned sequences.</p><h3 id="Unaligned-sequences-example"><a href="#Unaligned-sequences-example" class="headerlink" title="Unaligned sequences example"></a>Unaligned sequences example</h3><ul><li>Open the selected run in the <a href="https://www.ncbi.nlm.nih.gov/Traces/sra/sra.cgi?view=run_browser" target="_blank" rel="noopener">Run Browser <img src="https://www.ncbi.nlm.nih.gov/core/assets/sra/images/offsite.png" alt="offsite image"></a>.</li><li>Click the <strong>Reads</strong> tab.</li><li>Find certain reads by applying a <strong>Filter</strong> or leave the <strong>Filter</strong> field empty.</li><li>Click on the <strong>Filtered Download</strong> button.</li><li>Select available download format and click <strong>Download</strong> link. </li></ul><h3 id="Aligned-sequences-example"><a href="#Aligned-sequences-example" class="headerlink" title="Aligned sequences example"></a>Aligned sequences example</h3><ul><li>Open the selected run in the <a href="https://www.ncbi.nlm.nih.gov/Traces/sra/sra.cgi?view=run_browser&amp;run=SRR4063605" target="_blank" rel="noopener">Run Browser <img src="https://www.ncbi.nlm.nih.gov/core/assets/sra/images/offsite.png" alt="offsite image"></a>.</li><li>Click the <strong>Alignment</strong> tab.</li><li>Select available download format in pull-down menu and click on <strong>Screen</strong> or <strong>File</strong> button to output the run to the screen or into a file.</li></ul><p>參考資料：</p><p><a href="https://www.ncbi.nlm.nih.gov/sra/docs/" target="_blank" rel="noopener">https://www.ncbi.nlm.nih.gov/sra/docs/</a></p><p><a href="https://www.ncbi.nlm.nih.gov/sra/docs/sradownload/" target="_blank" rel="noopener">https://www.ncbi.nlm.nih.gov/sra/docs/sradownload/</a></p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;摘要：從 NCBI 的 SRA 資料庫下載感興趣的資料，驗證、&lt;/p&gt;
+&lt;p&gt;本文適用對象：有點懶惰不想看官方英文說明的初學者&lt;/p&gt;
+&lt;p&gt;關鍵字：&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="bioinformatics" scheme="https://rna-sick.me/tags/bioinformatics/"/>
+    
+      <category term="NCBI" scheme="https://rna-sick.me/tags/NCBI/"/>
+    
+      <category term="SRA" scheme="https://rna-sick.me/tags/SRA/"/>
+    
+  </entry>
   
   <entry>
     <title>Genome-wide Identification and Analysis of MADS-box Gene Family in Bitter Gourd -- Method Details</title>
@@ -125,9 +175,9 @@
     <link href="https://rna-sick.me/2019/03/14/%E6%89%98%E7%A6%8F%E5%85%A9%E9%80%B1%E8%A1%9D%E5%88%BA%E4%B8%80%E6%88%B0%E7%A0%B4%E7%99%BE-%E5%AD%97%E7%A5%9E/"/>
     <id>https://rna-sick.me/2019/03/14/托福兩週衝刺一戰破百-字神/</id>
     <published>2019-03-14T09:24:10.000Z</published>
-    <updated>2019-07-15T06:59:40.460Z</updated>
+    <updated>2019-08-14T05:32:16.819Z</updated>
     
-    <content type="html"><![CDATA[<p>這是當初申請字神獎學金的備考心得，其實我花了 27k 報了全科班之後上不到一半的課，只有口說有全部上完，在這邊把一些還記得的備考心態紀錄一下，提供給本來就不排斥英語，主要希望加強考試技巧的人～</p><a id="more"></a><!-- TOC --><hr><p>考生姓名：Benjamin 謝<br>考生身份：學生<br>學校及科系：臺大園藝所<br>英文背景：全民英檢中高初試<br>考試地點：臺大LTTC APCU-8582<br>考試成績：一戰R29 L29 S23（FFF） W25（GG）T106<br>考試日期：2018/07/28<br>備考教材：字神講義、各式電子報、托福分類字彙 5600<br>_</p><h4 id="【心得／各科準備方式】"><a href="#【心得／各科準備方式】" class="headerlink" title="【心得／各科準備方式】"></a>【心得／各科準備方式】</h4><h5 id="【閱讀】"><a href="#【閱讀】" class="headerlink" title="【閱讀】"></a>【閱讀】</h5><p>在康老師的閱讀課堂中拆解各種題型，以及對於段落的前後因果邏輯推導可見其功力之深厚。閱讀主要掌握兩點技巧就會很有幫助：先看題目找關鍵字再回文章定位找答案、主動式閱讀（看第一段就可以猜後面段落的佈局）。我透過每日固定略讀（skim）電子報練習上述的兩項技巧，平均一天瀏覽四、五封，只抓其中感興趣的主題仔細看內容順便充實一點單字量，至於我如何安排訂閱的內容請見下方讀書計畫。<br>_</p><h5 id="【聽力】"><a href="#【聽力】" class="headerlink" title="【聽力】"></a>【聽力】</h5><p>聽力上的是布曦老師的VIDEO，課堂上的生動比喻對於學習很有幫助。老師的部落格中還有推薦許多不同的聽力練習網站、APP，這些資源都很棒。<br>＿</p><h5 id="【口說】"><a href="#【口說】" class="headerlink" title="【口說】"></a>【口說】</h5><p>Cindy老師的口說課程非常緊湊有效率，每次上課前的小閒聊幫助大家舒緩情緒，準備好面對接下來的純英語練習。八堂課陸續破解六種題型，困難部分會有更充實的加強訓練，以兩人一組互相聆聽與指教的方式進行，有個好組員很重要，非常感謝我女朋友總是很認真地督促與回饋。我在考前一週將模板與筆記格式複習過後，主要培養的就是如何快速地想好答題內容的思考模式，個人考前缺少實際找人開口的練習，因此現在想起來還有不少進步空間。<br>＿</p><h5 id="【寫作】"><a href="#【寫作】" class="headerlink" title="【寫作】"></a>【寫作】</h5><p>留著大鬍子的威廉老師實在很親切啊～好好分析講義中的範文以及掌握文章結構很有幫助，我最喜歡的是有各種名言佳句和替換字的小本本，個人嘗試熟悉內容的方式便是用電腦打一遍，還可以加強英打能力。<br>＿</p><h4 id="【讀書計畫】"><a href="#【讀書計畫】" class="headerlink" title="【讀書計畫】"></a>【讀書計畫】</h4><p>整體來說，我在四月多的時候報名了套裝課程，除了聽力上 VIDEO 以外其他都是開正班，預計用三個月的時間來備考，光是前幾堂課瞻仰各位名師的面容與風範，以及手中拿著厚薄適中又精美的教材，便給了我十足的勇氣面對托福考試。<br>實際上除了每週一、兩天的補習課程以外，我保持每天瀏覽刻意訂閱的電子報以確保自己有接觸到英文，也算是熟悉各方面的美式題材。電子報的部分，因為讀研究所的關係，本來就有訂閱幾家期刊的新文章通知電子報，如：PNAS、eLife，但這種的內容比起托福考題還是偏太細(S)，看完一輪之後針對科學主題我會推薦比較廣(G)的Nature Briefing。比較生活化的方面，科技娛樂類推 The Verge，如果有使用 Pocket、Medium 的話則可以常常看到編輯推薦自我管理、社會人文觀察的文章。最後針對商業時事類的主題首推 <a href="[http://morningbrew.com/?kid=a08550](https://l.facebook.com/l.php?u=http%3A%2F%2Fmorningbrew.com%2F%3Fkid%3Da08550%26fbclid%3DIwAR1bdL6NIK9zP3hu_k-BRjC-YB0-8ZeywHi8iI29ILD0BjJUw_Dk8r-UyT8&amp;h=AT0Llj5nqdk1yNX4maStf_Bxh3WhV5QjdUzcUcRb3v-sl3YaKjXI05FXE1yj3HJSNY-5mIwYuyQSkoBwryjm2WOFVmZEiVzu8NcyoZ8AHgGq9zYgkp8Ow-jo7gPc_gs6E6VI-HFvy3zgRRLPbOim98niycAbIQ">Morning Brew</a>)，我可以非常快速地了解時事與他們的英文講法，算是最有幫助的一份訂閱，各種有趣的知識還可以當晚餐的談資，每天收這封電子報已經跟去字神上課一樣變成了生活的動力之一。<br>七月初進入暑假，剩下大概兩週的時間我開始準備衝刺，因為通勤到字神需要一個小時的原因我選擇放棄 VIDEO 補課，自己在家讀書。看了一回 TPO 後我決定花一週的時間再充實一點單字量，主要是靠威廉的小本本還有閱讀班的題本；另一週用來熟練與內化考試技巧，頭三天熟悉寫作與口說模板，再三天則是瘋狂地訓練快速運用 universal reason 以及 idea linking，最後一天就隨緣地綜合準備。<br>_</p><h4 id="【考試當天情況-amp-考場回報】"><a href="#【考試當天情況-amp-考場回報】" class="headerlink" title="【考試當天情況&amp;考場回報】"></a>【考試當天情況&amp;考場回報】</h4><p>我覺得台大LTTC的考場沒什麼問題，人員親切，隔板很高，口說時容易被其他人的聲音影響的話建議要帶耳塞。</p>]]></content>
+    <content type="html"><![CDATA[<p>這是當初申請字神獎學金的備考心得，其實我花了 27k 報了全科班之後上不到一半的課，只有口說有全部上完，在這邊把一些還記得的備考心態紀錄一下，提供給本來就不排斥英語，主要希望加強考試技巧的人～</p><a id="more"></a><!-- TOC --><hr><p>考生姓名：Benjamin 謝<br>考生身份：學生<br>學校及科系：臺大園藝所<br>英文背景：全民英檢中高初試<br>考試地點：臺大LTTC APCU-8582<br>考試成績：一戰R29 L29 S23（FFF） W25（GG）T106<br>考試日期：2018/07/28<br>備考教材：字神講義、各式電子報、托福分類字彙 5600<br>_</p><h4 id="【心得／各科準備方式】"><a href="#【心得／各科準備方式】" class="headerlink" title="【心得／各科準備方式】"></a>【心得／各科準備方式】</h4><h5 id="【閱讀】"><a href="#【閱讀】" class="headerlink" title="【閱讀】"></a>【閱讀】</h5><p>在康老師的閱讀課堂中拆解各種題型，以及對於段落的前後因果邏輯推導可見其功力之深厚。閱讀主要掌握兩點技巧就會很有幫助：先看題目找關鍵字再回文章定位找答案、主動式閱讀（看第一段就可以猜後面段落的佈局）。我透過每日固定略讀（skim）電子報練習上述的兩項技巧，平均一天瀏覽四、五封，只抓其中感興趣的主題仔細看內容順便充實一點單字量，至於我如何安排訂閱的內容請見下方讀書計畫。<br>_</p><h5 id="【聽力】"><a href="#【聽力】" class="headerlink" title="【聽力】"></a>【聽力】</h5><p>聽力上的是布曦老師的VIDEO，課堂上的生動比喻對於學習很有幫助。老師的部落格中還有推薦許多不同的聽力練習網站、APP，這些資源都很棒。<br>＿</p><h5 id="【口說】"><a href="#【口說】" class="headerlink" title="【口說】"></a>【口說】</h5><p>Cindy老師的口說課程非常緊湊有效率，每次上課前的小閒聊幫助大家舒緩情緒，準備好面對接下來的純英語練習。八堂課陸續破解六種題型，困難部分會有更充實的加強訓練，以兩人一組互相聆聽與指教的方式進行，有個好組員很重要，非常感謝我女朋友總是很認真地督促與回饋。我在考前一週將模板與筆記格式複習過後，主要培養的就是如何快速地想好答題內容的思考模式，個人考前缺少實際找人開口的練習，因此現在想起來還有不少進步空間。<br>＿</p><h5 id="【寫作】"><a href="#【寫作】" class="headerlink" title="【寫作】"></a>【寫作】</h5><p>留著大鬍子的威廉老師實在很親切啊～好好分析講義中的範文以及掌握文章結構很有幫助，我最喜歡的是有各種名言佳句和替換字的小本本，個人嘗試熟悉內容的方式便是用電腦打一遍，還可以加強英打能力。<br>＿</p><h4 id="【讀書計畫】"><a href="#【讀書計畫】" class="headerlink" title="【讀書計畫】"></a>【讀書計畫】</h4><p>整體來說，我在四月多的時候報名了套裝課程，除了聽力上 VIDEO 以外其他都是開正班，預計用三個月的時間來備考，光是前幾堂課瞻仰各位名師的面容與風範，以及手中拿著厚薄適中又精美的教材，便給了我十足的勇氣面對托福考試。<br>實際上除了每週一、兩天的補習課程以外，我保持每天瀏覽刻意訂閱的電子報以確保自己有接觸到英文，也算是熟悉各方面的美式題材。電子報的部分，因為讀研究所的關係，本來就有訂閱幾家期刊的新文章通知電子報，如：PNAS、eLife，但這種的內容比起托福考題還是偏太細(S)，看完一輪之後針對科學主題我會推薦比較廣 (G) 的Nature Briefing。比較生活化的方面，科技娛樂類推 The Verge，如果有使用 Pocket、Medium 的話則可以常常看到編輯推薦自我管理、社會人文觀察的文章。最後針對商業時事類的主題首推 <a href="http://morningbrew.com/?kid=a08550" target="_blank" rel="noopener">Morning Brew</a>，我可以非常快速地了解時事與他們的英文講法，算是最有幫助的一份訂閱，各種有趣的知識還可以當晚餐的談資，每天收這封電子報已經跟去字神上課一樣變成了生活的動力之一。<br>七月初進入暑假，剩下大概兩週的時間我開始準備衝刺，因為通勤到字神需要一個小時的原因我選擇放棄 VIDEO 補課，自己在家讀書。看了一回 TPO 後我決定花一週的時間再充實一點單字量，主要是靠威廉的小本本還有閱讀班的題本；另一週用來熟練與內化考試技巧，頭三天熟悉寫作與口說模板，再三天則是瘋狂地訓練快速運用 universal reason 以及 idea linking，最後一天就隨緣地綜合準備。<br>_</p><h4 id="【考試當天情況-amp-考場回報】"><a href="#【考試當天情況-amp-考場回報】" class="headerlink" title="【考試當天情況&amp;考場回報】"></a>【考試當天情況&amp;考場回報】</h4><p>我覺得台大LTTC的考場沒什麼問題，人員親切，隔板很高，口說時容易被其他人的聲音影響的話建議要帶耳塞。</p>]]></content>
     
     <summary type="html">
     
@@ -182,9 +232,9 @@
     </summary>
     
     
-      <category term="pie chart" scheme="https://rna-sick.me/tags/pie-chart/"/>
-    
       <category term="Excel" scheme="https://rna-sick.me/tags/Excel/"/>
+    
+      <category term="pie chart" scheme="https://rna-sick.me/tags/pie-chart/"/>
     
       <category term="figure" scheme="https://rna-sick.me/tags/figure/"/>
     
@@ -232,13 +282,13 @@
     </summary>
     
     
+      <category term="pie chart" scheme="https://rna-sick.me/tags/pie-chart/"/>
+    
       <category term="excel" scheme="https://rna-sick.me/tags/excel/"/>
     
       <category term="transcription factor" scheme="https://rna-sick.me/tags/transcription-factor/"/>
     
       <category term="plant" scheme="https://rna-sick.me/tags/plant/"/>
-    
-      <category term="pie chart" scheme="https://rna-sick.me/tags/pie-chart/"/>
     
   </entry>
   
