@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://rna-sick.me/"/>
-  <updated>2019-08-12T08:31:30.387Z</updated>
+  <updated>2019-06-11T06:53:52.779Z</updated>
   <id>https://rna-sick.me/</id>
   
   <author>
@@ -15,56 +15,6 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
-  
-  <entry>
-    <title>Build a MVP(minimal viable product) using Notion: a revolutionary all-in-one workspace</title>
-    <link href="https://rna-sick.me/2019/08/12/Build-a-MVP-minimal-viable-product-using-Notion-a-revolutionary-all-in-one-workspace/"/>
-    <id>https://rna-sick.me/2019/08/12/Build-a-MVP-minimal-viable-product-using-Notion-a-revolutionary-all-in-one-workspace/</id>
-    <published>2019-08-12T08:31:30.000Z</published>
-    <updated>2019-08-12T08:31:30.387Z</updated>
-    
-    <content type="html"><![CDATA[<!-- excerpt --><a id="more"></a><!-- TOC --><hr>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;!-- excerpt --&gt;
-&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
-&lt;!-- TOC --&gt;
-&lt;hr&gt;
-      
-    
-    </summary>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>Utilizing the open data from NCBI SRA database: a starter guide</title>
-    <link href="https://rna-sick.me/2019/08/11/Utilizing-the-open-data-from-NCBI-SRA-database-a-starter-guide/"/>
-    <id>https://rna-sick.me/2019/08/11/Utilizing-the-open-data-from-NCBI-SRA-database-a-starter-guide/</id>
-    <published>2019-08-11T14:32:23.000Z</published>
-    <updated>2019-08-12T09:28:30.763Z</updated>
-    
-    <content type="html"><![CDATA[<p>摘要：從 NCBI 的 SRA 資料庫下載感興趣的資料，驗證、</p><p>本文適用對象：有點懶惰不想看官方英文說明的初學者</p><p>關鍵字：</p><a id="more"></a><!-- TOC --><hr><h4 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h4><p>SRA 是 <a href="https://www.ncbi.nlm.nih.gov/sra" target="_blank" rel="noopener">Sequence Read Archive</a> 的縮寫，這個資料庫上存放生物序列資料並且開放所有研究社群存取，期能提高試驗的可再現性，及提供一個跨研究資料比較的可能性。SRA 存放高通量定序的原始定序資料及比對 (alignment) 結果資料，目前已經包括 Roche 454 GS System®, Illumina Genome Analyzer®, Applied Biosystems SOLiD System®, Helicos Heliscope®, Complete Genomics®, and Pacific Biosciences SMRT® 等等。</p><p>SRA 隸屬於  International Nucleotide Sequence Database Collaboration (INSDC)。每天接收、處理、封存數千筆定序資料，以 terabytes 為計數單位。that includes at the NCBI Sequence Read Archive (SRA), the European Bioinformatics Institute (EBI), and the DNA Database of Japan (DDBJ). Data submitted to any of the three organizations are shared among them.</p><p><img src="https://www.ncbi.nlm.nih.gov/Traces/sra/i/g.png" alt="SRA database growth"></p><blockquote><p>SRA 資料庫封存資料量之成長 (圖片來源: <a href="https://www.ncbi.nlm.nih.gov/sra/docs/sragrowth/" target="_blank" rel="noopener">SRA database growth</a>，於 20190812 存取)</p></blockquote><h4 id="馬上開始動手玩玩看"><a href="#馬上開始動手玩玩看" class="headerlink" title="馬上開始動手玩玩看"></a>馬上開始動手玩玩看</h4><h5 id="搜尋感興趣的主題並找到相對應的開放資料"><a href="#搜尋感興趣的主題並找到相對應的開放資料" class="headerlink" title="搜尋感興趣的主題並找到相對應的開放資料"></a>搜尋感興趣的主題並找到相對應的開放資料</h5><h5 id="取得-SRX-的資訊列表"><a href="#取得-SRX-的資訊列表" class="headerlink" title="取得 SRX 的資訊列表"></a>取得 SRX 的資訊列表</h5><h5 id="使用-SRA-Toolkit-下載"><a href="#使用-SRA-Toolkit-下載" class="headerlink" title="使用 SRA Toolkit 下載"></a>使用 SRA Toolkit 下載</h5><h2 id="Obtain-search-results"><a href="#Obtain-search-results" class="headerlink" title="Obtain search results"></a>Obtain search results</h2><p><strong>Task</strong>: find RNA-Seq records for lymph node tissue in BALB/c mice in <a href="https://www.ncbi.nlm.nih.gov/sra/" target="_blank" rel="noopener">SRA Entrez <img src="https://www.ncbi.nlm.nih.gov/core/assets/sra/images/offsite.png" alt="offsite image"></a></p><p><img src="https://www.ncbi.nlm.nih.gov/core/assets/sra/images/galka.png" alt="Check"> To learn how to use Advanced Search Builder please refer to <a href="https://www.ncbi.nlm.nih.gov/sra/docs/srasearch" target="_blank" rel="noopener">Search in SRA<img src="https://www.ncbi.nlm.nih.gov/core/assets/sra/images/help_question_mark.png" alt="HELP"></a></p><ul><li>In the Entrez search bar enter the query: <a href="https://www.ncbi.nlm.nih.gov/sra/?term=(((&quot;mus musculus&quot;[Organism]" target="_blank" rel="noopener">(((“mus musculus”[Organism]) AND BALB/c<em>) AND “lymph</em>“) AND “rna seq”[Strategy]</a> AND BALB/c<em>) AND “lymph</em>“) AND “rna seq”[Strategy] ).</li><li>To limit your search to only aligned data add to the above query <strong>AND aligned data”[Properties]</strong>.</li><li>Click the checkboxes next to records (experiments) to select data of interest. Leave all checkboxes unchecked to select all records (experiments) from your search.</li></ul><p><a href="https://www.ncbi.nlm.nih.gov/sra/docs/sradownload/#" target="_blank" rel="noopener">Go to:</a></p><h2 id="Obtain-run-accessions"><a href="#Obtain-run-accessions" class="headerlink" title="Obtain run accessions"></a>Obtain run accessions</h2><p>Run accessions are used to download SRA data. To download a list of Run accessions selected from your Entrez search:</p><ul><li>Click <strong>Send to</strong> on the top of the page, check the radiobutton <strong>File</strong> , select <strong>Accession List</strong>.</li><li>Save this file in the location from which you are running the SRA Toolkit.</li></ul><p><a href="https://www.ncbi.nlm.nih.gov/sra/docs/sradownload/#" target="_blank" rel="noopener">Go to:</a></p><h2 id="Download-sequence-data-files-using-SRA-Toolkit"><a href="#Download-sequence-data-files-using-SRA-Toolkit" class="headerlink" title="Download sequence data files using SRA Toolkit"></a>Download sequence data files using SRA Toolkit</h2><p><img src="https://www.ncbi.nlm.nih.gov/core/assets/sra/images/znak.png" alt="Exclamation point"> Please make sure you are running the most recent release of the toolkit as older versions may not be compatible with more recently loaded data or the most current network protocols.</p><ul><li><a href="https://github.com/ncbi/sra-tools/wiki/Downloads" target="_blank" rel="noopener">SRA Toolkit latest release <img src="https://www.ncbi.nlm.nih.gov/core/assets/sra/images/offsite.png" alt="offsite image"></a></li><li><a href="https://www.ncbi.nlm.nih.gov/Traces/sra/sra.cgi?view=toolkit_doc" target="_blank" rel="noopener">SRA Toolkit documentation <img src="https://www.ncbi.nlm.nih.gov/core/assets/sra/images/offsite.png" alt="offsite image"></a></li><li><a href="https://github.com/ncbi/sra-tools/wiki/Download-On-Demand" target="_blank" rel="noopener">Accessing SRA data <img src="https://www.ncbi.nlm.nih.gov/core/assets/sra/images/offsite.png" alt="offsite image"></a></li><li><a href="https://www.ncbi.nlm.nih.gov/Traces/sra/sra.cgi?view=toolkit_doc&amp;f=std" target="_blank" rel="noopener">SRA Toolkit Installation and Configuration Guide <img src="https://www.ncbi.nlm.nih.gov/core/assets/sra/images/offsite.png" alt="offsite image"></a></li></ul><h3 id="Downloading-public-data"><a href="#Downloading-public-data" class="headerlink" title="Downloading public data"></a>Downloading public data</h3><p><strong>Prefetch</strong> is a part of the SRA toolkit. This program downloads Runs (sequence files in the compressed SRA format) and all additional data necessary to convert the Run from the SRA format to a more commonly used format. <strong>Prefetch</strong> can be used to correct and finish an incomplete Run download.</p><p>Use this <strong>prefetch</strong> command to download the Runs from the previous example in SRA format.</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">prefetch --option-file SraAccList.txt</span><br></pre></td></tr></table></figure><p><strong>fastq-dump</strong> and <strong>sam-dump</strong> are also part of the SRA toolkit and can be used to convert the prefetched Runs from compressed SRA format to <code>fastq</code> or <code>sam</code> format. For example:</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ fastq-dump –X 5 –Z –split-files SRR000001</span><br></pre></td></tr></table></figure><p>You can also avoid the <strong>prefetch</strong> step and download and convert the Run in one step by entering just the Run accession without the <code>.sra</code> extension in your <strong>fastq-dump</strong> or <strong>sam-dump</strong> command:</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ fastq-dump –X 5 –Z –split-files SRR000001</span><br></pre></td></tr></table></figure><h3 id="Downloading-protected-data"><a href="#Downloading-protected-data" class="headerlink" title="Downloading protected data"></a>Downloading protected data</h3><p><img src="https://www.ncbi.nlm.nih.gov/core/assets/sra/images/znak.png" alt="Exclamation point"> For information on how to download dbGaP data see: <a href="https://www.ncbi.nlm.nih.gov/sra/docs/sra-dbgap-download" target="_blank" rel="noopener">Protected Data Usage Guide <img src="https://www.ncbi.nlm.nih.gov/core/assets/sra/images/offsite.png" alt="offsite image"></a>. </p><p><a href="https://www.ncbi.nlm.nih.gov/sra/docs/sradownload/#" target="_blank" rel="noopener">Go to:</a></p><h2 id="Download-metadata-associated-with-SRA-data"><a href="#Download-metadata-associated-with-SRA-data" class="headerlink" title="Download metadata associated with SRA data"></a>Download metadata associated with SRA data</h2><h3 id="From-the-search-result-page"><a href="#From-the-search-result-page" class="headerlink" title="From the search result page"></a>From the search result page</h3><p>SRA Run files do not contain any information about the metadata (sample information, etc.) linked to the data themselves. </p><p>To download metadata for each Run in your Entrez query click <strong>Send to</strong> on the top of the page, check the <strong>File</strong> radiobutton, and select <strong>RunInfo</strong> in pull-down menu. </p><p>This will generate a tabular <code>SraRunInfo.csv</code> file with metadata available for each Run.</p><h3 id="From-Run-Selector"><a href="#From-Run-Selector" class="headerlink" title="From Run Selector"></a>From Run Selector</h3><p>A slightly different set of metadata can be downloaded in a tab-delimited file from <a href="https://www.ncbi.nlm.nih.gov/Traces/study/?go=home" target="_blank" rel="noopener">Run Selector <img src="https://www.ncbi.nlm.nih.gov/core/assets/sra/images/offsite.png" alt="offsite image"></a>.</p><p>To download metadata for each Run in your Entrez query:</p><ul><li>Click <strong>Send to</strong> on the top of the page, check the <strong>Run Selector</strong> radiobutton, and click the button <strong>Go</strong>.</li><li>If necessary, refine your results by using various filters provided by the <strong>Run Selector</strong>‘s interface.</li><li>Click the <strong>RunInfo Table</strong> button. This will generate a tabular <code>SraRunTable.txt</code> file with metadata available for each Run.</li></ul><p><a href="https://www.ncbi.nlm.nih.gov/sra/docs/sradownload/#" target="_blank" rel="noopener">Go to:</a></p><h2 id="Download-sequence-data-from-the-Run-Browser"><a href="#Download-sequence-data-from-the-Run-Browser" class="headerlink" title="Download sequence data from the Run Browser"></a>Download sequence data from the Run Browser</h2><p><a href="https://www.ncbi.nlm.nih.gov/Traces/sra/sra.cgi?view=run_browser" target="_blank" rel="noopener">Run Browser <img src="https://www.ncbi.nlm.nih.gov/core/assets/sra/images/offsite.png" alt="offsite image"></a> allows for limited download (one run at a time over <code>HTTP</code>) of unaligned and aligned sequences.</p><h3 id="Unaligned-sequences-example"><a href="#Unaligned-sequences-example" class="headerlink" title="Unaligned sequences example"></a>Unaligned sequences example</h3><ul><li>Open the selected run in the <a href="https://www.ncbi.nlm.nih.gov/Traces/sra/sra.cgi?view=run_browser" target="_blank" rel="noopener">Run Browser <img src="https://www.ncbi.nlm.nih.gov/core/assets/sra/images/offsite.png" alt="offsite image"></a>.</li><li>Click the <strong>Reads</strong> tab.</li><li>Find certain reads by applying a <strong>Filter</strong> or leave the <strong>Filter</strong> field empty.</li><li>Click on the <strong>Filtered Download</strong> button.</li><li>Select available download format and click <strong>Download</strong> link. </li></ul><h3 id="Aligned-sequences-example"><a href="#Aligned-sequences-example" class="headerlink" title="Aligned sequences example"></a>Aligned sequences example</h3><ul><li>Open the selected run in the <a href="https://www.ncbi.nlm.nih.gov/Traces/sra/sra.cgi?view=run_browser&amp;run=SRR4063605" target="_blank" rel="noopener">Run Browser <img src="https://www.ncbi.nlm.nih.gov/core/assets/sra/images/offsite.png" alt="offsite image"></a>.</li><li>Click the <strong>Alignment</strong> tab.</li><li>Select available download format in pull-down menu and click on <strong>Screen</strong> or <strong>File</strong> button to output the run to the screen or into a file.</li></ul><p>參考資料：</p><p><a href="https://www.ncbi.nlm.nih.gov/sra/docs/" target="_blank" rel="noopener">https://www.ncbi.nlm.nih.gov/sra/docs/</a></p><p><a href="https://www.ncbi.nlm.nih.gov/sra/docs/sradownload/" target="_blank" rel="noopener">https://www.ncbi.nlm.nih.gov/sra/docs/sradownload/</a></p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;摘要：從 NCBI 的 SRA 資料庫下載感興趣的資料，驗證、&lt;/p&gt;
-&lt;p&gt;本文適用對象：有點懶惰不想看官方英文說明的初學者&lt;/p&gt;
-&lt;p&gt;關鍵字：&lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="bioinformatics" scheme="https://rna-sick.me/tags/bioinformatics/"/>
-    
-      <category term="NCBI" scheme="https://rna-sick.me/tags/NCBI/"/>
-    
-      <category term="SRA" scheme="https://rna-sick.me/tags/SRA/"/>
-    
-  </entry>
   
   <entry>
     <title>Genome-wide Identification and Analysis of MADS-box Gene Family in Bitter Gourd -- Method Details</title>
@@ -232,9 +182,9 @@
     </summary>
     
     
-      <category term="pie chart" scheme="https://rna-sick.me/tags/pie-chart/"/>
-    
       <category term="Excel" scheme="https://rna-sick.me/tags/Excel/"/>
+    
+      <category term="pie chart" scheme="https://rna-sick.me/tags/pie-chart/"/>
     
       <category term="figure" scheme="https://rna-sick.me/tags/figure/"/>
     
@@ -282,13 +232,13 @@
     </summary>
     
     
+      <category term="pie chart" scheme="https://rna-sick.me/tags/pie-chart/"/>
+    
       <category term="excel" scheme="https://rna-sick.me/tags/excel/"/>
     
       <category term="transcription factor" scheme="https://rna-sick.me/tags/transcription-factor/"/>
     
       <category term="plant" scheme="https://rna-sick.me/tags/plant/"/>
-    
-      <category term="pie chart" scheme="https://rna-sick.me/tags/pie-chart/"/>
     
   </entry>
   
